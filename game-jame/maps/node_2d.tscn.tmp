@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq8m8vttj874q"]
+
+[ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/P1.png" id="1_u6eac"]
+[ext_resource type="Script" path="res://script/hitboxtoupie.gd" id="2_4sigu"]
+[ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/P2.png" id="2_i626m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="P2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(674.25, 276)
+scale = Vector2(20.5357, 20.1429)
+texture = ExtResource("2_i626m")
+
+[node name="hitboxtoupie" type="RigidBody2D" parent="."]
+position = Vector2(177, 173)
+scale = Vector2(0.637026, 0.675385)
+script = ExtResource("2_4sigu")
+
+[node name="P1" type="Sprite2D" parent="hitboxtoupie"]
+texture_filter = 1
+position = Vector2(0, 1.48059)
+scale = Vector2(12.4743, 10.338)
+texture = ExtResource("1_u6eac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxtoupie"]
+scale = Vector2(1, 1)

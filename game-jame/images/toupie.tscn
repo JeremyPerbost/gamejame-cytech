@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bryr8m263imcy"]
+[gd_scene load_steps=9 format=3 uid="uid://bryr8m263imcy"]
 
 [ext_resource type="Script" path="res://script/toupie.gd" id="1_p4bqp"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/P1.png" id="2_iehgp"]
@@ -21,6 +21,20 @@ func _ready():
 func _process(delta):
 	# La caméra reste au centre, peut être retiré si la caméra est fixe
 	self.position = Vector2(0, 0)
+"
+
+[sub_resource type="GDScript" id="GDScript_c1o1k"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 "
 
 [node name="Toupie" type="Node2D"]
@@ -60,3 +74,12 @@ drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = SubResource("GDScript_vlmrs")
+
+[node name="Timer" type="Timer" parent="."]
+script = SubResource("GDScript_c1o1k")
+
+[node name="temps_affichage" type="Label" parent="."]
+offset_left = -87.0
+offset_top = -307.0
+offset_right = 91.0
+offset_bottom = -224.0

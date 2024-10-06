@@ -12,11 +12,12 @@ radius = 38.0132
 script = ExtResource("1_sw5b2")
 
 [node name="htbx_toupie1" type="CollisionShape2D" parent="."]
-position = Vector2(-280, -143)
 shape = SubResource("CircleShape2D_3jid7")
 script = SubResource("GDScript_vnwu8")
+metadata/_edit_group_ = true
 
 [node name="spr_toupie1" type="Sprite2D" parent="htbx_toupie1"]
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("2_enrxk")
+metadata/_edit_group_ = true

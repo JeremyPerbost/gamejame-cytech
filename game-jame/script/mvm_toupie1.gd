@@ -1,10 +1,10 @@
-extends CollisionShape2D
+extends Area2D
 
 # Vitesse de mouvement
-var speed_init = 400
+var speed_init = 40
 var speed = speed_init
 # Force d'attraction vers le centre
-var attraction_strength = 900000
+var attraction_strength = 150
 
 # Référence au centre
 var center
@@ -13,8 +13,9 @@ var k = 0.01  # Constante de friction
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Assurez-vous que le nœud "centre" est bien nommé dans votre scène
-	center = get_parent().get_node("centre") 
-	temps = get_node("/root/Toupie") 
+	center = get_node("../centre")
+	temps = get_node("/root/Toupie")
+	var spr_toupie1 = get_node("spr_toupie1")
 	if center == null:
 		print("Le nœud 'centre' n'a pas été trouvé dans la scène.")
 	if temps == null:
@@ -29,8 +30,6 @@ func _process(delta):
 		speed = speed_init * exp(-k * (temps.TOT - temps.total_time))
 	else:
 		speed = 0
-	print(speed)
-
 	# Rotation en fonction de la vitesse
 	rotation += (speed /10) * delta
 
@@ -51,8 +50,8 @@ func _process(delta):
 	var distance_to_center = (center.position - self.position).length()
 
 	# Si la toupie est trop proche du centre, l'attraction devient très faible pour la laisser s'échapper
-	var min_distance = 650  # Ajuste ce seuil en fonction de la taille de ta scène ou toupie
-	var attraction_factor = 1.0
+	var min_distance = 50 # Ajuste ce seuil en fonction de la taille de ta scène ou toupie
+	var attraction_factor = 1
 	if distance_to_center < min_distance:
 		attraction_factor = distance_to_center / min_distance  # Réduit l'attraction progressivement
 
@@ -63,7 +62,7 @@ func _process(delta):
 	var attraction_vector = (center.position - self.position).normalized() * attraction_strength_dynamic
 
 	# Combiner la direction du joueur avec la force d'attraction
-	var combined_force = direction * speed + attraction_vector
+	var combined_force = direction * speed*10 + attraction_vector
 
 	# Déplacer la toupie en fonction de la force combinée
 	self.position += combined_force * delta

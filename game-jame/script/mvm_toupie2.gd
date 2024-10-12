@@ -16,27 +16,9 @@ func _ready():
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
 	if center == null:
-		print(" TP1 : Le nœud 'centre' n'a pas été trouvé dans la scène.")
+		print(" TP2 : Le nœud 'centre' n'a pas été trouvé dans la scène.")
 	if temps == null:
-		print("TP1 : Le nœud 'temps' n'a pas été trouvé dans la scène.")
-func collision(area):
-	var collision_normal = (self.position - area.position).normalized()
-	
-	# Projeter la vélocité sur la normale de collision pour obtenir la composante à inverser
-	var velocity_along_normal = collision_normal.dot(velocity)
-	
-	# Inverser cette composante pour simuler le rebond
-	velocity -= 2 * velocity_along_normal * collision_normal / 1.4
-
-	# Réduire légèrement la vitesse pour simuler une perte d'énergie due à la collision
-	velocity *= 0.9
-	print("TP1 : collision")
-
-
-
-
-
-
+		print("TP2 : Le nœud 'temps' n'a pas été trouvé dans la scène.")
 
 func _process(delta):
 	var direction = Vector2.ZERO
@@ -48,13 +30,13 @@ func _process(delta):
 		speed = 0
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_Z"):
 		direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_S"):
 		direction.y += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_Q"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_D"):
 		direction.x += 1
 
 	# Normaliser la direction si elle n'est pas nulle
@@ -80,20 +62,38 @@ func _process(delta):
 	var speed_magnitude = velocity.length()
 	var centrifugal_strength = clamp(speed_magnitude * 0.1, 0, 300)  # Ajuste le coefficient 0.1 et la limite selon les besoins
 	var centrifugal_vector = (self.position - center.position).normalized().rotated(PI / 2) * centrifugal_strength
+
 	# Calculer la force appliquée par le joueur
 	var player_force = direction * speed * 10
+
 	# Combiner les forces (attraction, direction joueur, centrifuge)
 	var combined_force = player_force + attraction_vector * 40 + centrifugal_vector
-	#-----------------GESTION DES BORDS :------------
+
 	if distance_to_center > 265:
 		# Forcer la toupie à rester dans l'arène
 		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - 265)
-		self.position -= correction_vector
+		self.position -= correction_vector  # Ramener la toupie dans l'arène
+
 		# Inverser la vélocité pour simuler un rebond contre le bord
-		velocity = (self.position - center.position).normalized() * -velocity.length() * 0.35  # Réduit légèrement la vitesse après le rebond
-	#-------------------------------------------------
+		velocity = (self.position - center.position).normalized() * -velocity.length() * 0.35
 	velocity += combined_force * delta
+
+	# Appliquer la vélocité à la position de la toupie
 	self.position += velocity * delta
+
+func collision(area):
+	var collision_normal = (self.position - area.position).normalized()
+	
+	# Projeter la vélocité sur la normale de collision pour obtenir la composante à inverser
+	var velocity_along_normal = collision_normal.dot(velocity)
+	
+	# Inverser cette composante pour simuler le rebond
+	velocity -= 2 * velocity_along_normal * collision_normal / 1.4
+
+	# Réduire légèrement la vitesse pour simuler une perte d'énergie due à la collision
+	velocity *= 0.9
+	
+	print("TP2 : collision")
 func _on_area_entered(area: Area2D) -> void:
 	collision(area)
 	pass

@@ -38,4 +38,3 @@ func update_timer_display():
 func game_over():
 	timer_label.text = "Time's up!"
 	# Ici, tu peux ajouter des actions pour finir la partie
-

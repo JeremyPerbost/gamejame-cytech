@@ -10,7 +10,7 @@ var velocity = Vector2.ZERO
 # Référence au centre
 var center
 var temps
-var k = 0.1  # Constante de friction
+ # Constante de friction
 
 func _ready():
 	center = get_parent().get_node("../centre")
@@ -25,7 +25,7 @@ func _process(delta):
 
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
-		speed = speed_init * exp(-k * (temps.TOT - temps.total_time))
+		speed = speed-0.01
 	else:
 		speed = 0
 	rotation += (speed /3) * delta
@@ -84,7 +84,6 @@ func collision(area):
 	if toupie1 == null:
 		print("TP2 : toupie1 non trouvée")
 	else:
-		print("TP2 : collision") 
 		# Calcul de la normale de la collision
 		var collision_normal = (self.position - area.position).normalized()
 
@@ -99,15 +98,17 @@ func collision(area):
 		var impulse = relative_velocity * collision_normal * 0.5
 
 		# Réduire légèrement la vitesse pour simuler une perte d'énergie
-		toupie1.velocity += impulse * 0.5  # La toupie 1 gagne une part de l'impulsion
+		toupie1.velocity += impulse * 0.9  # La toupie 1 gagne une part de l'impulsion
 		velocity -= impulse * 0.5  # La toupie 2 perd une part de l'impulsion
 		velocity *= 0.9  # Réduction de la vitesse de toupie2 pour simuler la perte d'énergie
 		var separation_distance = collision_normal * 10  # Ajuste cette valeur pour le niveau de séparation souhaité
 		self.position += separation_distance
 		toupie1.position -= separation_distance
 		speed=speed-(int(toupie1.velocity.length())/50)
-		print(int(toupie1.velocity.length())/50)
-		
+		if (toupie1.velocity.length()/50)>=(velocity.length()/50):
+			speed=speed-(int(toupie1.velocity.length())/50)
+			print("TP1 gagne")
+		print(speed)
 		
 		
 		

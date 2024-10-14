@@ -10,7 +10,7 @@ var velocity = Vector2.ZERO
 # Référence au centre
 var center
 var temps
-var k = 0.01  # Constante de friction
+var k = 0.1  # Constante de friction
 
 func _ready():
 	center = get_parent().get_node("../centre")
@@ -68,7 +68,6 @@ func _process(delta):
 
 	# Combiner les forces (attraction, direction joueur, centrifuge)
 	var combined_force = player_force + attraction_vector * 40 + centrifugal_vector
-
 	if distance_to_center > 265:
 		# Forcer la toupie à rester dans l'arène
 		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - 265)
@@ -77,23 +76,41 @@ func _process(delta):
 		# Inverser la vélocité pour simuler un rebond contre le bord
 		velocity = (self.position - center.position).normalized() * -velocity.length() * 0.35
 	velocity += combined_force * delta
-
-	# Appliquer la vélocité à la position de la toupie
 	self.position += velocity * delta
-
+	
+	
 func collision(area):
-	var collision_normal = (self.position - area.position).normalized()
-	
-	# Projeter la vélocité sur la normale de collision pour obtenir la composante à inverser
-	var velocity_along_normal = collision_normal.dot(velocity)
-	
-	# Inverser cette composante pour simuler le rebond
-	velocity -= 2 * velocity_along_normal * collision_normal / 1.4
+	var toupie1 = get_node("../Area_toupie1")
+	if toupie1 == null:
+		print("TP2 : toupie1 non trouvée")
+	else:
+		print("TP2 : collision") 
+		# Calcul de la normale de la collision
+		var collision_normal = (self.position - area.position).normalized()
 
-	# Réduire légèrement la vitesse pour simuler une perte d'énergie due à la collision
-	velocity *= 0.9
-	
-	print("TP2 : collision")
+		# Projeter les vitesses sur la normale de collision
+		var toupie1_velocity_along_normal = collision_normal.dot(toupie1.velocity)
+		var toupie2_velocity_along_normal = collision_normal.dot(velocity)
+
+		# Calcul de la différence de vitesse relative
+		var relative_velocity = toupie2_velocity_along_normal - toupie1_velocity_along_normal
+
+		# Ajuster les vitesses des deux toupies en fonction de la collision
+		var impulse = relative_velocity * collision_normal * 0.5
+
+		# Réduire légèrement la vitesse pour simuler une perte d'énergie
+		toupie1.velocity += impulse * 0.5  # La toupie 1 gagne une part de l'impulsion
+		velocity -= impulse * 0.5  # La toupie 2 perd une part de l'impulsion
+		velocity *= 0.9  # Réduction de la vitesse de toupie2 pour simuler la perte d'énergie
+		var separation_distance = collision_normal * 10  # Ajuste cette valeur pour le niveau de séparation souhaité
+		self.position += separation_distance
+		toupie1.position -= separation_distance
+		speed=speed-(int(toupie1.velocity.length())/50)
+		print(int(toupie1.velocity.length())/50)
+		
+		
+		
+		
 func _on_area_entered(area: Area2D) -> void:
 	collision(area)
 	pass

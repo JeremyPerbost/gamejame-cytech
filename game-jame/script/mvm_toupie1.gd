@@ -20,22 +20,32 @@ func _ready():
 	if temps == null:
 		print("TP1 : Le nœud 'temps' n'a pas été trouvé dans la scène.")
 func collision(area):
-	var collision_normal = (self.position - area.position).normalized()
-	
-	# Projeter la vélocité sur la normale de collision pour obtenir la composante à inverser
-	var velocity_along_normal = collision_normal.dot(velocity)
-	
-	# Inverser cette composante pour simuler le rebond
-	velocity -= 2 * velocity_along_normal * collision_normal / 1.4
+	var toupie2 = get_node("../Area_toupie2")
+	if toupie2 == null:
+		print("TP1 : toupie2 non trouvée")
+	else:
+		print("TP1 : collision") 
+		var collision_normal = (self.position - area.position).normalized()
 
-	# Réduire légèrement la vitesse pour simuler une perte d'énergie due à la collision
-	velocity *= 0.9
-	print("TP1 : collision")
+		# Projeter les vitesses sur la normale de collision
+		var toupie2_velocity_along_normal = collision_normal.dot(toupie2.velocity)
+		var toupie1_velocity_along_normal = collision_normal.dot(velocity)
 
+		# Calcul de la différence de vitesse relative
+		var relative_velocity = toupie1_velocity_along_normal - toupie2_velocity_along_normal
 
+		# Ajuster les vitesses des deux toupies en fonction de la collision
+		var impulse = relative_velocity * collision_normal * 0.5
 
-
-
+		# Réduire légèrement la vitesse pour simuler une perte d'énergie
+		toupie2.velocity += impulse * 0.5  # La toupie 1 gagne une part de l'impulsion
+		velocity -= impulse * 0.5  # La toupie 2 perd une part de l'impulsion
+		velocity *= 0.9  # Réduction
+		var separation_distance = collision_normal * 10  # Ajuste cette valeur pour le niveau de séparation souhaité
+		self.position += separation_distance
+		toupie2.position -= separation_distance
+		speed=speed-(int(toupie2.velocity.length())/50)
+		print(int(toupie2.velocity.length())/50)
 
 
 func _process(delta):

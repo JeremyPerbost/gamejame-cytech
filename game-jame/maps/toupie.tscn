@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c4tk818om7dw3" path="res://maps/area_toupie_2.tscn" id="5_h8hgh"]
 [ext_resource type="PackedScene" uid="uid://c15mq64cs6bur" path="res://maps/area_arene.tscn" id="6_pfxmi"]
 [ext_resource type="Script" path="res://script/label.gd" id="7_x0xyv"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://xm1lvc1bw580" path="res://maps/spawner.tscn" id="8_syc3h"]
+=======
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 
 [sub_resource type="GDScript" id="GDScript_vlmrs"]
 script/source = "extends Camera2D
@@ -29,10 +32,15 @@ script = ExtResource("1_p4bqp")
 [node name="Area_arene" parent="." instance=ExtResource("6_pfxmi")]
 
 [node name="Area_toupie1" parent="Area_arene" instance=ExtResource("4_c7s2c")]
+<<<<<<< HEAD
 collision_mask = 3
 
 [node name="Area_toupie2" parent="Area_arene" instance=ExtResource("5_h8hgh")]
 collision_mask = 3
+=======
+
+[node name="Area_toupie2" parent="Area_arene" instance=ExtResource("5_h8hgh")]
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 
 [node name="centre" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -77,5 +85,8 @@ theme_override_colors/font_color = Color(8.27849e-06, 0.744866, 0.915532, 1)
 theme_override_font_sizes/font_size = 50
 text = "FPS : "
 script = ExtResource("7_x0xyv")
+<<<<<<< HEAD
 
 [node name="Spawner" parent="." instance=ExtResource("8_syc3h")]
+=======
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6

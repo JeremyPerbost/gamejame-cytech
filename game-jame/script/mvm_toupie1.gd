@@ -43,7 +43,11 @@ func collision(area):
 		self.position += separation_distance
 		toupie2.position -= separation_distance
 		if (toupie2.velocity.length()/50)>=(velocity.length()/50):
+<<<<<<< HEAD
 			speed=speed-(int(toupie2.velocity.length())/20)
+=======
+			speed=speed-(int(toupie2.velocity.length())/50)
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 			print("TP2 gagne")
 		print(speed)
 func _process(delta):
@@ -54,8 +58,11 @@ func _process(delta):
 		speed = speed-0.01
 	else:
 		speed = 0
+<<<<<<< HEAD
 	if speed > 860:
 		speed = 800
+=======
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
 	if Input.is_action_pressed("ui_up"):
@@ -105,10 +112,14 @@ func _process(delta):
 	velocity += combined_force * delta
 	self.position += velocity * delta
 func _on_area_entered(area: Area2D) -> void:
+<<<<<<< HEAD
 	if area.collision_layer==1:
 		collision(area)
 	if area.collision_layer==2:
 		print("TP1: Booster")
 		speed=speed+10
 		area.queue_free()
+=======
+	collision(area)
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 	pass

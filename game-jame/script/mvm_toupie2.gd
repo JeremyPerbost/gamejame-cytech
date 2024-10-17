@@ -106,7 +106,11 @@ func collision(area):
 		toupie1.position -= separation_distance
 		speed=speed-(int(toupie1.velocity.length())/50)
 		if (toupie1.velocity.length()/50)>=(velocity.length()/50):
+<<<<<<< HEAD
 			speed=speed-(int(toupie1.velocity.length())/20)
+=======
+			speed=speed-(int(toupie1.velocity.length())/50)
+>>>>>>> 42769c2b044e82e0d7c0c309aa03487403fcfeb6
 			print("TP1 gagne")
 		print(speed)
 		

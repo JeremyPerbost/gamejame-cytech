@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c15mq64cs6bur"]
+
+[ext_resource type="Texture2D" uid="uid://bvosxsytw56sj" path="res://images/Arene.png" id="1_e8c4u"]
+
+[sub_resource type="GDScript" id="GDScript_rd4ia"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Area_arene" type="Area2D"]
+script = SubResource("GDScript_rd4ia")
+
+[node name="collision_arene" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(298, -34, 280, -111, 222, -198, 183, -233, 109, -276, 48, -295, -33, -295, -98, -279, -168, -242, -226, -187, -270, -125, -289, -48, -295, 19, -284, 85, -240, 176, -183, 237, -78, 291, -47, 297, 63, 296, 124, 274, 205, 228, 267, 144, 292, 84, 296, 44, 298, -34, 478, -230, 244, 363, -354, 376, -434, -141, -31, -459, 478, -230)
+disabled = true
+
+[node name="spr_arene" type="Sprite2D" parent="collision_arene"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_e8c4u")

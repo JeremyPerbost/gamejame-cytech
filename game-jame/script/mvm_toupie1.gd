@@ -10,6 +10,9 @@ var variable_de_choc = 80
 # Référence au centre
 var center
 var temps
+@onready var duree_effet_trounoir = $effet_trounoir_toupie1 # Assure-toi du chemin correct
+@onready var memoire_attraction_strength
+var effet_trou_noir = false #BOOST
 
 func _ready():
 	center = get_parent().get_node("../centre")
@@ -48,7 +51,16 @@ func collision(area):
 		print(speed)
 func _process(delta):
 	var direction = Vector2.ZERO
-
+	#-------GESTION DES BONUS--------
+	if effet_trou_noir==true:
+		var toupie2 = get_node("../Area_toupie2")
+		if toupie2 == null:
+			print("TP1 : toupie2 non trouvée")
+		if(toupie2.attraction_strength<=225179981):
+			toupie2.attraction_strength=toupie2.attraction_strength*2
+			toupie2.speed=toupie2.speed-0.1
+			toupie2.velocity=Vector2.ZERO
+	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
 		speed = speed-0.01
@@ -115,4 +127,18 @@ func _on_area_entered(area: Area2D) -> void:
 		print("TP1: durability")
 		variable_de_choc=variable_de_choc+5
 		area.queue_free()
+	if area.collision_layer==8:
+		print("TP1: trou noire")
+		var toupie2 = get_node("../Area_toupie2")
+		memoire_attraction_strength=toupie2.attraction_strength
+		effet_trou_noir=true
+		duree_effet_trounoir.start()
+		area.queue_free()
 	pass
+
+
+func _on_effet_trounoir_toupie_1_timeout() -> void:
+	effet_trou_noir=false#Desactiver l'effet du trou noir
+	var toupie2 = get_node("../Area_toupie2")
+	toupie2.attraction_strength=memoire_attraction_strength
+	pass # Replace with function body.

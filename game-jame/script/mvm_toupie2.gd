@@ -10,8 +10,9 @@ var variable_de_choc = 80
 # Référence au centre
 var center
 var temps
- # Constante de friction
-
+@onready var duree_effet_trounoir = $effet_trounoir_toupie2 # Assure-toi du chemin correct
+@onready var memoire_attraction_strength
+var effet_trou_noir = false #BOOST
 func _ready():
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
@@ -22,7 +23,17 @@ func _ready():
 
 func _process(delta):
 	var direction = Vector2.ZERO
-
+	#-------GESTION DES BONUS--------
+	if effet_trou_noir==true:
+		var toupie1 = get_node("../Area_toupie1")
+		if toupie1 == null:
+			print("TP2 : toupie1 non trouvée")
+		if(toupie1.attraction_strength<=225179981):
+			toupie1.attraction_strength=toupie1.attraction_strength*2
+			toupie1.speed=toupie1.speed-0.1
+			toupie1.velocity=Vector2.ZERO
+		print(toupie1.attraction_strength)
+	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
 		speed = speed-0.01
@@ -77,6 +88,7 @@ func _process(delta):
 		velocity = (self.position - center.position).normalized() * -velocity.length() * 0.35
 	velocity += combined_force * delta
 	self.position += velocity * delta
+
 	
 	
 func collision(area):
@@ -107,7 +119,6 @@ func collision(area):
 		if (toupie1.velocity.length()/50)>=(velocity.length()/50):
 			speed=speed-(float(toupie1.velocity.length())/variable_de_choc)
 			print("TP1 gagne")
-		print(speed)
 		
 		
 func _on_area_entered(area: Area2D) -> void:
@@ -121,4 +132,18 @@ func _on_area_entered(area: Area2D) -> void:
 		print("TP2: durability")
 		variable_de_choc=variable_de_choc+5
 		area.queue_free()
+	if area.collision_layer==8:
+		print("TP2: trou noire")
+		var toupie1 = get_node("../Area_toupie1")
+		memoire_attraction_strength=toupie1.attraction_strength
+		effet_trou_noir=true
+		duree_effet_trounoir.start()
+		area.queue_free()
 	pass
+
+
+func _on_effet_trounoir_toupie_2_timeout() -> void:
+	effet_trou_noir=false#Desactiver l'effet du trou noir
+	var toupie1 = get_node("../Area_toupie1")
+	toupie1.attraction_strength=memoire_attraction_strength
+	pass # Replace with function body.

@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://xm1lvc1bw580"]
+
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_ybuea"]
+
+[sub_resource type="GDScript" id="GDScript_c1o1k"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_ybuea")
+
+[node name="Marker_commun" type="Node2D" parent="."]
+
+[node name="marker1" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-174, -70)
+
+[node name="marker2" type="Marker2D" parent="Marker_commun"]
+position = Vector2(191, -145)
+
+[node name="marker3" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-12, 192)
+
+[node name="marker4" type="Marker2D" parent="Marker_commun"]
+position = Vector2(200, 32)
+
+[node name="marker5" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-13, -208)
+
+[node name="marker6" type="Marker2D" parent="Marker_commun"]
+position = Vector2(218, -72)
+
+[node name="marker7" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-210, 128)
+
+[node name="marker8" type="Marker2D" parent="Marker_commun"]
+position = Vector2(118, 105)
+
+[node name="marker9" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-250, 23)
+
+[node name="marker10" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-221, -138)
+
+[node name="marker11" type="Marker2D" parent="Marker_commun"]
+position = Vector2(117, -122)
+
+[node name="marker12" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-75, 151)
+
+[node name="marker13" type="Marker2D" parent="Marker_commun"]
+position = Vector2(155, -5)
+
+[node name="marker14" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-87, -134)
+
+[node name="marker15" type="Marker2D" parent="Marker_commun"]
+position = Vector2(238, -21)
+
+[node name="marker16" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-174, 182)
+
+[node name="marker17" type="Marker2D" parent="Marker_commun"]
+position = Vector2(170, 164)
+
+[node name="marker18" type="Marker2D" parent="Marker_commun"]
+position = Vector2(-163, 66)
+
+[node name="Timer_boost" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+script = SubResource("GDScript_c1o1k")
+
+[node name="Timer_boost_disparaitre" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[connection signal="timeout" from="Timer_boost" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_boost_disparaitre" to="." method="_on_timer_boost_disparaitre_timeout"]

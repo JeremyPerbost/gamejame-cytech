@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cge4ckp63p6vr"]
+
+[ext_resource type="Script" path="res://script/animation/boost_durability.gd" id="1_2vubn"]
+[ext_resource type="Texture2D" uid="uid://1ukyovfi1m10" path="res://images/animation/durabilty_animation.png" id="2_ncwd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqwj4"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6m5u"]
+atlas = ExtResource("2_ncwd3")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qtk"]
+atlas = ExtResource("2_ncwd3")
+region = Rect2(0, 10, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqtmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6m5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qtk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="boost_durability" type="Node2D"]
+script = ExtResource("1_2vubn")
+
+[node name="durability_area" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="durability_collision" type="CollisionShape2D" parent="durability_area"]
+shape = SubResource("CircleShape2D_pqwj4")
+
+[node name="durability_animation" type="AnimatedSprite2D" parent="durability_area/durability_collision"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pqtmy")
+frame = 1
+frame_progress = 0.0398184
+speed_scale = 0.2

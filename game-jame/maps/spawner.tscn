@@ -84,10 +84,10 @@ script = SubResource("GDScript_c1o1k")
 wait_time = 9.0
 autostart = true
 
-[node name="Timer_trounoir" type="Timer" parent="."]
-wait_time = 2.0
+[node name="Timer_boost_special" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="Timer_boost" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer_boost_disparaitre" to="." method="_on_timer_boost_disparaitre_timeout"]
-[connection signal="timeout" from="Timer_trounoir" to="." method="_on_timer_trounoir_timeout"]
+[connection signal="timeout" from="Timer_boost_special" to="." method="_on_timer_boost_special_timeout"]

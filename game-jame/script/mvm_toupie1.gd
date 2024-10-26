@@ -10,14 +10,17 @@ var attraction_strength = 400
 # Vélocité de la toupie
 var velocity = Vector2.ZERO
 var variable_de_choc = 80
+var attraction_factor = 1
 # Référence au centre
 var center
 var temps
-
-@onready var duree_effet_trounoir = $effet_trounoir_toupie1 # Assure-toi du chemin correct
+var distance_to_center
+var min_distance = 50
+@onready var duree_effet_trounoir = $effet_trounoir_toupie1
+@onready var duree_effet_invincible =$effet_invincible_toupie1
 @onready var memoire_attraction_strength
 var effet_trou_noir = false #BOOST
-
+var effet_invincible = false #BOOST
 func _ready():
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
@@ -43,27 +46,25 @@ func collision(area):
 		var impulse = relative_velocity * collision_normal * 0.5
 
 		# Réduire légèrement la vitesse pour simuler une perte d'énergie
-		toupie2.velocity += impulse * 0.9  # La toupie 1 gagne une part de l'impulsion
-		velocity -= impulse * 0.5  # La toupie 2 perd une part de l'impulsion
+		toupie2.velocity += impulse * 1.5 # La toupie 1 gagne une part de l'impulsion ancienne valeur = 0.9
+		velocity -= impulse * 1  # La toupie 2 perd une part de l'impulsion ancienne valeur = 0.5
 		velocity *= 0.9  # Réduction
 		var separation_distance = collision_normal * 10  # Ajuste cette valeur pour le niveau de séparation souhaité
 		self.position += separation_distance
 		toupie2.position -= separation_distance
-		if (toupie2.velocity.length()/50)>=(velocity.length()/50):
+		if (toupie2.velocity.length() / 50) >= (velocity.length() / 50) and effet_invincible == false:
 			speed=speed-(float(toupie2.velocity.length())/variable_de_choc)
 			print("TP2 gagne")
 		print(speed)
 func _process(delta):
 	var direction = Vector2.ZERO
+	var toupie2 = get_node("../Area_toupie2")
+	if toupie2 == null:
+		print("TP1 : toupie2 non trouvée")
 	#-------GESTION DES BONUS--------
+	#EFFET TROU NOIR
 	if effet_trou_noir==true:
-		var toupie2 = get_node("../Area_toupie2")
-		if toupie2 == null:
-			print("TP1 : toupie2 non trouvée")
-		if(toupie2.attraction_strength<=225179981):
-			toupie2.attraction_strength=toupie2.attraction_strength*2
-			toupie2.speed=toupie2.speed-0.1
-			toupie2.velocity=Vector2.ZERO
+		attraction_strength=attraction_strength+10
 	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
@@ -75,24 +76,24 @@ func _process(delta):
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
 # Détection des touches pour le déplacement du joueur
-	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_Z"):
+	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-	if Input.is_joy_button_pressed(player_index,12) or Input.is_action_pressed("ui_S"):
+	if Input.is_joy_button_pressed(player_index,12) or Input.is_action_pressed("ui_down"):
 		direction.y += 1
-	if Input.is_joy_button_pressed(player_index,13) or Input.is_action_pressed("ui_Q"):
+	if Input.is_joy_button_pressed(player_index,13) or Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-	if Input.is_joy_button_pressed(player_index,14) or Input.is_action_pressed("ui_D"):
+	if Input.is_joy_button_pressed(player_index,14) or Input.is_action_pressed("ui_right"):
 		direction.x += 1
 	# Normaliser la direction si elle n'est pas nulle
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
 
 	# Calculer la distance entre la toupie et le centre
-	var distance_to_center = (center.position - self.position).length()
+	distance_to_center = (center.position - self.position).length()
 
 	# Si la toupie est trop proche du centre, l'attraction devient très faible pour la laisser s'échapper
-	var min_distance = 50  # Ajuste ce seuil en fonction de la taille de ta scène ou toupie
-	var attraction_factor = 1
+	min_distance = 50  # Ajuste ce seuil en fonction de la taille de ta scène ou toupie
+	attraction_factor = 1
 	if distance_to_center < min_distance:
 		attraction_factor = 0  # Réduit l'attraction progressivement
 
@@ -125,24 +126,37 @@ func _on_area_entered(area: Area2D) -> void:
 		collision(area)
 	if area.collision_layer==2:
 		print("TP1: Booster")
-		speed=speed+5
+		speed=speed+15
 		area.queue_free()
 	if area.collision_layer==4:
 		print("TP1: durability")
-		variable_de_choc=variable_de_choc+5
+		variable_de_choc=variable_de_choc+15
 		area.queue_free()
 	if area.collision_layer==8:
 		print("TP1: trou noire")
-		var toupie2 = get_node("../Area_toupie2")
-		memoire_attraction_strength=toupie2.attraction_strength
+		memoire_attraction_strength=attraction_strength
 		effet_trou_noir=true
 		duree_effet_trounoir.start()
+		area.queue_free()
+	if area.collision_layer==16:
+		print("TP1: Invincible")
+		effet_invincible=true
+		duree_effet_invincible.start()
 		area.queue_free()
 	pass
 
 
 func _on_effet_trounoir_toupie_1_timeout() -> void:
-	effet_trou_noir=false#Desactiver l'effet du trou noir
-	var toupie2 = get_node("../Area_toupie2")
-	toupie2.attraction_strength=memoire_attraction_strength
+	if effet_trou_noir==true:
+		effet_trou_noir=false#Desactiver l'effet du trou noir
+		print("TP1: FIN DU TROU NOIR")
+		attraction_strength=memoire_attraction_strength
+	pass # Replace with function body.
+
+
+
+func _on_effet_invincible_toupie_1_timeout() -> void:
+	if effet_invincible==true:
+		effet_invincible=false#Desactiver l'effet du trou noir
+		print("TP2: FIN DU MODE INVINCIBLE")
 	pass # Replace with function body.

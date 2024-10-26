@@ -2,8 +2,9 @@ extends Node2D
 
 var marker_commun
 var boost
+var boost_special
 var boost_durability
-@onready var timer_trounoir=$Timer_trounoir
+@onready var timer_special=$Timer_boost_special
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	marker_commun=$Marker_commun
@@ -17,8 +18,8 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var random_point=marker_commun.get_children().pick_random()
-	var boost_scene=preload("res://maps/boost.tscn")
-	var boost_durability_scene=preload("res://maps/boost_durability.tscn")
+	var boost_scene=preload("res://maps/boost/boost.tscn")
+	var boost_durability_scene=preload("res://maps/boost/boost_durability.tscn")
 	var random_number = randi() % 4
 	if random_number == 0:
 		boost = boost_scene.instantiate()
@@ -44,14 +45,20 @@ func _on_timer_boost_disparaitre_timeout() -> void:
 	pass  # Remplacer par le corps de la fonction si nécessaire.
 
 
-func _on_timer_trounoir_timeout() -> void:
-	# Génère un temps aléatoire entre 2 et 10 secondes à chaque fin de Timer
-	var boost_trounoir=preload("res://maps/boost_trounoir.tscn")
-	timer_trounoir.wait_time = randi() % 11 + 10  # 11 pour inclure 20, et 10 pour le décalage
-	print("prochaine apparition trou noir=", timer_trounoir.wait_time)
-	boost = boost_trounoir.instantiate()
-	boost.global_position = Vector2(0, 0)
-	get_parent().add_child(boost)
-	timer_trounoir.start()
 
+func _on_timer_boost_special_timeout() -> void:
+	var boost_trounoir=preload("res://maps/boost/boost_trounoir.tscn")
+	var boost_invincible=preload("res://maps/boost/boost_invincible.tscn")
+	timer_special.wait_time = randi() % 14 + 15
+	print("prochaine apparition boost special=", timer_special.wait_time)
+	var random_number = randi() % 4
+	if random_number == 0:
+		boost_special = boost_trounoir.instantiate()
+		boost_special.global_position = Vector2(0, 0)
+		get_parent().add_child(boost_special)
+	elif random_number == 1:
+		boost_special = boost_invincible.instantiate()
+		boost_special.global_position = Vector2(0, 0)
+		get_parent().add_child(boost_special)
+	timer_special.start()	
 	pass # Replace with function body.

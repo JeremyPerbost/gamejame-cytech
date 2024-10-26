@@ -29,12 +29,13 @@ script = ExtResource("1_p4bqp")
 [node name="Area_arene" parent="." instance=ExtResource("6_pfxmi")]
 
 [node name="Area_toupie1" parent="Area_arene" instance=ExtResource("4_c7s2c")]
-collision_mask = 15
+collision_mask = 31
 
 [node name="Area_toupie2" parent="Area_arene" instance=ExtResource("5_h8hgh")]
-collision_mask = 15
+collision_mask = 31
 
 [node name="centre" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(10, 10)
 texture = ExtResource("3_4ew0m")

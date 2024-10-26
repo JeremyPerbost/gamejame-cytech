@@ -1,4 +1,7 @@
 extends Area2D
+#indice du joueur
+var player_index = 0
+
 # Vitesse de mouvement
 var speed_init = 80
 var speed = speed_init
@@ -10,6 +13,7 @@ var variable_de_choc = 80
 # Référence au centre
 var center
 var temps
+
 @onready var duree_effet_trounoir = $effet_trounoir_toupie1 # Assure-toi du chemin correct
 @onready var memoire_attraction_strength
 var effet_trou_noir = false #BOOST
@@ -70,15 +74,15 @@ func _process(delta):
 		speed = 800
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
-	if Input.is_action_pressed("ui_up"):
+# Détection des touches pour le déplacement du joueur
+	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_Z"):
 		direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_joy_button_pressed(player_index,12) or Input.is_action_pressed("ui_S"):
 		direction.y += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_joy_button_pressed(player_index,13) or Input.is_action_pressed("ui_Q"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_joy_button_pressed(player_index,14) or Input.is_action_pressed("ui_D"):
 		direction.x += 1
-
 	# Normaliser la direction si elle n'est pas nulle
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()

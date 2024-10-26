@@ -1,4 +1,6 @@
 extends Area2D
+#indice player
+var player_index = 1
 # Vitesse de mouvement
 var speed_init = 80
 var speed = speed_init
@@ -41,13 +43,13 @@ func _process(delta):
 		speed = 0
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
-	if Input.is_action_pressed("ui_Z"):
+	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_Z"):
 		direction.y -= 1
-	if Input.is_action_pressed("ui_S"):
+	if Input.is_joy_button_pressed(player_index,12) or Input.is_action_pressed("ui_S"):
 		direction.y += 1
-	if Input.is_action_pressed("ui_Q"):
+	if Input.is_joy_button_pressed(player_index,13) or Input.is_action_pressed("ui_Q"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_D"):
+	if Input.is_joy_button_pressed(player_index,14) or Input.is_action_pressed("ui_D"):
 		direction.x += 1
 
 	# Normaliser la direction si elle n'est pas nulle

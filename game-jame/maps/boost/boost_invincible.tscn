@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://djhasybinr7qt"]
 
-[ext_resource type="Script" path="res://images/animation/boost_invincible.gd" id="1_has5e"]
+[ext_resource type="Script" path="res://script/animation/boost_invincible.gd" id="1_has5e"]
 [ext_resource type="Texture2D" uid="uid://dl6wlky5ldsv6" path="res://images/animation/boost_invincibility_animation.png" id="2_3vfat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]

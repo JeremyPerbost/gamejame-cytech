@@ -11,6 +11,8 @@ var attraction_strength = 400
 var velocity = Vector2.ZERO
 var variable_de_choc = 80
 var attraction_factor = 1
+var direction = Vector2.ZERO
+
 # Référence au centre
 var center
 var temps
@@ -19,9 +21,12 @@ var min_distance = 50
 @onready var duree_effet_trounoir = $effet_trounoir_toupie1
 @onready var duree_effet_invincible =$effet_invincible_toupie1
 @onready var memoire_attraction_strength
+@onready var spr_choc_animation=$spr_choc_animation
+
 var effet_trou_noir = false #BOOST
 var effet_invincible = false #BOOST
 func _ready():
+	spr_choc_animation.play("default")
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
 	if center == null:
@@ -55,9 +60,16 @@ func collision(area):
 		if (toupie2.velocity.length() / 50) >= (velocity.length() / 50) and effet_invincible == false:
 			speed=speed-(float(toupie2.velocity.length())/variable_de_choc)
 			print("TP2 gagne")
-		print(speed)
+		#--------------GESTION DE L'ANIMATION DE CHOC----------------
+		#var direction = (toupie2.global_position - toupie1.global_position).normalized()
+		#eclair_sprite.rotation = direction.angle()
+		#eclair_sprite.global_position = (toupie1.global_position + toupie2.global_position) / 2
+		spr_choc_animation.visible = false#on montre l'animation
+		print("animation montrer")
+
 func _process(delta):
-	var direction = Vector2.ZERO
+	direction = Vector2.ZERO
+	spr_choc_animation.visible = true #animation cachée pendant le jeu
 	var toupie2 = get_node("../Area_toupie2")
 	if toupie2 == null:
 		print("TP1 : toupie2 non trouvée")
@@ -119,6 +131,10 @@ func _process(delta):
 		# Inverser la vélocité pour simuler un rebond contre le bord
 		velocity = (self.position - center.position).normalized() * -velocity.length() * 0.35  # Réduit légèrement la vitesse après le rebond
 	#-------------------------------------------------
+	#-------Partie de code a optimiser : ----------
+	var direction_anim = (toupie2.global_position - global_position).normalized()
+	spr_choc_animation.rotation= -rotation-80+direction_anim.angle()#correction de la rotation de l'animation
+	#----------------------------------------------
 	velocity += combined_force * delta
 	self.position += velocity * delta
 func _on_area_entered(area: Area2D) -> void:

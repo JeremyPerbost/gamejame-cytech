@@ -10,13 +10,14 @@ var attraction_strength = 400
 var velocity = Vector2.ZERO
 var variable_de_choc = 80
 var attraction_factor = 1
+var direction = Vector2.ZERO
 # Référence au centre
 var center
 var temps
 var distance_to_center
 var min_distance = 50
 @onready var duree_effet_trounoir = $effet_trounoir_toupie2 
-@onready var duree_effet_invincible = $effet_invincible_toupie1
+@onready var duree_effet_invincible = $effet_invincible_toupie2
 
 @onready var memoire_attraction_strength
 var effet_trou_noir = false #BOOST
@@ -30,7 +31,7 @@ func _ready():
 		print("TP2 : Le nœud 'temps' n'a pas été trouvé dans la scène.")
 
 func _process(delta):
-	var direction = Vector2.ZERO
+	direction = Vector2.ZERO
 	var toupie1 = get_node("../Area_toupie1")
 	if toupie1 == null:
 		print("TP2 : toupie1 non trouvée")
@@ -104,7 +105,6 @@ func collision(area):
 	else:
 		# Calcul de la normale de la collision
 		var collision_normal = (self.position - area.position).normalized()
-
 		# Projeter les vitesses sur la normale de collision
 		var toupie1_velocity_along_normal = collision_normal.dot(toupie1.velocity)
 		var toupie2_velocity_along_normal = collision_normal.dot(velocity)
@@ -125,6 +125,11 @@ func collision(area):
 		if ((toupie1.velocity.length()/50)>=(velocity.length()/50) and effet_invincible==false):
 			speed=speed-(float(toupie1.velocity.length())/variable_de_choc)
 			print("TP1 gagne")
+		#--------------GESTION DE L'ANIMATION DE CHOC----------------
+		#var direction = (toupie2.global_position - toupie1.global_position).normalized()
+		#eclair_sprite.rotation = direction.angle()
+		#eclair_sprite.global_position = (toupie1.global_position + toupie2.global_position) / 2
+		
 func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer==1:
 		collision(area)

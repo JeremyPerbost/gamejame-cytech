@@ -80,3 +80,6 @@ text = "FPS : "
 script = ExtResource("7_x0xyv")
 
 [node name="Spawner" parent="." instance=ExtResource("8_syc3h")]
+
+[connection signal="winner_round" from="Area_arene/Area_toupie1" to="." method="_on_area_toupie_1_winner_round"]
+[connection signal="winner_round" from="Area_arene/Area_toupie2" to="." method="_on_area_toupie_2_winner_round"]

@@ -46,6 +46,8 @@ func _process(delta):
 		speed = speed-0.01
 	else:
 		speed = 0
+		winner_round.emit("Player1")
+
 	rotation += (speed /3) * delta
 	# Détection des touches pour le déplacement du joueur
 	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_Z"):
@@ -124,7 +126,8 @@ func collision(area):
 		toupie1.position -= separation_distance
 		if ((toupie1.velocity.length()/50)>=(velocity.length()/50) and effet_invincible==false):
 			speed=speed-(float(toupie1.velocity.length())/variable_de_choc)
-			print("TP1 gagne")
+			
+			
 		#--------------GESTION DE L'ANIMATION DE CHOC----------------
 		#var direction = (toupie2.global_position - toupie1.global_position).normalized()
 		#eclair_sprite.rotation = direction.angle()
@@ -168,3 +171,5 @@ func _on_effet_invincible_toupie_2_timeout() -> void:
 		effet_invincible=false#Desactiver l'effet du trou noir
 		print("TP2: FIN DU MODE INVINCIBLE")
 	pass # Replace with function body.
+
+signal winner_round(winner : String)

@@ -59,17 +59,16 @@ func collision(area):
 		toupie2.position -= separation_distance
 		if (toupie2.velocity.length() / 50) >= (velocity.length() / 50) and effet_invincible == false:
 			speed=speed-(float(toupie2.velocity.length())/variable_de_choc)
-
 		#--------------GESTION DE L'ANIMATION DE CHOC----------------
 		#var direction = (toupie2.global_position - toupie1.global_position).normalized()
 		#eclair_sprite.rotation = direction.angle()
 		#eclair_sprite.global_position = (toupie1.global_position + toupie2.global_position) / 2
-		spr_choc_animation.visible = false#on montre l'animation
+		spr_choc_animation.visible = true#on montre l'animation
+		$animation_choc_toupie1.start()#demarrer le timer pour montrer l'animation
 		print("animation montrer")
 
 func _process(delta):
 	direction = Vector2.ZERO
-	spr_choc_animation.visible = true #animation cachée pendant le jeu
 	var toupie2 = get_node("../Area_toupie2")
 	if toupie2 == null:
 		print("TP1 : toupie2 non trouvée")
@@ -181,3 +180,8 @@ func _on_effet_invincible_toupie_1_timeout() -> void:
 	pass # Replace with function body.
 
 signal winner_round(winner : String)
+
+
+func _on_animation_choc_toupie_1_timeout() -> void:#timer animation de choc de toupies finie
+	$spr_choc_animation.visible=false
+	pass # Replace with function body.

@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsb5q5i7h8n8h"]
+[gd_scene load_steps=21 format=3 uid="uid://dsb5q5i7h8n8h"]
 
 [ext_resource type="Script" path="res://script/mvm_toupie1.gd" id="1_sw5b2"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/P1.png" id="2_enrxk"]
 [ext_resource type="Texture2D" uid="uid://6qfm6ewxfn3" path="res://images/animation/choc_animation.png" id="3_43lhb"]
+[ext_resource type="Texture2D" uid="uid://cfny5o8hr32um" path="res://images/invicibility_effect.png" id="4_albq6"]
+[ext_resource type="Texture2D" uid="uid://1jc4yg2ndrdf" path="res://images/trounoir_effect.png" id="5_4stdv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jid7"]
 radius = 38.0132
@@ -135,6 +137,17 @@ speed_scale = 10.0
 [node name="animation_choc_toupie1" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="spr_invincible" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("4_albq6")
+
+[node name="spr_trou_noir" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("5_4stdv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="effet_trounoir_toupie1" to="." method="_on_effet_trounoir_toupie_1_timeout"]

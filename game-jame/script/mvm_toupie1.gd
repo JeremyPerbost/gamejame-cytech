@@ -60,9 +60,6 @@ func collision(area):
 		if (toupie2.velocity.length() / 50) >= (velocity.length() / 50) and effet_invincible == false:
 			speed=speed-(float(toupie2.velocity.length())/variable_de_choc)
 		#--------------GESTION DE L'ANIMATION DE CHOC----------------
-		#var direction = (toupie2.global_position - toupie1.global_position).normalized()
-		#eclair_sprite.rotation = direction.angle()
-		#eclair_sprite.global_position = (toupie1.global_position + toupie2.global_position) / 2
 		spr_choc_animation.visible = true#on montre l'animation
 		$animation_choc_toupie1.start()#demarrer le timer pour montrer l'animation
 		print("animation montrer")
@@ -154,10 +151,12 @@ func _on_area_entered(area: Area2D) -> void:
 		print("TP1: trou noire")
 		memoire_attraction_strength=attraction_strength
 		effet_trou_noir=true
+		$spr_trou_noir.visible=true
 		duree_effet_trounoir.start()
 		area.queue_free()
 	if area.collision_layer==16:
 		print("TP1: Invincible")
+		$spr_invincible.visible=true
 		effet_invincible=true
 		duree_effet_invincible.start()
 		area.queue_free()
@@ -166,6 +165,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_effet_trounoir_toupie_1_timeout() -> void:
 	if effet_trou_noir==true:
+		$spr_trou_noir.visible=false
 		effet_trou_noir=false#Desactiver l'effet du trou noir
 		print("TP1: FIN DU TROU NOIR")
 		attraction_strength=memoire_attraction_strength
@@ -175,6 +175,7 @@ func _on_effet_trounoir_toupie_1_timeout() -> void:
 
 func _on_effet_invincible_toupie_1_timeout() -> void:
 	if effet_invincible==true:
+		$spr_invincible.visible=false
 		effet_invincible=false#Desactiver l'effet du trou noir
 		print("TP2: FIN DU MODE INVINCIBLE")
 	pass # Replace with function body.

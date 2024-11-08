@@ -57,6 +57,7 @@ func game_over(condition_fin_jeu : int):
 
 
 func _on_area_toupie_1_winner_round(winner: String) -> void:
+	#afficher l'ecran qui montre qui a gagner
 	print(winner +" won the round")
 	score_player2+=1
 	print("score player 2 "+str(score_player2))

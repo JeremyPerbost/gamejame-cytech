@@ -85,17 +85,32 @@ func _process(delta):
 	if speed > 860:
 		speed = 800
 	rotation += (speed /3) * delta
-	# Détection des touches pour le déplacement du joueur
-# Détection des touches pour le déplacement du joueur
-	if Input.is_joy_button_pressed(player_index,11) or Input.is_action_pressed("ui_up"):
+		# Détection des touches pour le déplacement du joueur
+	direction = Vector2()  # Initialise la direction à un vecteur nul
+
+	# Vérifie les boutons directionnels et les touches de direction
+	if Input.is_joy_button_pressed(player_index, 11) or Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-	if Input.is_joy_button_pressed(player_index,12) or Input.is_action_pressed("ui_down"):
+	if Input.is_joy_button_pressed(player_index, 12) or Input.is_action_pressed("ui_down"):
 		direction.y += 1
-	if Input.is_joy_button_pressed(player_index,13) or Input.is_action_pressed("ui_left"):
+	if Input.is_joy_button_pressed(player_index, 13) or Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-	if Input.is_joy_button_pressed(player_index,14) or Input.is_action_pressed("ui_right"):
+	if Input.is_joy_button_pressed(player_index, 14) or Input.is_action_pressed("ui_right"):
 		direction.x += 1
-	# Normaliser la direction si elle n'est pas nulle
+
+	# Ajoute la détection des axes du joystick gauche
+	var joy_x = Input.get_joy_axis(player_index, 0)  # Axe X du joystick gauche
+	var joy_y = Input.get_joy_axis(player_index, 1)  # Axe Y du joystick gauche
+	var deadzone = 0.2
+	if abs(joy_x) > deadzone:
+		direction.x += joy_x
+	if abs(joy_y) > deadzone:
+		direction.y += joy_y
+	# Vérifie l'action spéciale
+	if Input.is_action_just_pressed("ui_!"):
+		velocity = velocity * 10
+
+	# Normalise la direction si elle n'est pas nulle
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
 

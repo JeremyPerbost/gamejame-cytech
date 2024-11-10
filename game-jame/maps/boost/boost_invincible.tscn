@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://djhasybinr7qt"]
+
+[ext_resource type="Script" path="res://script/animation/boost_invincible.gd" id="1_has5e"]
+[ext_resource type="Texture2D" uid="uid://dl6wlky5ldsv6" path="res://images/animation/boost_invincibility_animation.png" id="2_3vfat"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]
+radius = 20.025
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3lk8"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsqok"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52d7g"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(38, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdta"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(0, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8ya3"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(19, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82s6g"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(38, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iklq"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(0, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q5gw"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(19, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvolh"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(38, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob72d"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(0, 57, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp4g"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(19, 57, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1erx"]
+atlas = ExtResource("2_3vfat")
+region = Rect2(38, 57, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4pln"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_x3lk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsqok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52d7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grdta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8ya3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82s6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iklq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q5gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvolh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob72d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsp4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1erx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="boost_invincible" type="Node2D"]
+script = ExtResource("1_has5e")
+
+[node name="boost_invincible_area" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="boost_invincible_collision" type="CollisionShape2D" parent="boost_invincible_area"]
+shape = SubResource("CircleShape2D_kthir")
+
+[node name="boost_invincible_animation" type="AnimatedSprite2D" parent="boost_invincible_area/boost_invincible_collision"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_j4pln")
+speed_scale = 3.0

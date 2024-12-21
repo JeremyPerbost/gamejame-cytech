@@ -15,6 +15,10 @@ run/main_scene="res://maps/menuprincipal.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Score="*res://script/GlobalVariables/Score.gd"
+
 [display]
 
 window/size/mode=3

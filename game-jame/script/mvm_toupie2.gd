@@ -11,6 +11,8 @@ var velocity = Vector2.ZERO
 var variable_de_choc = 80
 var attraction_factor = 1
 var direction = Vector2.ZERO
+var rotation_autour_arene=Vector2.ZERO #vecteur de force de rotation autour du centre de l'arene du a la rotation de la pointe
+var sens_rotations=1 #sens des aiguilles d'une montre
 # Référence au centre
 var center
 var temps
@@ -90,6 +92,11 @@ func _process(delta):
 
 	# Combiner les forces (attraction, direction joueur, centrifuge)
 	var combined_force = player_force + attraction_vector * 40 + centrifugal_vector
+		# --------------TOURNER AUTOUR DU CENTRE--------------------------------------------
+	# Calcul de la force tangentielle autour de l'arène
+	var tangent = (self.position - center.position).normalized().rotated(sens_rotations * PI/2)
+	rotation_autour_arene = tangent * 100
+	combined_force += rotation_autour_arene
 	if distance_to_center > 265:
 		# Forcer la toupie à rester dans l'arène
 		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - 265)

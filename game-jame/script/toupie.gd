@@ -18,6 +18,7 @@ func _ready():
 	score_tp2.visible = false
 
 func start_game():
+	
 	is_game_running = true
 
 func play_transition_animation() -> void:
@@ -50,12 +51,10 @@ func _process(delta):
 		if Score.score_player1 == 3:
 			is_game_running = false
 			game_over(1)
-			Score.test()
 			get_tree().quit()
 		elif Score.score_player2 == 3:
 			is_game_running = false
 			game_over(2)
-			Score.test()
 			get_tree().quit()
 
 func update_timer_display():

@@ -1,5 +1,6 @@
 extends Area2D
 #indice du joueur
+#TOUPIE1=TOUPIE ROUGE
 var player_index = 0
 
 # Vitesse de mouvement
@@ -12,7 +13,8 @@ var velocity = Vector2.ZERO
 var variable_de_choc = 80
 var attraction_factor = 1
 var direction = Vector2.ZERO
-
+var rotation_autour_arene=Vector2.ZERO #vecteur de force de rotation autour du centre de l'arene du a la rotation de la pointe
+var sens_rotations=1 #sens des aiguilles d'une montre
 # Référence au centre
 var center
 var temps
@@ -84,7 +86,7 @@ func _process(delta):
 		
 	if speed > 860:
 		speed = 800
-	rotation += (speed /3) * delta
+	rotation +=sens_rotations*(speed /3) * delta
 		# Détection des touches pour le déplacement du joueur
 	direction = Vector2()  # Initialise la direction à un vecteur nul
 
@@ -137,6 +139,11 @@ func _process(delta):
 	var player_force = direction * speed * 10
 	# Combiner les forces (attraction, direction joueur, centrifuge)
 	var combined_force = player_force + attraction_vector * 40 + centrifugal_vector
+	# --------------TOURNER AUTOUR DU CENTRE--------------------------------------------
+	# Calcul de la force tangentielle autour de l'arène
+	var tangent = (self.position - center.position).normalized().rotated(sens_rotations * PI/2)
+	rotation_autour_arene = tangent * 100
+	combined_force += rotation_autour_arene
 	#-----------------GESTION DES BORDS :------------
 	if distance_to_center > 265:
 		# Forcer la toupie à rester dans l'arène
@@ -150,7 +157,7 @@ func _process(delta):
 	spr_choc_animation.rotation= -rotation-80+direction_anim.angle()#correction de la rotation de l'animation
 	#----------------------------------------------
 	velocity += combined_force * delta
-	self.position += velocity * delta
+	self.position += (velocity) *delta
 func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer==1:
 		collision(area)

@@ -6,11 +6,11 @@ extends Control
 
 
 func _ready() -> void:
-	start_button.button_down.connect(on_start_pressed	)#actionne quand le button est pressioné
-	exit_button.button_down.connect(on_exit_pressed	)
+	start_button.button_down.connect(on_start_pressed)#actionne quand le button est pressioné
+	exit_button.button_down.connect(on_exit_pressed)
 
 func on_start_pressed():
-	get_tree().change_scene_to_packed(start_level) #changement de scene
+	TransitionScreen.transition("res://maps/toupie.tscn")
 	
 func on_exit_pressed():
 	get_tree().quit()

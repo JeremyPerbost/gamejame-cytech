@@ -10,7 +10,7 @@ func _ready() -> void:
 	exit_button.button_down.connect(on_exit_pressed)
 
 func on_start_pressed():
-	TransitionScreen.transition("res://maps/toupie.tscn")
+	TransitionScreen.transition("res://maps/EndGame.tscn")
 	
 func on_exit_pressed():
 	get_tree().quit()

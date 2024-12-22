@@ -51,11 +51,10 @@ func _process(delta):
 		if Score.score_player1 == 3:
 			is_game_running = false
 			game_over(1)
-			get_tree().quit()
+
 		elif Score.score_player2 == 3:
 			is_game_running = false
 			game_over(2)
-			get_tree().quit()
 
 func update_timer_display():
 	var minutes = int(total_time) / 60
@@ -67,8 +66,12 @@ func game_over(condition_fin_jeu : int):
 		timer_label.text = "Time's up!"
 	elif condition_fin_jeu == 1:
 		print("Player one won")
+		Score.gagnant="player1"
+		TransitionScreen.transition("res://maps/EndGame.tscn")
 	elif condition_fin_jeu == 2:
 		print("Player two won")
+		Score.gagnant="player2"
+		TransitionScreen.transition("res://maps/EndGame.tscn")
 
 func _on_area_toupie_1_winner_round(winner: String) -> void:
 	if not is_transition_playing:

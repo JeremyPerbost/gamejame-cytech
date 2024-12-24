@@ -2,8 +2,10 @@
 This game has been created for the CYTech game jam 2024/2025
 ## ---REGLES---
 ### But du jeu:
+3 manches : le premier arriver a 3 points gagne la partie. Une toupie gagne une manche si elle est la derniere toupie a tourner.
 ### Boosts: 
-
+speed boost : augmente la vitesse
+defense_boost : 
 
 ## ---ARCHIVES---
 

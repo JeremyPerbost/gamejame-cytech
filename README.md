@@ -4,7 +4,18 @@ This game has been created for the CYTech game jam 2024/2025
 ### But du jeu:
 3 manches : le premier arriver a 3 points gagne la partie. Une toupie gagne une manche si elle est la derniere toupie a tourner.
 ### Boosts: 
-speed boost : augmente la vitesse
+#### Boosts classiques :
+speed_boost : boost augmentant la vitesse de rotation de la toupie
+durability_boost : augmente la résistance
+#### Boosts de l'inventaire : 
+attaque : permet d'attaquer
+esquive : la toupie se teleporte du coté opposé de l'arene
+#### Boost rare : 
+invicibility_boost : rend invincible durant une certaine durée
+trou_noir : attire fortement la toupie vers le centre de l'arene et augmente sa vitesse
+piege_boost : piege la toupie de l'adversaire et l'empeche de bouger durant une certaine durée
+
+
 defense_boost : 
 
 ## ---ARCHIVES---

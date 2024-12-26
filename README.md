@@ -14,10 +14,6 @@ esquive : la toupie se teleporte du coté opposé de l'arene
 invicibility_boost : rend invincible durant une certaine durée
 trou_noir : attire fortement la toupie vers le centre de l'arene et augmente sa vitesse
 piege_boost : piege la toupie de l'adversaire et l'empeche de bouger durant une certaine durée
-
-
-defense_boost : 
-
 ## ---ARCHIVES---
 
 <img width="573" alt="image" src="https://github.com/user-attachments/assets/915d0365-6fea-4cff-bcec-61b4042920a1">

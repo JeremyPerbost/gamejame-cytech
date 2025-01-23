@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://b671ut7xj8sjb"]
+
+[ext_resource type="Texture2D" uid="uid://copdn7e3ej8wb" path="res://images/UI_joueur/power_chest.png" id="1_0ctvo"]
+[ext_resource type="Script" path="res://script/Inventaire/inventaire.gd" id="1_kfw5p"]
+
+[node name="inventaire" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -572.0
+offset_top = -322.0
+offset_right = 583.0
+offset_bottom = -98.0
+script = ExtResource("1_kfw5p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 1136.0
+offset_bottom = 196.0
+
+[node name="inventaire_P1" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(172, 66)
+scale = Vector2(1.4475, 1.54)
+texture = ExtResource("1_0ctvo")
+
+[node name="place1_P1" type="Marker2D" parent="HBoxContainer/inventaire_P1"]
+position = Vector2(-57.34, 0)
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[node name="place2_P1" type="Marker2D" parent="HBoxContainer/inventaire_P1"]
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[node name="place3_P1" type="Marker2D" parent="HBoxContainer/inventaire_P1"]
+position = Vector2(50, 0)
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[node name="timer_P1" type="Timer" parent="HBoxContainer/inventaire_P1"]
+wait_time = 5.0
+autostart = true
+
+[node name="inventaire_P2" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(979, 66)
+scale = Vector2(1.4475, 1.54)
+texture = ExtResource("1_0ctvo")
+
+[node name="place1" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+position = Vector2(-57.34, 0)
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[node name="place2" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[node name="place3" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+position = Vector2(50, 0)
+scale = Vector2(0.690846, 0.649351)
+metadata/_edit_group_ = true
+
+[connection signal="timeout" from="HBoxContainer/inventaire_P1/timer_P1" to="." method="_on_timer_p_1_timeout"]

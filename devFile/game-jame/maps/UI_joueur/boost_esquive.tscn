@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvkcu4abl7n5l"]
+
+[ext_resource type="Texture2D" uid="uid://c38bdbei160kp" path="res://images/UI_joueur/boost_esquive.png" id="1_vpcd6"]
+
+[node name="BoostEsquive" type="Node2D"]
+
+[node name="spr_boost_esquive" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_vpcd6")

@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ln0mql0f51m"]
+
+[ext_resource type="Script" path="res://script/menuprincipal.gd" id="1_la1kg"]
+[ext_resource type="Texture2D" uid="uid://cp5rxki1salxl" path="res://images/Menus/background_menuprincipal.png" id="2_ppfgu"]
+[ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="4_xl01l"]
+
+[node name="Menu_Principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la1kg")
+
+[node name="BackgroundAnimeeSprite-converter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578, 324)
+scale = Vector2(11.62, 8.77333)
+texture = ExtResource("2_ppfgu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 18
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("4_xl01l")
+theme_override_font_sizes/font_size = 100
+text = "CY2PIE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separateur" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Start Game"
+
+[node name="Separateur3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_skin" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Skins"
+
+[node name="Separateur2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_skin2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Collection"
+
+[node name="Separateur4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Exit Game"
+
+[node name="crédits" type="Label" parent="."]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 616.0
+offset_right = 536.0
+offset_bottom = 639.0
+text = "Crédits : CYTECH -JEREMY-FELLIPE-ALVI"
+metadata/_edit_group_ = true
+
+[node name="version" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1042.0
+offset_top = 618.0
+offset_right = 1136.0
+offset_bottom = 641.0
+text = "V1.0"
+horizontal_alignment = 2
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin2" to="." method="_on_btn_skin_pressed"]

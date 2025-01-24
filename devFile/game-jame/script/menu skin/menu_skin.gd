@@ -1,149 +1,167 @@
 extends Control
 
-@onready var label_player1 = $label_player1
+const PLAYER1 = 0
+const PLAYER2 = 1
 
-var players = ["player1", "player2"]
-var current_index = 0
-@onready var skin8=$GridContainer/skin8
-@onready var skin7=$GridContainer/skin7
-@onready var skin6=$GridContainer/skin6
-@onready var skin5=$GridContainer/skin5
-@onready var skin4=$GridContainer/skin4
-@onready var skin3=$GridContainer/skin3
-@onready var skin2=$GridContainer/skin2
-@onready var skin1=$GridContainer/skin1
+var action_stack = []
+
+enum SkinAvailables { RED, BLUE, WHITE, PURPLE, DUO, MILITARY, HUMAN, DEEP }
+
+
+var game_skins = {
+	SkinAvailables.RED: "P1.png",
+	SkinAvailables.BLUE: "P2.png",
+	SkinAvailables.WHITE: "skin1.png",
+	SkinAvailables.PURPLE: "purple.png",
+	SkinAvailables.DUO: "duo.png",
+	SkinAvailables.MILITARY: "military.png",
+	SkinAvailables.HUMAN: "human.png",
+	SkinAvailables.DEEP: "blue2.png"
+}
+
+var chosen_skins = {
+	PLAYER1: "",
+	PLAYER2: ""
+}
 @onready var audio_selection=$audio_selection
 @onready var audio_survolement=$audio_survolement
+
+
+@onready var skin_panels = {
+	game_skins[SkinAvailables.RED]: $GridContainer/skin1 as Panel,
+	game_skins[SkinAvailables.BLUE]: $GridContainer/skin2 as Panel,
+	game_skins[SkinAvailables.WHITE]: $GridContainer/skin3 as Panel,
+	game_skins[SkinAvailables.PURPLE]: $GridContainer/skin4 as Panel,
+	game_skins[SkinAvailables.DUO]: $GridContainer/skin5 as Panel,
+	game_skins[SkinAvailables.MILITARY]: $GridContainer/skin6 as Panel,
+	game_skins[SkinAvailables.HUMAN]: $GridContainer/skin7 as Panel,
+	game_skins[SkinAvailables.DEEP]: $GridContainer/skin8 as Panel
+}
+
 func _ready() -> void:
-	update_labels()
+	update_panels()
+
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_right"):
-		current_index = (current_index + 1) % players.size()
-		update_labels()
+	pass
 
-	if Input.is_action_just_pressed("ui_left"):
-		current_index = (current_index - 1 + players.size()) % players.size()
-		update_labels()
+func update_panels() -> void:
+	for skin_texture in game_skins.values():
+		var panel = skin_panels.get(skin_texture)
+		if panel:
+			if chosen_skins[PLAYER1] == skin_texture:
+				panel.self_modulate = Color.RED
+				audio_selection.play()
+			elif chosen_skins[PLAYER2] == skin_texture:
+				panel.self_modulate = Color.GREEN
+				audio_selection.play()
+			else:
+				panel.self_modulate = Color.BLACK
 
-func update_labels() -> void:
-	# Mettez à jour les labels comme vous le souhaitez.
-	label_player1.text = players[current_index]
+func is_skin_picked_up(skin_texture: String) -> bool:
+	return chosen_skins[PLAYER1] != skin_texture and chosen_skins[PLAYER2] != skin_texture
+
+func choose_skin(skin_texture: String) -> void:
+	if is_skin_picked_up(skin_texture):
+		if action_stack.is_empty():
+			chosen_skins[PLAYER1] = skin_texture
+			action_stack.append(PLAYER1)
+		else:
+			chosen_skins[PLAYER2] = skin_texture
+			action_stack.pop_back()
+		update_panels()
+
+func _on_skin_mouse_exited(skin_texture: String) -> void:
+	update_panels()  # Reset the panel colors based on current state
 
 
-func _on_skin_3_mouse_entered() -> void:
-	skin3.self_modulate=Color.WHITE
-	audio_survolement.play()
-	pass # Replace with function body.
+# Fonctions d'entree et sortie du cursor
+func mouse_in(skin_texture: String) -> void:
+	if is_skin_picked_up(skin_texture):
+		skin_panels[skin_texture].self_modulate = Color.LIGHT_GRAY
+func mouse_out(skin_texture: String):
+	if is_skin_picked_up(skin_texture):
+		skin_panels[skin_texture].self_modulate = Color.BLACK
 
+# GUI Input Handling for Each Panel
+func _on_skin_gui_input(event: InputEvent, skin_texture: String) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		choose_skin(skin_texture)
 
-func _on_skin_3_mouse_exited() -> void:
-	skin3.self_modulate=Color.BLACK
-	pass # Replace with function body.
+# Example Binding for Each Panel
+func _on_skin_1_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.RED])
+
+func _on_skin_2_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.BLUE])
+
+func _on_skin_3_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.WHITE])
+
+func _on_skin_4_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.PURPLE])
+
+func _on_skin_5_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.DUO])
+
+func _on_skin_6_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.MILITARY])
+
+func _on_skin_7_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.HUMAN])
+
+func _on_skin_8_gui_input(event: InputEvent) -> void:
+	_on_skin_gui_input(event, game_skins[SkinAvailables.DEEP])
+	
+
 func _on_btn_menu_pressed() -> void:
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
-	pass # Replace with function body.
+
+#Fonctions rélationés à la position du cursor
 func _on_skin_1_mouse_entered() -> void:
 	audio_survolement.play()
-	skin1.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.RED])
 func _on_skin_1_mouse_exited() -> void:
-	skin1.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.RED])
+
 func _on_skin_2_mouse_entered() -> void:
 	audio_survolement.play()
-	skin2.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.BLUE])
 func _on_skin_2_mouse_exited() -> void:
-	skin2.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.BLUE])
+	
+func _on_skin_3_mouse_entered() -> void:
+	audio_survolement.play()
+	mouse_in(game_skins[SkinAvailables.WHITE])
+func _on_skin_3_mouse_exited() -> void:
+	mouse_out(game_skins[SkinAvailables.WHITE])
+
 func _on_skin_4_mouse_entered() -> void:
 	audio_survolement.play()
-	skin4.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.PURPLE])
 func _on_skin_4_mouse_exited() -> void:
-	skin4.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.PURPLE])
+
 func _on_skin_5_mouse_entered() -> void:
 	audio_survolement.play()
-	skin5.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.DUO])
 func _on_skin_5_mouse_exited() -> void:
-	skin5.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.DUO])
+
 func _on_skin_6_mouse_entered() -> void:
 	audio_survolement.play()
-	skin6.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.MILITARY])
 func _on_skin_6_mouse_exited() -> void:
-	skin6.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.MILITARY])
+
 func _on_skin_7_mouse_entered() -> void:
 	audio_survolement.play()
-	skin7.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.HUMAN])
 func _on_skin_7_mouse_exited() -> void:
-	skin7.self_modulate=Color.BLACK
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.HUMAN])
+
 func _on_skin_8_mouse_entered() -> void:
 	audio_survolement.play()
-	skin8.self_modulate=Color.WHITE
-	pass # Replace with function body.
+	mouse_in(game_skins[SkinAvailables.DEEP])
+	
 func _on_skin_8_mouse_exited() -> void:
-	skin8.self_modulate=Color.BLACK
-	pass # Replace with function body.
-func _on_skin_2_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : blue CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/P2.png"
-	pass # Replace with function body.
-func _on_skin_1_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : red CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/P1.png"
-	pass # Replace with function body.
-func _on_skin_3_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : white CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/skin1.png"
-	pass # Replace with function body.
-func _on_skin_4_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : purple CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/purple.png"
-	pass # Replace with function body.
-func _on_skin_5_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : duo CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/duo.png"
-	pass # Replace with function body.
-func _on_skin_6_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : military CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/military.png"
-	pass # Replace with function body.
-func _on_skin_7_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : human CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/human.png"
-	pass # Replace with function body.
-func _on_skin_8_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("P1 : deep CHOISIS")
-			audio_selection.play()
-			Skins.P1="res://images/skins/blue2.png"
-	pass # Replace with function body.
+	mouse_out(game_skins[SkinAvailables.DEEP])

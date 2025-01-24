@@ -18,5 +18,6 @@ func _on_btn_continuer_pressed() -> void:
 
 
 func _on_btn_quitter_pressed() -> void:
+	get_tree().paused = false
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
-	pass # Replace with function body.
+	#get_tree().change_scene_to_file("res://maps/menuprincipal.tscn")

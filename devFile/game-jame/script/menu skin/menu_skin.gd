@@ -3,6 +3,7 @@ extends Control
 @onready var label_player1 = $label_player1
 
 var players = ["player1", "player2"]
+
 var current_index = 0
 @onready var skin8=$GridContainer/skin8
 @onready var skin7=$GridContainer/skin7
@@ -87,6 +88,7 @@ func _on_skin_2_gui_input(event: InputEvent) -> void:
 		if event.pressed:
 			print("P1 : blue CHOISIS")
 			Skins.P1="res://images/skins/P2.png"
+			
 	pass # Replace with function body.
 func _on_skin_1_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsb5q5i7h8n8h"]
+[gd_scene load_steps=23 format=3 uid="uid://dsb5q5i7h8n8h"]
 
 [ext_resource type="Script" path="res://script/mvm_toupie1.gd" id="1_sw5b2"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="2_enrxk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfny5o8hr32um" path="res://images/invicibility_effect.png" id="4_albq6"]
 [ext_resource type="Texture2D" uid="uid://dc6080omtli1x" path="res://images/effet_toupie/piege_effect.png" id="5_1a07t"]
 [ext_resource type="Texture2D" uid="uid://1jc4yg2ndrdf" path="res://images/trounoir_effect.png" id="5_4stdv"]
+[ext_resource type="AudioStream" uid="uid://bpi8qxuaqpvni" path="res://sons/effets_sonores/chocs/choc 2.MP3" id="7_7hydw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jid7"]
 radius = 38.0132
@@ -159,6 +160,9 @@ visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("5_4stdv")
+
+[node name="audio_choc" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7hydw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="effet_trounoir_toupie1" to="." method="_on_effet_trounoir_toupie_1_timeout"]

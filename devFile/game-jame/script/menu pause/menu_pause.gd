@@ -10,13 +10,10 @@ func resume():
 	get_tree().paused = false
 	pause_menu.hide()
 func _process(delta: float) -> void:
-
 	pass
 func _on_btn_continuer_pressed() -> void:
 	resume()
 	pass # Replace with function body.
-
-
 func _on_btn_quitter_pressed() -> void:
 	get_tree().paused = false
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")

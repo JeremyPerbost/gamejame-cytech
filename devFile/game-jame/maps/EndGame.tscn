@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://w2si6w7e7p88"]
+[gd_scene load_steps=25 format=3 uid="uid://w2si6w7e7p88"]
 
 [ext_resource type="Script" path="res://script/endgame/end_game.gd" id="1_jvtuu"]
 [ext_resource type="Texture2D" uid="uid://ce3irieqr3grr" path="res://images/ecran_de_fin/endingscreen.png" id="1_rmqnx"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bv3j62oqsqjtw" path="res://images/ecran_de_fin/player2win.png" id="5_ex78r"]
 [ext_resource type="Texture2D" uid="uid://b820wmusoikj3" path="res://images/animation/price_animation.png" id="6_5vad4"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="6_otii5"]
+[ext_resource type="AudioStream" uid="uid://brqdcao0d411b" path="res://sons/musiques/victoire_loop.mp3" id="7_a25my"]
+[ext_resource type="AudioStream" uid="uid://b8vvw8086vvff" path="res://sons/musiques/victoire_start.mp3" id="8_6dcib"]
 
 [sub_resource type="GDScript" id="GDScript_yjbv2"]
 script/source = "extends Camera2D
@@ -234,6 +236,15 @@ offset_top = 200.0
 offset_right = 211.0
 offset_bottom = 285.0
 text = "Title Screen"
+
+[node name="audio_EndGame" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_a25my")
+autoplay = true
+parameters/looping = true
+
+[node name="audio_EndGameStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6dcib")
+autoplay = true
 
 [connection signal="button_down" from="rejouer_btn" to="." method="return_title_screen"]
 [connection signal="button_down" from="ecran_titre_btn" to="." method="replay"]

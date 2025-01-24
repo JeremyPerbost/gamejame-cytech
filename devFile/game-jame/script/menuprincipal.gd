@@ -4,7 +4,6 @@ extends Control
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Button2 as Button
 @export var start_level = preload("res://maps/toupie.tscn") as PackedScene
 
-
 func _ready() -> void:
 	start_button.button_down.connect(on_start_pressed)#actionne quand le button est pressioné
 	exit_button.button_down.connect(on_exit_pressed)

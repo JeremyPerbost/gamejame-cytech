@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq5fjxmjj7we5"]
+[gd_scene load_steps=18 format=3 uid="uid://cq5fjxmjj7we5"]
 
 [ext_resource type="Texture2D" uid="uid://4wvgikpwwbsu" path="res://images/Menus/menu_skin/background_menu_skin.png" id="1_ingg1"]
 [ext_resource type="Script" path="res://script/menu skin/menu_skin.gd" id="1_xcm57"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b0ssoci7441wu" path="res://images/skins/military.png" id="9_nxev5"]
 [ext_resource type="Texture2D" uid="uid://b7jwvgfktxvha" path="res://images/skins/human.png" id="10_qpq6w"]
 [ext_resource type="Texture2D" uid="uid://btbj4f8eblwfj" path="res://images/skins/blue2.png" id="11_iif1b"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="12_cwxke"]
+[ext_resource type="AudioStream" uid="uid://kh6qbfws3keo" path="res://sons/musiques/menu_2_loop.mp3" id="13_qx0id"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="14_kaqno"]
 
 [sub_resource type="Animation" id="Animation_5q2r4"]
 length = 0.001
@@ -279,6 +282,17 @@ offset_bottom = 60.0
 theme_override_fonts/font = ExtResource("2_fhr6d")
 theme_override_font_sizes/font_size = 50
 text = "<"
+
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_cwxke")
+
+[node name="audio_menu_skin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_qx0id")
+autoplay = true
+parameters/looping = true
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_kaqno")
 
 [connection signal="gui_input" from="GridContainer/skin1" to="." method="_on_skin_1_gui_input"]
 [connection signal="mouse_entered" from="GridContainer/skin1" to="." method="_on_skin_1_mouse_entered"]

@@ -10,14 +10,6 @@ var player_index = 0
 var speed_init = 80
 var speed = speed_init
 
-
-"""
-Dash area
-"""
-var dashing = true
-var dash_timer = 0.3
-var dash_acc = 0
-
 # Force d'attraction vers le centre
 var attraction_strength = 400
 
@@ -37,13 +29,18 @@ var taille_arene = 265
 var temps
 var distance_to_center
 var min_distance = 50
-
+var sons_choc = [
+	preload("res://sons/effets_sonores/chocs/choc 1.MP3"),
+	preload("res://sons/effets_sonores/chocs/choc 2.MP3"),
+	preload("res://sons/effets_sonores/chocs/choc 3.MP3"),
+	preload("res://sons/effets_sonores/chocs/choc 4.MP3")
+]
 @onready var duree_effet_trounoir = $effet_trounoir_toupie1
 @onready var duree_effet_invincible = $effet_invincible_toupie1
 @onready var duree_effet_piege = $effet_piege_toupie1
 @onready var memoire_attraction_strength
 @onready var spr_choc_animation = $spr_choc_animation
-
+@onready var audio_choc=$audio_choc
 var effet_trou_noir = false # BOOST
 var effet_invincible = false # BOOST
 var effet_piege = false # BOOST
@@ -56,9 +53,15 @@ func _ready():
 	if temps == null:
 		print("TP1 : Le nœud 'temps' n'a pas été trouvé dans la scène.")
 	$htbx_toupie1/spr_toupie1.texture = load(Skins.P1)
-
 func collision(area):
 	var toupie2 = get_node("../Area_toupie2")
+	#--------gestion du son--------
+	var alea=RandomNumberGenerator.new()
+	alea.randomize()
+	var son_aleatoire = sons_choc[alea.randi_range(0, sons_choc.size() - 1)]
+	audio_choc.stream = son_aleatoire
+	audio_choc.play()
+	#-------------------------------
 	if toupie2 == null:
 		print("TP1 : toupie2 non trouvée")
 	else:
@@ -131,7 +134,7 @@ func _process(delta):
 			if P1Inventaire.place1 == "attaque":
 				print("P1 : UTILISATION ATTAQUE")
 				print("velocity=", velocity)
-				dashing = true
+				velocity=velocity*10000
 			elif P1Inventaire.place1 == "esquive":
 				print("P1 : UTILISATION ESQUIVE")
 				self.position = Vector2(-self.position.x, -self.position.y)
@@ -155,8 +158,7 @@ func _process(delta):
 	var centrifugal_strength = clamp(speed_magnitude * 0.1, 0, 300)  # Ajuste le coefficient 0.1 et la limite selon les besoins
 	var centrifugal_vector = (self.position - center.position).normalized().rotated(PI / 2) * centrifugal_strength
 	# Calculer la force appliquée par le joueur
-	
-	var player_force = direction *speed * 20 if not dashing else direction *dash(speed) * 20
+	var player_force = direction * speed * 20
 	# Combiner les forces (attraction, direction joueur, centrifuge)
 	var combined_force = player_force + attraction_vector * 40 + centrifugal_vector
 	# Calcul de la force tangentielle autour de l'arène
@@ -165,13 +167,6 @@ func _process(delta):
 	combined_force += rotation_autour_arene
 	# Appliquer la force combinée à la vélocité
 	velocity += combined_force * delta
-	
-	if dashing:
-		dash_acc+=delta*10
-		if dash_acc>dash_timer:
-			dash_acc = 0
-			dashing = !dashing
-
 	#-----------------GESTION DES BORDS :------------
 	if distance_to_center > taille_arene:
 		# Forcer la toupie à rester dans l'arène
@@ -205,7 +200,7 @@ func _process(delta):
 	var friction_general = 0.98
 	velocity *= friction_general
 	# Limiter la vélocité pour éviter des vitesses irréalistes
-	var max_velocity_global = 500
+	var max_velocity_global = 3300
 	if velocity.length() > max_velocity_global:
 		velocity = velocity.normalized() * max_velocity_global
 	# Déplacer la toupie
@@ -281,8 +276,3 @@ func _on_effet_piege_toupie_1_timeout() -> void:
 		toupie2.effet_piege=false#Desactiver l'effet piege de la toupie 2
 		print("TP1: mets fin au piege de la tp2")
 	pass # Replace with function body.
-	
-func dash(base_speed : float)-> float:
-	const DASH_MODIFFICATOR = 3
-	return base_speed**DASH_MODIFFICATOR
-	

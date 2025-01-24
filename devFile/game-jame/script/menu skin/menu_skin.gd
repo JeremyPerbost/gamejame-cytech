@@ -3,7 +3,6 @@ extends Control
 @onready var label_player1 = $label_player1
 
 var players = ["player1", "player2"]
-
 var current_index = 0
 @onready var skin8=$GridContainer/skin8
 @onready var skin7=$GridContainer/skin7
@@ -13,7 +12,8 @@ var current_index = 0
 @onready var skin3=$GridContainer/skin3
 @onready var skin2=$GridContainer/skin2
 @onready var skin1=$GridContainer/skin1
-
+@onready var audio_selection=$audio_selection
+@onready var audio_survolement=$audio_survolement
 func _ready() -> void:
 	update_labels()
 func _process(delta: float) -> void:
@@ -32,6 +32,7 @@ func update_labels() -> void:
 
 func _on_skin_3_mouse_entered() -> void:
 	skin3.self_modulate=Color.WHITE
+	audio_survolement.play()
 	pass # Replace with function body.
 
 
@@ -42,42 +43,49 @@ func _on_btn_menu_pressed() -> void:
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
 	pass # Replace with function body.
 func _on_skin_1_mouse_entered() -> void:
+	audio_survolement.play()
 	skin1.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_1_mouse_exited() -> void:
 	skin1.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_2_mouse_entered() -> void:
+	audio_survolement.play()
 	skin2.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_2_mouse_exited() -> void:
 	skin2.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_4_mouse_entered() -> void:
+	audio_survolement.play()
 	skin4.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_4_mouse_exited() -> void:
 	skin4.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_5_mouse_entered() -> void:
+	audio_survolement.play()
 	skin5.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_5_mouse_exited() -> void:
 	skin5.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_6_mouse_entered() -> void:
+	audio_survolement.play()
 	skin6.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_6_mouse_exited() -> void:
 	skin6.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_7_mouse_entered() -> void:
+	audio_survolement.play()
 	skin7.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_7_mouse_exited() -> void:
 	skin7.self_modulate=Color.BLACK
 	pass # Replace with function body.
 func _on_skin_8_mouse_entered() -> void:
+	audio_survolement.play()
 	skin8.self_modulate=Color.WHITE
 	pass # Replace with function body.
 func _on_skin_8_mouse_exited() -> void:
@@ -87,48 +95,55 @@ func _on_skin_2_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : blue CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/P2.png"
-			
 	pass # Replace with function body.
 func _on_skin_1_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : red CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/P1.png"
 	pass # Replace with function body.
 func _on_skin_3_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : white CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/skin1.png"
 	pass # Replace with function body.
 func _on_skin_4_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : purple CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/purple.png"
 	pass # Replace with function body.
 func _on_skin_5_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : duo CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/duo.png"
 	pass # Replace with function body.
 func _on_skin_6_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : military CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/military.png"
 	pass # Replace with function body.
 func _on_skin_7_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : human CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/human.png"
 	pass # Replace with function body.
 func _on_skin_8_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			print("P1 : deep CHOISIS")
+			audio_selection.play()
 			Skins.P1="res://images/skins/blue2.png"
 	pass # Replace with function body.

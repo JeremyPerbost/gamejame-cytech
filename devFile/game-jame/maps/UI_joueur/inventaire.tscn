@@ -47,18 +47,23 @@ position = Vector2(979, 66)
 scale = Vector2(1.4475, 1.54)
 texture = ExtResource("1_0ctvo")
 
-[node name="place1" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+[node name="place1_P2" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
 position = Vector2(-57.34, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
 
-[node name="place2" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+[node name="place2_P2" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
 
-[node name="place3" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
+[node name="place3_P2" type="Marker2D" parent="HBoxContainer/inventaire_P2"]
 position = Vector2(50, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
 
+[node name="timer_P2" type="Timer" parent="HBoxContainer/inventaire_P2"]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="HBoxContainer/inventaire_P1/timer_P1" to="." method="_on_timer_p_1_timeout"]
+[connection signal="timeout" from="HBoxContainer/inventaire_P2/timer_P2" to="." method="_on_timer_p_2_timeout"]

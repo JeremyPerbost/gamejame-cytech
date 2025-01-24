@@ -11,12 +11,25 @@ var is_game_running = true
 @onready var score_tp1 = $score_tp1
 @onready var score_tp2 = $score_tp2
 @onready var pause_menu = $pause
+@onready var audio_combat1=$audio_combat1
+@onready var audio_combat2=$audio_combat2
+@onready var audio_combat3=$audio_combat3
+@onready var audio_transition_round=$audio_transition_round
 var is_transition_playing = false
-
+func play_musique():
+	#choisir quelle musique jouer
+	if (Score.score_player1+Score.score_player2<=0):
+		audio_combat1.play()
+	elif ((Score.score_player1+Score.score_player2==1)||((Score.score_player1==Score.score_player2) &&(Score.score_player2==1))) :
+		audio_combat2.play()
+	else:
+		audio_combat3.play()
+	pass
 func _ready():
 	update_timer_display()
 	score_tp1.visible = false
 	score_tp2.visible = false
+	play_musique()
 	
 func start_game():
 	
@@ -87,6 +100,7 @@ func _on_area_toupie_1_winner_round(winner: String) -> void:
 		Score.score_player2 += 1
 		print("Score player 2: " + str(Score.score_player2))
 		play_transition_animation()
+		audio_transition_round.play()
 		await get_tree().create_timer(8.0).timeout 
 		get_tree().reload_current_scene()
 
@@ -96,5 +110,6 @@ func _on_area_toupie_2_winner_round(winner: String) -> void:
 		Score.score_player1 += 1
 		print("Score player 1: " + str(Score.score_player1))
 		play_transition_animation()
+		audio_transition_round.play()
 		await get_tree().create_timer(8.0).timeout 
 		get_tree().reload_current_scene()

@@ -1,55 +1,76 @@
 extends Control
 
-var boost1
-var boost2
-var boost3
+var boost1_P1
+var boost2_P1
+var boost3_P1
 
-var marker1
-var marker2
-var marker3
+var boost1_P2
+var boost2_P2
+var boost3_P2
+
+var marker1P1
+var marker2P1
+var marker3P1
+var marker1P2
+var marker2P2
+var marker3P2
 
 func _ready() -> void:
-	marker1 = $HBoxContainer/inventaire_P1/place1_P1
-	marker2 = $HBoxContainer/inventaire_P1/place2_P1
-	marker3 = $HBoxContainer/inventaire_P1/place3_P1
-#cette fonction permet d'assurer l'affichage correct de l'inventaire. 
-#TOUT LE CODE PRESENT ICI N'EST QUE D'UTILITER GRAPHIQUE !!!
-func _process(delta: float) -> void:
-	raffraichir_inventaire()
-	pass
+	marker1P1 = $HBoxContainer/inventaire_P1/place1_P1
+	marker2P1 = $HBoxContainer/inventaire_P1/place2_P1
+	marker3P1 = $HBoxContainer/inventaire_P1/place3_P1
+	marker1P2 = $HBoxContainer/inventaire_P2/place1_P2
+	marker2P2 = $HBoxContainer/inventaire_P2/place2_P2
+	marker3P2 = $HBoxContainer/inventaire_P2/place3_P2
+
 func _on_timer_p_1_timeout() -> void:
 	var rng = RandomNumberGenerator.new() 
 	var choix = rng.randi_range(0, 1)
-	if boost3!=null:
-		print("TOUT EST REMPLI")
-	elif boost2!=null:
-		if choix==0:
-			P1Inventaire.place3="attaque"
-		else:
-			P1Inventaire.place3="esquive"
-	elif boost1!=null:
-		if choix==0:
-			P1Inventaire.place2="attaque"
-		else:
-			P1Inventaire.place2="esquive"
-	elif boost1==null:
-		if choix==0:
-			P1Inventaire.place1="attaque"
-		else:
-			P1Inventaire.place1="esquive"
-# Fonction générique pour mettre à jour un boost
+	
+	if P1Inventaire.place1 == "vide":
+		P1Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+	elif P1Inventaire.place2 == "vide":
+		P1Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+	elif P1Inventaire.place3 == "vide":
+		P1Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+	else:
+		print("P1 : TOUT EST REMPLI")
+	
+	raffraichir_inventaire()
+
+func _on_timer_p_2_timeout() -> void:
+	var rng = RandomNumberGenerator.new() 
+	var choix = rng.randi_range(0, 1)
+	
+	if P2Inventaire.place1 == "vide":
+		P2Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+	elif P2Inventaire.place2 == "vide":
+		P2Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+	elif P2Inventaire.place3 == "vide":
+		P2Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+	else:
+		print("P2 : TOUT EST REMPLI")
+	
+	raffraichir_inventaire()
+
 func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node:
-	if boost_ref != null:
-		boost_ref.queue_free()  # Supprime l'ancien boost
+	if boost_ref != null and not boost_ref.is_queued_for_deletion():
+		boost_ref.queue_free()
 
 	if place == "attaque":
 		var boost_attaque = preload("res://maps/UI_joueur/boost_attaque.tscn")
+		if boost_attaque == null:
+			print("Erreur : boost_attaque.tscn introuvable")
+			return null
 		var new_boost = boost_attaque.instantiate()
 		new_boost.global_position = marker.global_position
 		get_parent().add_child(new_boost)
 		return new_boost
 	elif place == "esquive":
 		var boost_esquive = preload("res://maps/UI_joueur/boost_esquive.tscn")
+		if boost_esquive == null:
+			print("Erreur : boost_esquive.tscn introuvable")
+			return null
 		var new_boost = boost_esquive.instantiate()
 		new_boost.global_position = marker.global_position
 		get_parent().add_child(new_boost)
@@ -57,15 +78,21 @@ func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node
 	elif place == "vide":
 		return null
 	return null
+func _process(delta: float) -> void:
+	# Vérifie si le joueur 1 appuie sur la touche `ui_!`
+	if Input.is_action_just_pressed("ui_!"):
+		print("Joueur 1 : Touche ! pressée")
+		raffraichir_inventaire()
 
-# Fonction principale pour rafraîchir l'inventaire
+	# Vérifie si le joueur 2 appuie sur la touche `ui_A`
+	if Input.is_action_just_pressed("ui_A"):
+		print("Joueur 2 : Touche A pressée")
+		raffraichir_inventaire()
 func raffraichir_inventaire() -> void:
-	# Met à jour les boosts pour chaque place
-	boost1 = mettre_a_jour_boost(P1Inventaire.place1, boost1, marker1)
-	boost2 = mettre_a_jour_boost(P1Inventaire.place2, boost2, marker2)
-	boost3 = mettre_a_jour_boost(P1Inventaire.place3, boost3, marker3)
+	boost1_P1 = mettre_a_jour_boost(P1Inventaire.place1, boost1_P1, marker1P1)
+	boost2_P1 = mettre_a_jour_boost(P1Inventaire.place2, boost2_P1, marker2P1)
+	boost3_P1 = mettre_a_jour_boost(P1Inventaire.place3, boost3_P1, marker3P1)
 
-	#print("---Inventaire---")
-	#print(P1Inventaire.place1)
-	#print(P1Inventaire.place2)
-	#print(P1Inventaire.place3)
+	boost1_P2 = mettre_a_jour_boost(P2Inventaire.place1, boost1_P2, marker1P2)
+	boost2_P2 = mettre_a_jour_boost(P2Inventaire.place2, boost2_P2, marker2P2)
+	boost3_P2 = mettre_a_jour_boost(P2Inventaire.place3, boost3_P2, marker3P2)

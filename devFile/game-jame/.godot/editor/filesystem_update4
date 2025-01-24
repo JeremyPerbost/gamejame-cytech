@@ -1,0 +1,19 @@
+res://maps/menuprincipal.tscn
+res://script/mvm_toupie1.gd
+res://maps/area_arene.tscn
+res://maps/toupie.tscn
+res://script/mvm_toupie2.gd
+res://maps/area_toupie_1.tscn
+res://maps/UI_joueur/inventaire.tscn
+res://script/Inventaire/inventaire.gd
+res://maps/area_toupie_2.tscn
+res://script/Inventaire/P2inventaire.gd
+res://script/menu pause/menu_pause.gd
+res://script/menuprincipal.gd
+res://script/toupie.gd
+res://maps/transition_screen/transition_screen.tscn
+res://script/animation/transition_round_anim.gd
+res://script/transition/transition_screen.gd
+res://maps/menus/menu_skin/menu_skin.tscn
+res://script/menu skin/menu_skin.gd
+res://maps/EndGame.tscn

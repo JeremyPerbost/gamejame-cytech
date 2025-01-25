@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737754888
+::res://::1737808539
 export_presets.cfg::TextFile::-1::1737632534::0::1::::<><>::
 icon.svg::CompressedTexture2D::7828693113111810836::1737632534::1737632574::1::::<><>::
 ::res://font/::1737632574
@@ -54,7 +54,7 @@ twister.png::CompressedTexture2D::509437083846590725::1737632536::1737632574::1:
 boost_attaque.png::CompressedTexture2D::1774250204749602057::1737632535::1737632574::1::::<><>::
 boost_esquive.png::CompressedTexture2D::6806319588611606239::1737632535::1737632574::1::::<><>::
 power_chest.png::CompressedTexture2D::5786657899132967289::1737632535::1737632574::1::::<><>::
-::res://maps/::1737754132
+::res://maps/::1737755079
 area_arene.tscn::PackedScene::6660441484351840981::1737753798::0::1::::<><>::uid://bvosxsytw56sj::::res://images/Arene.png
 area_toupie_1.tscn::PackedScene::8426577286326958869::1737753798::0::1::::<><>::res://script/mvm_toupie1.gd<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://6qfm6ewxfn3::::res://images/animation/choc_animation.png<>uid://cfny5o8hr32um::::res://images/invicibility_effect.png<>uid://dc6080omtli1x::::res://images/effet_toupie/piege_effect.png<>uid://1jc4yg2ndrdf::::res://images/trounoir_effect.png<>uid://bpi8qxuaqpvni::::res://sons/effets_sonores/chocs/choc 2.MP3
 area_toupie_2.tscn::PackedScene::6848208528581846612::1737753799::0::1::::<><>::uid://lkm1i7m62cc0::::res://images/skins/P2.png<>res://script/mvm_toupie2.gd<>uid://6qfm6ewxfn3::::res://images/animation/choc_animation.png<>uid://cfny5o8hr32um::::res://images/invicibility_effect.png<>uid://dc6080omtli1x::::res://images/effet_toupie/piege_effect.png<>uid://1jc4yg2ndrdf::::res://images/trounoir_effect.png
@@ -62,7 +62,7 @@ boost.tscn::PackedScene::4129880985513525416::1737632536::0::1::::<><>::res://sc
 boost_durability.tscn::PackedScene::5203996854460782127::1737632536::0::1::::<><>::res://script/animation/boost_durability.gd<>uid://1ukyovfi1m10::::res://images/animation/durabilty_animation.png
 boost_trounoir.tscn::PackedScene::8892384897606116158::1737632536::0::1::::<><>::uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>res://script/animation/boost_trounoir_anim.gd
 EndGame.tscn::PackedScene::1601001615287468671::1737753799::0::1::::<><>::res://script/endgame/end_game.gd<>uid://ce3irieqr3grr::::res://images/ecran_de_fin/endingscreen.png<>uid://d1t3sivpduwfu::::res://images/ecran_de_fin/titre_endgame.png<>uid://bv3j62oqsqjtw::::res://images/ecran_de_fin/player2win.png<>uid://b820wmusoikj3::::res://images/animation/price_animation.png<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://brqdcao0d411b::::res://sons/musiques/victoire_loop.mp3<>uid://b8vvw8086vvff::::res://sons/musiques/victoire_start.mp3
-menuprincipal.tscn::PackedScene::6621294078553790608::1737754132::0::1::::<><>::res://script/menuprincipal.gd<>uid://cp5rxki1salxl::::res://images/Menus/background_menuprincipal.png<>uid://ooqeogkjyf1v::::res://sons/musiques/menu_1_loop.mp3<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
+menuprincipal.tscn::PackedScene::6621294078553790608::1737755079::0::1::::<><>::res://script/menuprincipal.gd<>uid://cp5rxki1salxl::::res://images/Menus/background_menuprincipal.png<>uid://ooqeogkjyf1v::::res://sons/musiques/menu_1_loop.mp3<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
 spawner.tscn::PackedScene::1640715329531863795::1737632537::0::1::::<><>::res://script/spawner.gd
 toupie.tscn::PackedScene::3630267885149142572::1737753799::0::1::::<><>::res://script/toupie.gd<>uid://gp7uusjg46v2::::res://images/center.png<>uid://dsb5q5i7h8n8h::::res://maps/area_toupie_1.tscn<>uid://lasmfoubowa0::::res://images/background1.png<>uid://c4tk818om7dw3::::res://maps/area_toupie_2.tscn<>uid://c15mq64cs6bur::::res://maps/area_arene.tscn<>res://script/label.gd<>uid://xm1lvc1bw580::::res://maps/spawner.tscn<>uid://3vkdnwgla3jx::::res://images/animation/round_transition_animation.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b671ut7xj8sjb::::res://maps/UI_joueur/inventaire.tscn<>uid://bluuefjjcnfh4::::res://maps/UI_pause/pause.tscn<>uid://cmbti66acl0qy::::res://sons/combat/combat_1_loop.mp3<>uid://0mfoodjm0b8k::::res://sons/combat/combat_2_loop.mp3<>uid://csddpciwso25g::::res://sons/combat/combat_3_loop.mp3<>uid://cik4btvyw010i::::res://sons/effets_sonores/slach.MP3
 ::res://maps/boost/::1737632537
@@ -72,8 +72,8 @@ boost_invincible.tscn::PackedScene::7805445694877070539::1737632537::0::1::::<><
 boost_piege.tscn::PackedScene::6656701620481433514::1737632537::0::1::::<><>::res://script/animation/boost_piege.gd<>uid://dwmtip5wniank::::res://images/animation/boost_piege_animation.png
 boost_trounoir.tscn::PackedScene::8892384897606116158::1737632537::0::1::::<><>::uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>res://script/animation/boost_trounoir_anim.gd
 ::res://maps/menus/::1737632537
-::res://maps/menus/menu_skin/::1737754841
-menu_skin.tscn::PackedScene::5958115082322425390::1737754841::0::1::::<><>::uid://4wvgikpwwbsu::::res://images/Menus/menu_skin/background_menu_skin.png<>res://script/menu skin/menu_skin.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://ix01sulyyas2::::res://images/skins/skin1.png<>uid://bq54dqfom3o0j::::res://images/skins/purple.png<>uid://clyd3crjxtyct::::res://images/skins/duo.png<>uid://b0ssoci7441wu::::res://images/skins/military.png<>uid://b7jwvgfktxvha::::res://images/skins/human.png<>uid://btbj4f8eblwfj::::res://images/skins/blue2.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://kh6qbfws3keo::::res://sons/musiques/menu_2_loop.mp3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
+::res://maps/menus/menu_skin/::1737755138
+menu_skin.tscn::PackedScene::5958115082322425390::1737755138::0::1::::<><>::uid://4wvgikpwwbsu::::res://images/Menus/menu_skin/background_menu_skin.png<>res://script/menu skin/menu_skin.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://ix01sulyyas2::::res://images/skins/skin1.png<>uid://bq54dqfom3o0j::::res://images/skins/purple.png<>uid://clyd3crjxtyct::::res://images/skins/duo.png<>uid://b0ssoci7441wu::::res://images/skins/military.png<>uid://b7jwvgfktxvha::::res://images/skins/human.png<>uid://btbj4f8eblwfj::::res://images/skins/blue2.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://kh6qbfws3keo::::res://sons/musiques/menu_2_loop.mp3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
 ::res://maps/transition_screen/::1737753799
 transition_screen.tscn::PackedScene::5503760896589119189::1737753799::0::1::::<><>::res://script/transition/transition_screen.gd<>uid://bdbqkt242rcis::::res://sons/effets_sonores/transi.MP3
 ::res://maps/UI_joueur/::1737753799
@@ -82,10 +82,10 @@ boost_esquive.tscn::PackedScene::6267609534427673867::1737632537::0::1::::<><>::
 inventaire.tscn::PackedScene::4629950330727797747::1737753799::0::1::::<><>::uid://copdn7e3ej8wb::::res://images/UI_joueur/power_chest.png<>res://script/Inventaire/inventaire.gd
 ::res://maps/UI_pause/::1737632537
 pause.tscn::PackedScene::3201007278755700615::1737632537::0::1::::<><>::res://script/menu pause/menu_pause.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
-::res://script/::1737753798
+::res://script/::1737754906
 animation_background.gd::GDScript::-1::1737632537::0::1::::<>AnimationPlayer<>::
 label.gd::GDScript::-1::1737632537::0::1::::<>Label<>::
-menuprincipal.gd::GDScript::-1::1737753798::0::1::::Menu_Principal<>Control<>::
+menuprincipal.gd::GDScript::-1::1737754906::0::1::::Menu_Principal<>Control<>::
 mvm_toupie1.gd::GDScript::-1::1737745105::0::1::::<>Area2D<>::
 mvm_toupie2.gd::GDScript::-1::1737739424::0::1::::<>Area2D<>::
 spawner.gd::GDScript::-1::1737632537::0::1::::<>Node2D<>::
@@ -107,8 +107,8 @@ P1inventaire.gd::GDScript::-1::1737632537::0::1::::<>Node<>::
 P2inventaire.gd::GDScript::-1::1737740561::0::1::::<>Node<>::
 ::res://script/menu pause/::1737741199
 menu_pause.gd::GDScript::-1::1737741199::0::1::::<>Control<>::
-::res://script/menu skin/::1737754841
-menu_skin.gd::GDScript::-1::1737754841::0::1::::<>Control<>::
+::res://script/menu skin/::1737754989
+menu_skin.gd::GDScript::-1::1737754989::0::1::::<>Control<>::
 skins.gd::GDScript::-1::1737632538::0::1::::<>Node<>::
 ::res://script/transition/::1737744193
 transition_screen.gd::GDScript::-1::1737744193::0::1::::<>CanvasLayer<>::

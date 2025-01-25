@@ -1,4 +1,4 @@
-res://maps/menus/menu_skin/menu_skin.tscn
-res://script/menuprincipal.gd
-res://script/menu skin/menu_skin.gd
 res://maps/menuprincipal.tscn
+res://script/menuprincipal.gd
+res://maps/menus/menu_skin/menu_skin.tscn
+res://script/menu skin/menu_skin.gd

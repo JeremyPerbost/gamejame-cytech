@@ -50,9 +50,11 @@ func update_panels() -> void:
 		if panel:
 			if chosen_skins[PLAYER1] == skin_texture:
 				panel.self_modulate = Color.RED
+				Skins.P1="res://images/skins/"+skin_texture
 				audio_selection.play()
 			elif chosen_skins[PLAYER2] == skin_texture:
 				panel.self_modulate = Color.GREEN
+				Skins.P2="res://images/skins/"+skin_texture
 				audio_selection.play()
 			else:
 				panel.self_modulate = Color.BLACK

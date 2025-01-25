@@ -20,8 +20,8 @@ var game_skins = {
 }
 
 var chosen_skins = {
-	PLAYER1: "",
-	PLAYER2: ""
+	PLAYER1: "P1.png",
+	PLAYER2: "P2.png"
 }
 @onready var audio_selection=$audio_selection
 @onready var audio_survolement=$audio_survolement

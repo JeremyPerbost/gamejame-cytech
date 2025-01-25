@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1ln0mql0f51m"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ln0mql0f51m"]
 
 [ext_resource type="Script" path="res://script/menuprincipal.gd" id="1_la1kg"]
 [ext_resource type="Texture2D" uid="uid://cp5rxki1salxl" path="res://images/Menus/background_menuprincipal.png" id="2_ppfgu"]
 [ext_resource type="AudioStream" uid="uid://ooqeogkjyf1v" path="res://sons/musiques/menu_1_loop.mp3" id="4_pfgf7"]
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="4_xl01l"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="5_aj02l"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="6_4gd2g"]
 
 [node name="Menu_Principal" type="Control"]
 layout_mode = 3
@@ -112,5 +114,15 @@ stream = ExtResource("4_pfgf7")
 autoplay = true
 parameters/looping = true
 
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_aj02l")
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4gd2g")
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin2" to="." method="_on_btn_skin_2_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin2" to="." method="_on_btn_skin_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]

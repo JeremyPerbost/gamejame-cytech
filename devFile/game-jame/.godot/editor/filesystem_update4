@@ -1,4 +1,5 @@
-res://maps/menuprincipal.tscn
 res://script/menuprincipal.gd
+res://maps/menuprincipal.tscn
 res://maps/menus/menu_skin/menu_skin.tscn
-res://script/menu skin/menu_skin.gd
+res://maps/UI_pause/pause.tscn
+res://script/menu pause/menu_pause.gd

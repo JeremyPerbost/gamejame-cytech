@@ -1,0 +1,704 @@
+[gd_scene load_steps=58 format=3 uid="uid://dy3rhq2lhlhey"]
+
+[ext_resource type="Script" path="res://script/collection_menu_script/collection_menu.gd" id="1_jtsua"]
+[ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_tw243"]
+[ext_resource type="Texture2D" uid="uid://b8c5mex54uxl5" path="res://images/animation/boost_animation.png" id="3_mamh8"]
+[ext_resource type="Texture2D" uid="uid://dl6wlky5ldsv6" path="res://images/animation/boost_invincibility_animation.png" id="4_qn380"]
+[ext_resource type="Texture2D" uid="uid://dwmtip5wniank" path="res://images/animation/boost_piege_animation.png" id="5_6xum6"]
+[ext_resource type="Texture2D" uid="uid://dn3g8ayidimwk" path="res://images/animation/trounoir_anim.png" id="6_g7ubv"]
+[ext_resource type="Texture2D" uid="uid://1ukyovfi1m10" path="res://images/animation/durabilty_animation.png" id="7_2vavd"]
+[ext_resource type="Texture2D" uid="uid://0jpv20pmp37b" path="res://images/UI_joueur/boost_attaque.png" id="8_1o85p"]
+[ext_resource type="Texture2D" uid="uid://c38bdbei160kp" path="res://images/UI_joueur/boost_esquive.png" id="9_fb0vu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tpg2"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4qk2"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8genv"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp5c8"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utbsv"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6mdc"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(20, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gior5"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(40, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqa5f"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(60, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k75jq"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(0, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0elyl"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(20, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0vh5"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(40, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsp6k"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(60, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdckc"]
+atlas = ExtResource("3_mamh8")
+region = Rect2(0, 60, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lj3ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tpg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4qk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8genv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp5c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utbsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6mdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gior5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqa5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k75jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0elyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0vh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsp6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdckc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3lk8"]
+atlas = ExtResource("4_qn380")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsqok"]
+atlas = ExtResource("4_qn380")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52d7g"]
+atlas = ExtResource("4_qn380")
+region = Rect2(38, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grdta"]
+atlas = ExtResource("4_qn380")
+region = Rect2(0, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8ya3"]
+atlas = ExtResource("4_qn380")
+region = Rect2(19, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82s6g"]
+atlas = ExtResource("4_qn380")
+region = Rect2(38, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iklq"]
+atlas = ExtResource("4_qn380")
+region = Rect2(0, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q5gw"]
+atlas = ExtResource("4_qn380")
+region = Rect2(19, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvolh"]
+atlas = ExtResource("4_qn380")
+region = Rect2(38, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob72d"]
+atlas = ExtResource("4_qn380")
+region = Rect2(0, 57, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp4g"]
+atlas = ExtResource("4_qn380")
+region = Rect2(19, 57, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1erx"]
+atlas = ExtResource("4_qn380")
+region = Rect2(38, 57, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ji2li"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_x3lk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsqok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52d7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grdta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8ya3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82s6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iklq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q5gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvolh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob72d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsp4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1erx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30yka"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm5cd"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p32h"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6kmm"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcve4"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jltwd"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(50, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frase"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(0, 50, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl55c"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(25, 50, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc2ho"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(50, 50, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em2a6"]
+atlas = ExtResource("5_6xum6")
+region = Rect2(0, 75, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx86l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30yka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm5cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p32h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6kmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcve4")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_jltwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frase")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl55c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc2ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em2a6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8eue"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j52i1"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef32m"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(0, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j16k"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(19, 19, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3rlu"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(0, 38, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ndv"]
+atlas = ExtResource("6_g7ubv")
+region = Rect2(19, 38, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5xnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8eue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j52i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef32m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j16k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3rlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ndv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6m5u"]
+atlas = ExtResource("7_2vavd")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qtk"]
+atlas = ExtResource("7_2vavd")
+region = Rect2(0, 10, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ios5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6m5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qtk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CollectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jtsua")
+
+[node name="label_player1" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_tw243")
+theme_override_font_sizes/font_size = 50
+text = "Collection"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.5
+offset_top = -37.5
+offset_right = 516.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label_player2" type="Label" parent="HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tw243")
+theme_override_font_sizes/font_size = 50
+text = "Nothing to see here yet,  play the game to get achievements ;)"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -252.0
+offset_right = 506.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="collectable1" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_skin1" type="Label" parent="GridContainer/collectable1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Speed Boost"
+horizontal_alignment = 1
+
+[node name="boost_animation" type="AnimatedSprite2D" parent="GridContainer/collectable1"]
+texture_filter = 1
+position = Vector2(125, 134)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_lj3ag")
+frame = 12
+frame_progress = 0.815845
+speed_scale = 3.0
+
+[node name="speedBoost_description_dialog" type="Panel" parent="GridContainer/collectable1"]
+offset_top = 4.0
+offset_right = 250.0
+offset_bottom = 253.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable1/speedBoost_description_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.217
+anchor_bottom = 0.217
+offset_left = 8.0
+offset_top = 0.0139999
+offset_right = 223.0
+offset_bottom = 49.014
+text = "This boost allows you to gain
+extra speed."
+
+[node name="collectable2" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_skin2" type="Label" parent="GridContainer/collectable2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "invincibility Boost
+"
+horizontal_alignment = 1
+
+[node name="boost_invincible_animation" type="AnimatedSprite2D" parent="GridContainer/collectable2"]
+texture_filter = 1
+position = Vector2(123, 132)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_ji2li")
+speed_scale = 3.0
+
+[node name="invincibility_boost_dialog" type="Panel" parent="GridContainer/collectable2"]
+offset_top = 4.0
+offset_right = 249.0
+offset_bottom = 251.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable2/invincibility_boost_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.217
+anchor_bottom = 0.217
+offset_left = 8.0
+offset_top = 0.0139999
+offset_right = 223.0
+offset_bottom = 49.014
+text = "This boost allows you to be
+invincible for a short duration."
+horizontal_alignment = 3
+
+[node name="collectable3" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_skin3" type="Label" parent="GridContainer/collectable3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Trap boost"
+horizontal_alignment = 1
+
+[node name="trap_boost_animation" type="AnimatedSprite2D" parent="GridContainer/collectable3"]
+texture_filter = 1
+position = Vector2(125, 138)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_tx86l")
+speed_scale = 1.55
+
+[node name="trap_boost_dialog" type="Panel" parent="GridContainer/collectable3"]
+offset_top = 4.0
+offset_right = 249.0
+offset_bottom = 250.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable3/trap_boost_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.217
+anchor_right = 0.032
+anchor_bottom = 0.217
+offset_top = 0.0139999
+offset_right = 236.0
+offset_bottom = 49.014
+text = "This boost traps your enemy
+stopping them to move."
+horizontal_alignment = 3
+
+[node name="collectable4" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_skin4" type="Label" parent="GridContainer/collectable4"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Black hole boost"
+horizontal_alignment = 1
+
+[node name="black_hole_boost_animated" type="AnimatedSprite2D" parent="GridContainer/collectable4"]
+texture_filter = 1
+position = Vector2(126, 141)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_y5xnn")
+
+[node name="blackHole_boost_dialog" type="Panel" parent="GridContainer/collectable4"]
+offset_top = 4.0
+offset_right = 250.0
+offset_bottom = 250.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable4/blackHole_boost_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.228
+anchor_right = 0.032
+anchor_bottom = 0.228
+offset_top = -0.0880051
+offset_right = 215.0
+offset_bottom = 48.912
+text = "A black hole boost which
+traps you on the center of the 
+arena."
+horizontal_alignment = 3
+
+[node name="collectable5" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="label_skin5" type="Label" parent="GridContainer/collectable5"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Durability boost"
+horizontal_alignment = 1
+
+[node name="durability_animation" type="AnimatedSprite2D" parent="GridContainer/collectable5"]
+texture_filter = 1
+position = Vector2(125, 134)
+scale = Vector2(14, 14)
+sprite_frames = SubResource("SpriteFrames_6ios5")
+speed_scale = 0.2
+
+[node name="durability_boost_dialog" type="Panel" parent="GridContainer/collectable5"]
+offset_top = 4.0
+offset_right = 250.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable5/durability_boost_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.229
+anchor_bottom = 0.229
+offset_left = 8.0
+offset_top = -0.105003
+offset_right = 223.0
+offset_bottom = 48.895
+text = "This boost allows you to be
+invincible for a short duration"
+horizontal_alignment = 3
+
+[node name="collectable6" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="dash_sprite" type="Sprite2D" parent="GridContainer/collectable6"]
+texture_filter = 1
+position = Vector2(127, 132)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("8_1o85p")
+
+[node name="label_skin6" type="Label" parent="GridContainer/collectable6"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Dash"
+horizontal_alignment = 1
+
+[node name="dash_dialog" type="Panel" parent="GridContainer/collectable6"]
+offset_top = 4.0
+offset_right = 250.0
+offset_bottom = 248.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable6/dash_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23
+anchor_bottom = 0.23
+offset_left = 8.0
+offset_top = -0.120003
+offset_right = 223.0
+offset_bottom = 48.88
+text = "You can dash to attack or
+dodge your enemy."
+horizontal_alignment = 3
+
+[node name="collectable7" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="teleport_sprite" type="Sprite2D" parent="GridContainer/collectable7"]
+texture_filter = 1
+position = Vector2(116, 132)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("9_fb0vu")
+
+[node name="label_skin7" type="Label" parent="GridContainer/collectable7"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "Teleport"
+horizontal_alignment = 1
+
+[node name="teleport_dialog" type="Panel" parent="GridContainer/collectable7"]
+offset_top = 4.0
+offset_right = 250.0
+offset_bottom = 251.0
+
+[node name="Label" type="Label" parent="GridContainer/collectable7/teleport_dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23
+anchor_bottom = 0.23
+offset_left = 8.0
+offset_top = -0.120003
+offset_right = 223.0
+offset_bottom = 48.88
+text = "You can teleport to the
+opposite area."
+horizontal_alignment = 3

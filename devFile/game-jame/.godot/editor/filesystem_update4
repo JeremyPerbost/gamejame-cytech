@@ -1,6 +1,8 @@
+res://maps/menus/collection_menu/collectionMenu.tscn
 res://script/menuprincipal.gd
 res://maps/menuprincipal.tscn
+res://maps/boost/boost.tscn
+res://script/collection_menu_script/collection_menu.gd
+res://maps/boost/boost_piege.tscn
+res://maps/boost/boost_durability.tscn
 res://maps/menus/menu_skin/menu_skin.tscn
-res://maps/UI_pause/pause.tscn
-res://script/menu pause/menu_pause.gd
-res://script/menu skin/menu_skin.gd

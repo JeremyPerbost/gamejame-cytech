@@ -1,1 +1,10 @@
+Label
+Panel
+AnimatedSprite2D
+Sprite2D
+GridContainer
+Button
+VBoxContainer
+HBoxContainer
+Control
 AudioStreamPlayer2D

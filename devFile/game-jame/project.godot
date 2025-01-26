@@ -22,6 +22,7 @@ TransitionScreen="*res://maps/transition_screen/transition_screen.tscn"
 P2Inventaire="*res://script/Inventaire/P2inventaire.gd"
 P1Inventaire="*res://script/Inventaire/P1inventaire.gd"
 Skins="*res://script/menu skin/skins.gd"
+Collectables="*res://script/GlobalVariables/Collectables.gd"
 
 [display]
 

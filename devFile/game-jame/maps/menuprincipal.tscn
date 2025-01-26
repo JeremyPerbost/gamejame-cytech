@@ -75,7 +75,7 @@ text = "Skins"
 [node name="Separateur2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="btn_skin2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="btn_collection" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
@@ -123,6 +123,6 @@ stream = ExtResource("6_4gd2g")
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin2" to="." method="_on_btn_skin_2_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin2" to="." method="_on_btn_skin_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection" to="." method="_on_btn_collection_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection" to="." method="_on_btn_collection_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]

@@ -27,14 +27,22 @@ func _on_btn_skin_pressed() -> void:
 	audio_selection.play()
 	TransitionScreen.transition("res://maps/menus/menu_skin/menu_skin.tscn")
 
+
 func _on_button_mouse_entered() -> void:
 	audio_survolement.play()
 
 func _on_btn_skin_mouse_entered() -> void:
 	audio_survolement.play()
 
-func _on_btn_skin_2_mouse_entered() -> void:
-	audio_survolement.play()
-
 func _on_button_2_mouse_entered() -> void:
 	audio_survolement.play()
+
+
+
+func _on_btn_collection_mouse_entered() -> void:
+	audio_survolement.play()
+
+
+func _on_btn_collection_pressed() -> void:
+	audio_selection.play()
+	TransitionScreen.transition("res://maps/menus/collection_menu/collectionMenu.tscn")

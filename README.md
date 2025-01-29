@@ -22,3 +22,5 @@ piege_boost : piege la toupie de l'adversaire et l'empeche de bouger durant une 
 <img width="574" alt="image" src="https://github.com/user-attachments/assets/d17ae11b-d112-41b9-994b-c27120233abc">
 <img width="574" alt="image" src="https://github.com/user-attachments/assets/6dd9e347-6815-426e-af1e-f012bfc39a49">
 <img width="574" alt="image" src="https://github.com/user-attachments/assets/ea9a1dbc-718c-494c-8804-cb1e17ec322b">
+<img width="574" alt="image" src="https://github.com/user-attachments/assets/ae5449f3-2ab3-4deb-8005-19dea871d427">
+

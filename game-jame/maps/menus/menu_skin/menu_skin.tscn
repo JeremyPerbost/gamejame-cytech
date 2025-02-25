@@ -1,0 +1,315 @@
+[gd_scene load_steps=17 format=3 uid="uid://cq5fjxmjj7we5"]
+
+[ext_resource type="Texture2D" uid="uid://4wvgikpwwbsu" path="res://images/Menus/menu_skin/background_menu_skin.png" id="1_ingg1"]
+[ext_resource type="Script" path="res://script/menu skin/menu_skin.gd" id="1_xcm57"]
+[ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_fhr6d"]
+[ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="3_e0yiw"]
+[ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/skins/P2.png" id="4_ciy6r"]
+[ext_resource type="Texture2D" uid="uid://ix01sulyyas2" path="res://images/skins/skin1.png" id="5_q7l07"]
+[ext_resource type="Texture2D" uid="uid://bq54dqfom3o0j" path="res://images/skins/purple.png" id="7_hauuv"]
+[ext_resource type="Texture2D" uid="uid://clyd3crjxtyct" path="res://images/skins/duo.png" id="8_rxumk"]
+[ext_resource type="Texture2D" uid="uid://b0ssoci7441wu" path="res://images/skins/military.png" id="9_nxev5"]
+[ext_resource type="Texture2D" uid="uid://b7jwvgfktxvha" path="res://images/skins/human.png" id="10_qpq6w"]
+[ext_resource type="Texture2D" uid="uid://btbj4f8eblwfj" path="res://images/skins/blue2.png" id="11_iif1b"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="12_cwxke"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="14_kaqno"]
+
+[sub_resource type="Animation" id="Animation_5q2r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background_menu_skin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2800, 326)]
+}
+
+[sub_resource type="Animation" id="Animation_udrm3"]
+resource_name = "default"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background_menu_skin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2800, 326), Vector2(-1600, 326)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rduw8"]
+_data = {
+"RESET": SubResource("Animation_5q2r4"),
+"default": SubResource("Animation_udrm3")
+}
+
+[node name="MenuSkin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcm57")
+
+[node name="label_player1" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -6.0
+offset_top = -5.0
+offset_right = 1152.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_fhr6d")
+theme_override_font_sizes/font_size = 50
+text = "Choose your Spacecraft"
+horizontal_alignment = 1
+
+[node name="Animation_background_skin_menu" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rduw8")
+}
+autoplay = "default"
+
+[node name="background_menu_skin" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2800, 326)
+scale = Vector2(28, 28)
+texture = ExtResource("1_ingg1")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 89.0
+offset_right = 1132.0
+offset_bottom = 593.0
+columns = 4
+
+[node name="skin1" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin1" type="Sprite2D" parent="GridContainer/skin1"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("3_e0yiw")
+
+[node name="label_skin1" type="Label" parent="GridContainer/skin1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "RED"
+horizontal_alignment = 1
+
+[node name="skin2" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin2" type="Sprite2D" parent="GridContainer/skin2"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("4_ciy6r")
+
+[node name="label_skin2" type="Label" parent="GridContainer/skin2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "BLUE
+"
+horizontal_alignment = 1
+
+[node name="skin3" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin3" type="Sprite2D" parent="GridContainer/skin3"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("5_q7l07")
+
+[node name="label_skin3" type="Label" parent="GridContainer/skin3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "WHITE
+"
+horizontal_alignment = 1
+
+[node name="skin4" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin4" type="Sprite2D" parent="GridContainer/skin4"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("7_hauuv")
+
+[node name="label_skin4" type="Label" parent="GridContainer/skin4"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "PURPLE
+"
+horizontal_alignment = 1
+
+[node name="skin5" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin5" type="Sprite2D" parent="GridContainer/skin5"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("8_rxumk")
+
+[node name="label_skin5" type="Label" parent="GridContainer/skin5"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "DUO
+"
+horizontal_alignment = 1
+
+[node name="skin6" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin6" type="Sprite2D" parent="GridContainer/skin6"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("9_nxev5")
+
+[node name="label_skin6" type="Label" parent="GridContainer/skin6"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "MILITARY
+"
+horizontal_alignment = 1
+
+[node name="skin7" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin7" type="Sprite2D" parent="GridContainer/skin7"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("10_qpq6w")
+
+[node name="label_skin7" type="Label" parent="GridContainer/skin7"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "HUMAN"
+horizontal_alignment = 1
+
+[node name="skin8" type="Panel" parent="GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="spr_skin8" type="Sprite2D" parent="GridContainer/skin8"]
+texture_filter = 1
+position = Vector2(126, 135)
+scale = Vector2(10, 10)
+texture = ExtResource("11_iif1b")
+
+[node name="label_skin8" type="Label" parent="GridContainer/skin8"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 27.0
+text = "DEEP"
+horizontal_alignment = 1
+
+[node name="btn_menu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_fhr6d")
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_cwxke")
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_kaqno")
+
+[connection signal="gui_input" from="GridContainer/skin1" to="." method="_on_skin_1_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin1" to="." method="_on_skin_1_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin1" to="." method="_on_skin_1_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin2" to="." method="_on_skin_2_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin2" to="." method="_on_skin_2_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin2" to="." method="_on_skin_2_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin3" to="." method="_on_skin_3_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin3" to="." method="_on_skin_3_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin3" to="." method="_on_skin_3_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin4" to="." method="_on_skin_4_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin4" to="." method="_on_skin_4_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin4" to="." method="_on_skin_4_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin5" to="." method="_on_skin_5_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin5" to="." method="_on_skin_5_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin5" to="." method="_on_skin_5_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin6" to="." method="_on_skin_6_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin6" to="." method="_on_skin_6_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin6" to="." method="_on_skin_6_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin7" to="." method="_on_skin_7_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin7" to="." method="_on_skin_7_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin7" to="." method="_on_skin_7_mouse_exited"]
+[connection signal="gui_input" from="GridContainer/skin8" to="." method="_on_skin_8_gui_input"]
+[connection signal="mouse_entered" from="GridContainer/skin8" to="." method="_on_skin_8_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/skin8" to="." method="_on_skin_8_mouse_exited"]
+[connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]

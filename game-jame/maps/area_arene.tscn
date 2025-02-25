@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c15mq64cs6bur"]
+
+[ext_resource type="Texture2D" uid="uid://bvosxsytw56sj" path="res://images/Arene.png" id="1_e8c4u"]
+
+[sub_resource type="GDScript" id="GDScript_rd4ia"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Area_arene" type="Area2D"]
+script = SubResource("GDScript_rd4ia")
+
+[node name="spr_arene" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_e8c4u")

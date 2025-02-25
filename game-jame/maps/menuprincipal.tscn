@@ -1,0 +1,188 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1ln0mql0f51m"]
+
+[ext_resource type="Script" path="res://script/menuprincipal.gd" id="1_la1kg"]
+[ext_resource type="Texture2D" uid="uid://bdypi36k5gn33" path="res://images/Menus/background/background_combat_pierre.png" id="2_37b3i"]
+[ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="3_7bt2j"]
+[ext_resource type="Texture2D" uid="uid://dwixeqo2floy6" path="res://images/animation/animation_menu/Title_animation.png" id="3_kgmuf"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="5_aj02l"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="6_4gd2g"]
+[ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/skins/P2.png" id="7_yw73c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxbsc"]
+radius = 39.3192
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkqw"]
+atlas = ExtResource("3_kgmuf")
+region = Rect2(0, 0, 80, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoxqb"]
+atlas = ExtResource("3_kgmuf")
+region = Rect2(0, 25, 80, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eosby"]
+atlas = ExtResource("3_kgmuf")
+region = Rect2(0, 50, 80, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8dek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoxqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eosby")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Menu_Principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la1kg")
+
+[node name="BackgroundAnimeeSprite-converter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(571, 325.5)
+scale = Vector2(5.92, 4.47333)
+texture = ExtResource("2_37b3i")
+
+[node name="area_toupie_menu" type="Area2D" parent="."]
+position = Vector2(-1, -2)
+metadata/_edit_group_ = true
+
+[node name="collision_toupie_menu" type="CollisionShape2D" parent="area_toupie_menu"]
+shape = SubResource("CircleShape2D_gxbsc")
+
+[node name="sprite_toupie_menu" type="Sprite2D" parent="area_toupie_menu/collision_toupie_menu"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("3_7bt2j")
+
+[node name="area_toupie_menu2" type="Area2D" parent="."]
+position = Vector2(-1, -2)
+metadata/_edit_group_ = true
+
+[node name="collision_toupie_menu2" type="CollisionShape2D" parent="area_toupie_menu2"]
+shape = SubResource("CircleShape2D_gxbsc")
+
+[node name="sprite_toupie_menu2" type="Sprite2D" parent="area_toupie_menu2/collision_toupie_menu2"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("7_yw73c")
+
+[node name="version" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1042.0
+offset_top = 618.0
+offset_right = 1136.0
+offset_bottom = 641.0
+text = "V1.0"
+horizontal_alignment = 2
+
+[node name="crédits" type="Label" parent="."]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 616.0
+offset_right = 536.0
+offset_bottom = 639.0
+text = "Crédits : CYTECH-JEREMY PERBOST-FELLIPE ZANI-ALEXIS LAMBERT"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Title_animation" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+position = Vector2(98, -67)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_y8dek")
+autoplay = "default"
+frame_progress = 0.957033
+
+[node name="Separateur" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Start Game"
+
+[node name="Separateur3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_skin" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Skins"
+
+[node name="Separateur2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_collection" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Collection"
+
+[node name="Separateur4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_collection2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Parametre"
+
+[node name="Separateur5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Exit Game"
+
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_aj02l")
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4gd2g")
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_skin" to="." method="_on_btn_skin_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection" to="." method="_on_btn_collection_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection" to="." method="_on_btn_collection_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection2" to="." method="_on_btn_collection_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_collection2" to="." method="_on_btn_collection_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]

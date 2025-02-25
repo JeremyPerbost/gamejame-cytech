@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://difdnnu0ea12a"]
+
+[ext_resource type="Texture2D" uid="uid://0jpv20pmp37b" path="res://images/UI_joueur/boost_attaque.png" id="1_e0iug"]
+
+[node name="BoostAttaque" type="Node2D"]
+
+[node name="spr_boost_attaque" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_e0iug")

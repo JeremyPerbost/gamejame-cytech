@@ -136,8 +136,8 @@ text = "multiplayer"
 
 [node name="Button_start_solo" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "solo
-"
+size_flags_horizontal = 0
+text = "singleplayer"
 
 [connection signal="gui_input" from="GridContainer/Panel_area1" to="." method="_on_panel_area_1_gui_input"]
 [connection signal="mouse_entered" from="GridContainer/Panel_area1" to="." method="_on_panel_area_1_mouse_entered"]

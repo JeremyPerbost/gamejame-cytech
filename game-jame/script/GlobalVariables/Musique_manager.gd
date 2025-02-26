@@ -6,8 +6,8 @@ var curseur:float=0.0
 func _ready() -> void:
 	musique_en_cours=AudioStreamPlayer.new()
 	add_child(musique_en_cours)
-	pass # Replace with function body.
-
+	musique_en_cours.volume_db=-12
+	
 func jouer(stream: AudioStream):
 	if musique_en_cours.stream==stream:#securite pour ne pas relancer la meme musique
 		return

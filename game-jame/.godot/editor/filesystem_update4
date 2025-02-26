@@ -3,6 +3,7 @@ res://script/GlobalVariables/Musique_manager.gd
 res://script/menuprincipal.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
-res://script/menu skin/menu_skin.gd
 res://maps/menus/collection_menu/collectionMenu.tscn
-res://script/collection_menu_script/collection_menu.gd
+res://maps/menus/menu_arene/menu_arene.tscn
+res://maps/UI_joueur/boost_attaque.tscn
+res://default_bus_layout.tres

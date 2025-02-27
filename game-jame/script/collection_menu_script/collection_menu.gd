@@ -38,7 +38,6 @@ var columns = 4  # Nombre de colonnes dans la grille
 var rows = 2  # Nombre de lignes (calculé automatiquement)
 
 func _ready() -> void:
-	# Lancer les animations des collectables
 	MusiqueManager.jouer(load("res://sons/musiques/menu_2_loop.mp3"))
 	anim_speed_boost.play()
 	anim_invicibility_boost.play()
@@ -72,7 +71,7 @@ func handle_navigation():
 	var moved = false  # Variable pour savoir si on a changé de sélection
 
 	# Déplacement à droite (ignorer les cases non découvertes)
-	if Input.is_action_just_pressed("ui_right") or Input.get_action_strength("move_right") > 0.5:
+	if Input.is_action_just_pressed("ui_right") or Input.get_action_strength("ui_p1_right") > 0.5:
 		var next_index = hover_index
 		while next_index + 1 < collectables.size():  
 			next_index += 1
@@ -82,7 +81,7 @@ func handle_navigation():
 				break
 
 	# Déplacement à gauche
-	elif Input.is_action_just_pressed("ui_left") or Input.get_action_strength("move_left") > 0.5:
+	elif Input.is_action_just_pressed("ui_left") or Input.get_action_strength("ui_p1_left") > 0.5:
 		var prev_index = hover_index
 		while prev_index - 1 >= 0:
 			prev_index -= 1
@@ -92,7 +91,7 @@ func handle_navigation():
 				break
 
 	# Déplacement vers le haut
-	elif Input.is_action_just_pressed("ui_up") or Input.get_action_strength("move_up") > 0.5:
+	elif Input.is_action_just_pressed("ui_up") or Input.get_action_strength("ui_p1_up") > 0.5:
 		var new_index = hover_index
 		while new_index - columns >= 0:
 			new_index -= columns
@@ -102,7 +101,7 @@ func handle_navigation():
 				break
 
 	# Déplacement vers le bas
-	elif Input.is_action_just_pressed("ui_down") or Input.get_action_strength("move_down") > 0.5:
+	elif Input.is_action_just_pressed("ui_down") or Input.get_action_strength("ui_p1_down") > 0.5:
 		var new_index = hover_index
 		while new_index + columns < collectables.size():
 			new_index += columns

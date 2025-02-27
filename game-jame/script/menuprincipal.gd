@@ -30,6 +30,7 @@ var navigation_timer = 0.0  # Timer de navigation
 var dissolve_progress=0
 func _ready() -> void:
 	# Ajouter les boutons dans la liste pour la navigation
+	SaveManager.Load()
 	MusiqueManager.jouer(load("res://sons/musiques/menu_1_loop.mp3"))
 	menu_buttons = [start_button, btn_skin, btn_collection, btn_collection2, exit_button]
 

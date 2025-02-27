@@ -7,6 +7,7 @@ var player2_title = preload("res://images/ecran_de_fin/player2win.png")
 var bouton_selectionner=0
 var rotate_speed : float =0.04
 func _ready() -> void:
+	SaveManager.Save()
 	MusiqueManager.stop()
 	$Statistique/Stat_player1/label_vitesse_max_P1.text = "max speed : %.1f KM/H" % (Score.max_speed_player1 / 100.0)
 	$Statistique/Stat_player1/label_distanceP1.text = "distance traveled : %.1f M" % (Score.distanceP1 / 100.0)

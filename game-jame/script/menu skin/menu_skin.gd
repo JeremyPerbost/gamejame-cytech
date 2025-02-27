@@ -142,4 +142,5 @@ func remove_skin(player):
 
 ### 🎮 **Bouton retour au menu principal** ###
 func _on_btn_menu_pressed() -> void:
+	SaveManager.Save()
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")

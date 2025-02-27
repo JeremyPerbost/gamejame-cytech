@@ -11,6 +11,7 @@ var is_paused = false
 var pause_options = []
 
 func _ready() -> void:
+	SaveManager.Save()
 	pause_options = [btn_continuer, btn_quitter]
 	_update_pause_selection()
 

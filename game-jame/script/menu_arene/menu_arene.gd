@@ -112,6 +112,5 @@ func _on_play_btn_pressed() -> void:
 			Arene.arene = "res://images/Menus/background/background_combat_space.png"
 		2:
 			Arene.arene = "res://images/Menus/background/background_combat_sand.png"
-	
 	audio_selection.play()
 	TransitionScreen.transition("res://maps/toupie.tscn")

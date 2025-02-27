@@ -27,7 +27,8 @@ extends Control
 	$GridContainer/collectable6,
 	$GridContainer/collectable7
 ]
-
+var collectables_discovered=Collectables.collectables
+# Liste qui indique si un collectable a été découvert (1 = découvert, 0 = non découvert)
 var hover_index = 0  # L'élément actuellement sélectionné
 var navigation_delay = 0.2  # Délai pour éviter le spam
 var navigation_timer = 0.0  # Timer pour la navigation
@@ -53,6 +54,9 @@ func _ready() -> void:
 	# Définir le nombre de lignes de la grille en fonction du nombre total d'items
 	rows = ceil(float(collectables.size()) / columns)
 
+	# Mettre à jour la disponibilité des collectables
+	update_collectables_availability()
+
 	# Mettre en surbrillance le premier élément sans afficher la description
 	update_selection(false)
 
@@ -65,67 +69,105 @@ func handle_navigation():
 	if navigation_timer < navigation_delay:
 		return  # Empêche le spam de navigation
 
-	# Déplacement à droite
+	var moved = false  # Variable pour savoir si on a changé de sélection
+
+	# Déplacement à droite (ignorer les cases non découvertes)
 	if Input.is_action_just_pressed("ui_right") or Input.get_action_strength("move_right") > 0.5:
-		if (hover_index + 1) % columns != 0 and hover_index + 1 < collectables.size():
-			hover_index += 1
-			survolement.play()
-			update_selection(false)
-			navigation_timer = 0.0  
+		var next_index = hover_index
+		while next_index + 1 < collectables.size():  
+			next_index += 1
+			if collectables_discovered[next_index] == 1:
+				hover_index = next_index
+				moved = true
+				break
 
 	# Déplacement à gauche
 	elif Input.is_action_just_pressed("ui_left") or Input.get_action_strength("move_left") > 0.5:
-		if hover_index % columns != 0:
-			hover_index -= 1
-			survolement.play()
-			update_selection(false)
-			navigation_timer = 0.0  
+		var prev_index = hover_index
+		while prev_index - 1 >= 0:
+			prev_index -= 1
+			if collectables_discovered[prev_index] == 1:
+				hover_index = prev_index
+				moved = true
+				break
 
-	# Déplacement vers le haut (sauter une ligne)
+	# Déplacement vers le haut
 	elif Input.is_action_just_pressed("ui_up") or Input.get_action_strength("move_up") > 0.5:
-		if hover_index - columns >= 0:
-			hover_index -= columns
-			survolement.play()
-			update_selection(false)
-			navigation_timer = 0.0
+		var new_index = hover_index
+		while new_index - columns >= 0:
+			new_index -= columns
+			if collectables_discovered[new_index] == 1:
+				hover_index = new_index
+				moved = true
+				break
 
-	# Déplacement vers le bas (descendre une ligne)
+	# Déplacement vers le bas
 	elif Input.is_action_just_pressed("ui_down") or Input.get_action_strength("move_down") > 0.5:
-		if hover_index + columns < collectables.size():
-			hover_index += columns
-			survolement.play()
-			update_selection(false)
-			navigation_timer = 0.0
+		var new_index = hover_index
+		while new_index + columns < collectables.size():
+			new_index += columns
+			if collectables_discovered[new_index] == 1:
+				hover_index = new_index
+				moved = true
+				break
 
-	# Sélectionner un collectable (ouvrir la description)
+	# Si on a changé de case, mettre à jour la sélection avec la description visible
+	if moved:
+		survolement.play()
+		update_selection(false)  # Mettre true pour afficher la description
+		navigation_timer = 0.0
+
+	# Sélectionner un collectable (ouvrir/fermer la description)
 	if Input.is_action_just_pressed("ui_p1_A"):
 		toggle_dialog()
 
-	# Retour au menu avec "B" sur la manette ou "Échap"
+	# Retour au menu
 	if Input.is_action_just_pressed("ui_p1_B"):
 		on_menu_pressed()
 
 func update_selection(show_description: bool):
-	# Réinitialiser toutes les couleurs et cacher les dialogues
+	# Réinitialiser toutes les descriptions et enlever les styles précédents
 	for i in range(collectables.size()):
-		collectables[i].modulate = Color(1, 1, 1, 1)  # Normal
-		dialog_list[i].hide()  # Masquer tous les dialogues
+		collectables[i].remove_theme_stylebox_override("panel")
+		dialog_list[i].hide()  # Cacher toutes les descriptions
 
-	# Appliquer une mise en avant sur l'élément sélectionné
-	collectables[hover_index].modulate = Color(0.42, 0.42, 0.42, 1)  # Jaune clair pour mettre en avant
+		# Rendre indisponible les non-découverts
+		if collectables_discovered[i] == 0:
+			collectables[i].modulate = Color(0, 0, 0, 1)  # Noir
+		else:
+			collectables[i].modulate = Color(1, 1, 1, 1)  # Normal
 
-	# Afficher la description seulement si demandé
-	if show_description:
-		dialog_list[hover_index].show()
+	# Ajouter un contour blanc et afficher la description si découvert
+	if collectables_discovered[hover_index] == 1:
+		var highlight = StyleBoxFlat.new()
+		highlight.border_color = Color(1, 1, 1, 1)  # Bordure blanche
+		highlight.border_width_top = 5
+		highlight.border_width_bottom = 5
+		highlight.border_width_left = 5
+		highlight.border_width_right = 5
+		collectables[hover_index].add_theme_stylebox_override("panel", highlight)
+
+		# Afficher la description uniquement si demandé
+		if show_description:
+			dialog_list[hover_index].show()
 
 ### **🎮 OUVRIR / FERMER LE DIALOGUE DU COLLECTABLE SÉLECTIONNÉ** ###
 func toggle_dialog():
+	if collectables_discovered[hover_index] == 0:
+		return  # Empêche l'affichage d'une description si l'objet est indisponible
+
 	if dialog_list[hover_index].visible:
 		dialog_list[hover_index].hide()
-		collectables[hover_index].modulate = Color(0.42, 0.42, 0.42, 1)
+		
 	else:
 		collectables[hover_index].modulate = Color(1,1,1,1)
 		dialog_list[hover_index].show()
+
+### 🛑 **DÉSACTIVER LES COLLECTABLES NON DÉCOUVERTS** ###
+func update_collectables_availability():
+	for i in range(collectables.size()):
+		if collectables_discovered[i] == 0:
+			collectables[i].modulate = Color(1, 1, 1, 0.5)  # Noircir l'icône
 
 ### 🎮 **BOUTON MENU PRINCIPAL** ###
 func on_menu_pressed():

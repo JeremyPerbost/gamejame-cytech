@@ -11,7 +11,7 @@ extends Control
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Button2 as Button
 
 @export var start_level = preload("res://maps/toupie.tscn") as PackedScene
-
+@onready var Title_animation =$MarginContainer/HBoxContainer/VBoxContainer/Title_animation
 @onready var toupie_menu = $area_toupie_menu
 @onready var toupie_menu_sprite1 = $area_toupie_menu/collision_toupie_menu/sprite_toupie_menu
 @onready var toupie_menu2 = $area_toupie_menu2
@@ -27,7 +27,7 @@ var menu_buttons = []
 var selected_index = 0  # Index du bouton sélectionné
 var navigation_delay = 0.2  # Délai pour éviter le spam de navigation
 var navigation_timer = 0.0  # Timer de navigation
-
+var dissolve_progress=0
 func _ready() -> void:
 	# Ajouter les boutons dans la liste pour la navigation
 	MusiqueManager.jouer(load("res://sons/musiques/menu_1_loop.mp3"))
@@ -44,6 +44,8 @@ func _ready() -> void:
 	update_button_focus()
 
 func _process(delta: float) -> void:
+	dissolve_progress = min(dissolve_progress + delta / 3.0, 1.0)
+	Title_animation.material.set_shader_parameter("Dissolvevalue", dissolve_progress)
 	# Gestion de la navigation avec manette/clavier
 	navigation_timer += delta
 	handle_menu_navigation()

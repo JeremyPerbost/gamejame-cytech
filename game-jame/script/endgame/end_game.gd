@@ -64,5 +64,9 @@ func _on_rejouer_btn_pressed() -> void:
 	Score.score_player1=0
 	Score.score_player2=0
 	Score.gagnant=""
+	if Skins.P1=="res://images/skins/ia.png":
+		Skins.P1="res://images/skins/P1.png"
+	if Skins.P2=="res://images/skins/ia.png":
+		Skins.P2="res://images/skins/P2.png"
 	TransitionScreen.transition("res://maps/toupie.tscn")
 	pass # Replace with function body.

@@ -91,13 +91,11 @@ func _update_selection() -> void:
 		mode_btn[selected_mode].modulate = Color(0, 1, 0, 0.5)
 	if selected_row == 3:
 		play_btn.modulate = Color(1, 1, 1, 1)
-	
 	survolement.play()  # Plays a sound when changing selection
 
 func _on_btn_menu_pressed() -> void:
 	audio_selection.play()
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
-
 func _on_play_btn_pressed() -> void:
 	Score.mode_de_jeu = selected_mode
 	if selected_mode == 1:

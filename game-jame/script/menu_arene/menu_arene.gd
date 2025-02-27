@@ -103,7 +103,6 @@ func _on_play_btn_pressed() -> void:
 		Skins.P2 = "res://images/skins/ia.png"
 	else:
 		print("Entering multiplayer mode")
-	
 	# Associate the selected arena
 	match selected_arena:
 		0:

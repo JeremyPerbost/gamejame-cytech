@@ -1,7 +1,6 @@
 extends Area2D
 #indice du joueur
 #TOUPIE1=TOUPIE ROUGE
-
 # Indice du joueur
 # TOUPIE1 = TOUPIE ROUGE
 var player_index = 0
@@ -187,12 +186,12 @@ func _process(delta):
 	# Appliquer la force combinée à la vélocité
 	velocity += combined_force * delta
 	#-----------------GESTION DES BORDS :------------
-	if distance_to_center > taille_arene:
+	if distance_to_center >= taille_arene:
 		if(Score.is_transition_playing==false):
 			Score.nbr_bordsP1=Score.nbr_bordsP1+1
 			print("TP1: TOUCHER BORDS")
 		# Forcer la toupie à rester dans l'arène
-		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - taille_arene)
+		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - taille_arene+5)
 		self.position -= correction_vector
 		# Calculer les vecteurs normal et tangent
 		var normal = (self.position - center.position).normalized()

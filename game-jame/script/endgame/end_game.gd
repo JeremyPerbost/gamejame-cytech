@@ -57,6 +57,8 @@ func _process(delta: float) -> void:
 			_on_ecran_titre_btn_pressed()
 	pass
 func _on_ecran_titre_btn_pressed() -> void:
+	Score.score_player1=0
+	Score.score_player2=0
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
 	pass # Replace with function body.
 

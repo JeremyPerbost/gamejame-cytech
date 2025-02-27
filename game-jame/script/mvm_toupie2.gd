@@ -21,7 +21,7 @@ var sens_rotations = 1 # Sens des aiguilles d'une montre
 
 # Référence au centre
 var center
-var taille_arene = 265
+var taille_arene = Arene.taille
 
 var temps
 var distance_to_center
@@ -90,6 +90,10 @@ func _process(delta):
 		dash_particules.emitting=true
 	else:
 		dash_particules.emitting=false
+	#---STATISTIQUES---
+	if velocity.length()>Score.max_speed_player2:
+		Score.max_speed_player2=velocity.length()
+	#------------------
 	#-------GESTION DES BONUS--------
 	#EFFET TROU NOIR
 	if effet_trou_noir == true:
@@ -129,11 +133,13 @@ func _process(delta):
 		if P2Inventaire.place1 != "vide":
 			if P2Inventaire.place1 == "attaque":
 				print("P2 : UTILISATION ATTAQUE")
+				Score.nbr_booster_communP2+=1
 				Collectables.collectables[5]=1
 				print("velocity=", velocity)
 				velocity=velocity*10000
 			elif P2Inventaire.place1 == "esquive":
 				print("P2 : UTILISATION ESQUIVE")
+				Score.nbr_booster_communP2+=1
 				Collectables.collectables[6]=1
 				$effet_esquive_toupie2.start()
 				$htbx_toupie2.disabled=true
@@ -190,6 +196,9 @@ func _process(delta):
 	velocity += combined_force * delta
 	#-----------------GESTION DES BORDS :------------
 	if distance_to_center > taille_arene:
+		if(Score.is_transition_playing==false):
+			Score.nbr_bordsP2=Score.nbr_bordsP2+1
+			print("TP2: TOUCHER BORDS")
 		# Forcer la toupie à rester dans l'arène
 		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - taille_arene)
 		self.position -= correction_vector
@@ -227,6 +236,7 @@ func _process(delta):
 	# Déplacer la toupie
 	if effet_piege == false:
 		self.position += velocity * delta
+		Score.distanceP2=Score.distanceP2+velocity.length()*delta
 		$spr_piege.visible = false
 	else:	# GESTION DU BONUS PIEGE
 		self.position = Vector2(self.position.x, self.position.y)
@@ -238,16 +248,19 @@ func _on_area_entered(area: Area2D) -> void:
 		collision(area)
 	if area.collision_layer==2:
 		print("TP2: Booster speed")
+		Score.nbr_booster_communP2+=1
 		Collectables.collectables[0]=1
 		speed=speed+15
 		area.queue_free()
 	if area.collision_layer==4:
 		print("TP2: durability")
+		Score.nbr_booster_communP2+=1
 		Collectables.collectables[4]=1
 		variable_de_choc=variable_de_choc+15
 		area.queue_free()
 	if area.collision_layer==8:
 		print("TP2: trou noire")
+		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[3]=1
 		memoire_attraction_strength=attraction_strength
 		effet_trou_noir=true
@@ -256,6 +269,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==16:
 		print("TP2: Invincible")
+		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[1]=1
 		$spr_invincible.visible=true
 		effet_invincible=true
@@ -263,10 +277,19 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==32:
 		print("TP2: piege l'autre toupie")
+		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[2]=1
 		var toupie1 = get_node("../Area_toupie1")
 		toupie1.effet_piege=true
 		duree_effet_piege.start()
+		area.queue_free()
+	if area.collision_layer==64:
+		print("TP1: ajout booster attaque inventaire")
+		P2_ajout(0)
+		area.queue_free()
+	if area.collision_layer==128:
+		print("TP1: ajout booster esquive inventaire")
+		P2_ajout(1)
 		area.queue_free()
 	pass
 
@@ -290,6 +313,15 @@ func _on_effet_invincible_toupie_2_timeout() -> void:
 
 signal winner_round(winner : String)
 
+func P2_ajout(choix: int):
+	if P2Inventaire.place1 == "vide":
+		P2Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+	elif P2Inventaire.place2 == "vide":
+		P2Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+	elif P2Inventaire.place3 == "vide":
+		P2Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+	else:
+		print("P2 : TOUT EST REMPLI")
 
 func _on_animation_choc_toupie_2_timeout() -> void:#timer animation de choc de toupies finie
 	$spr_choc_animation.visible=false

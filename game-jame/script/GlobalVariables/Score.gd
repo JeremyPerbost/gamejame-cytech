@@ -14,3 +14,7 @@ var distanceP1=0
 var nbr_bordsP1=0
 
 var max_speed_player2=0
+var nbr_booster_speciauxP2=0
+var nbr_booster_communP2=0
+var distanceP2=0
+var nbr_bordsP2=0

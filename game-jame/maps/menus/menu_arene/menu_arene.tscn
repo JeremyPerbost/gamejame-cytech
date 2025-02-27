@@ -43,9 +43,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -454.0
-offset_top = -125.0
+offset_top = -239.0
 offset_right = 454.0
-offset_bottom = 125.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
@@ -124,9 +124,9 @@ stream = ExtResource("14_fjmrm")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 481.0
+offset_top = 350.0
 offset_right = 575.0
-offset_bottom = 537.0
+offset_bottom = 406.0
 scale = Vector2(2, 2)
 alignment = 1
 
@@ -138,6 +138,16 @@ text = "multiplayer"
 layout_mode = 2
 size_flags_horizontal = 0
 text = "singleplayer"
+
+[node name="play_btn" type="Button" parent="."]
+layout_mode = 2
+offset_left = 358.0
+offset_top = 481.0
+offset_right = 790.0
+offset_bottom = 600.0
+theme_override_fonts/font = ExtResource("2_8dmjj")
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
 
 [connection signal="gui_input" from="GridContainer/Panel_area1" to="." method="_on_panel_area_1_gui_input"]
 [connection signal="mouse_entered" from="GridContainer/Panel_area1" to="." method="_on_panel_area_1_mouse_entered"]
@@ -151,3 +161,4 @@ text = "singleplayer"
 [connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button_start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button_start_solo" to="." method="_on_button_start_solo_pressed"]
+[connection signal="pressed" from="play_btn" to="." method="_on_play_btn_pressed"]

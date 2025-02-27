@@ -39,10 +39,6 @@ position = Vector2(50, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
 
-[node name="timer_P1" type="Timer" parent="HBoxContainer/inventaire_P1"]
-wait_time = 5.0
-autostart = true
-
 [node name="inventaire_P2" type="Sprite2D" parent="HBoxContainer"]
 position = Vector2(172, 66)
 scale = Vector2(1.4475, 1.54)
@@ -61,10 +57,3 @@ metadata/_edit_group_ = true
 position = Vector2(50, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
-
-[node name="timer_P2" type="Timer" parent="HBoxContainer/inventaire_P2"]
-wait_time = 5.0
-autostart = true
-
-[connection signal="timeout" from="HBoxContainer/inventaire_P1/timer_P1" to="." method="_on_timer_p_1_timeout"]
-[connection signal="timeout" from="HBoxContainer/inventaire_P2/timer_P2" to="." method="_on_timer_p_2_timeout"]

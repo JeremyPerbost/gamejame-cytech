@@ -19,13 +19,12 @@ var is_transition_playing = false
 
 func play_musique():
 	#choisir quelle musique jouer
-	if (Score.score_player1+Score.score_player2<=0):
+	if Score.score_player1 == 0 and Score.score_player2 == 0:
 		MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))
-	elif ((Score.score_player1+Score.score_player2==1)||((Score.score_player1==Score.score_player2) &&(Score.score_player2==1))) :
+	elif (Score.score_player1 == 1 and Score.score_player2 in [0, 1]) or (Score.score_player2 == 1 and Score.score_player1 == 0):
 		MusiqueManager.jouer(load("res://sons/combat/combat_2_loop.mp3"))
-	else:
+	elif (Score.score_player1 in [1, 2] and Score.score_player2 in [1, 2]) or (Score.score_player1 == 2 and Score.score_player2 == 0) or (Score.score_player2 == 2 and Score.score_player1 == 0):
 		MusiqueManager.jouer(load("res://sons/combat/combat_3_loop.mp3"))
-
 	pass
 func _ready():
 	Score.is_transition_playing=false

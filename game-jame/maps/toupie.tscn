@@ -141,11 +141,11 @@ script = ExtResource("1_p4bqp")
 
 [node name="Area_toupie1" parent="Area_arene" instance=ExtResource("4_c7s2c")]
 position = Vector2(0, 150)
-collision_mask = 63
+collision_mask = 255
 
 [node name="Area_toupie2" parent="Area_arene" instance=ExtResource("5_h8hgh")]
 position = Vector2(0, -150)
-collision_mask = 63
+collision_mask = 255
 
 [node name="centre" type="Sprite2D" parent="."]
 visible = false

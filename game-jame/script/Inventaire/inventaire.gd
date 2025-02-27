@@ -23,36 +23,6 @@ func _ready() -> void:
 	marker2P2 = $HBoxContainer/inventaire_P2/place2_P2
 	marker3P2 = $HBoxContainer/inventaire_P2/place3_P2
 
-func _on_timer_p_1_timeout() -> void:
-	var rng = RandomNumberGenerator.new() 
-	var choix = rng.randi_range(0, 1)
-	
-	if P1Inventaire.place1 == "vide":
-		P1Inventaire.place1 = "attaque" if choix == 0 else "esquive"
-	elif P1Inventaire.place2 == "vide":
-		P1Inventaire.place2 = "attaque" if choix == 0 else "esquive"
-	elif P1Inventaire.place3 == "vide":
-		P1Inventaire.place3 = "attaque" if choix == 0 else "esquive"
-	else:
-		print("P1 : TOUT EST REMPLI")
-	
-	raffraichir_inventaire()
-
-func _on_timer_p_2_timeout() -> void:
-	var rng = RandomNumberGenerator.new() 
-	var choix = rng.randi_range(0, 1)
-	
-	if P2Inventaire.place1 == "vide":
-		P2Inventaire.place1 = "attaque" if choix == 0 else "esquive"
-	elif P2Inventaire.place2 == "vide":
-		P2Inventaire.place2 = "attaque" if choix == 0 else "esquive"
-	elif P2Inventaire.place3 == "vide":
-		P2Inventaire.place3 = "attaque" if choix == 0 else "esquive"
-	else:
-		print("P2 : TOUT EST REMPLI")
-	
-	raffraichir_inventaire()
-
 func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node:
 	if boost_ref != null and not boost_ref.is_queued_for_deletion():
 		boost_ref.queue_free()
@@ -78,7 +48,6 @@ func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node
 		return null
 	return null
 func _process(delta: float) -> void:
-	# Vérifie si le joueur 1 appuie sur la touche `ui_!`
 	raffraichir_inventaire()
 func raffraichir_inventaire() -> void:
 	boost1_P1 = mettre_a_jour_boost(P1Inventaire.place1, boost1_P1, marker1P1)

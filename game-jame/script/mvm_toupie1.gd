@@ -21,7 +21,7 @@ var sens_rotations = 1 # Sens des aiguilles d'une montre
 
 # Référence au centre
 var center
-var taille_arene = 265
+var taille_arene = Arene.taille
 
 var temps
 var distance_to_center
@@ -43,6 +43,8 @@ var sons_choc = [
 var effet_trou_noir = false # BOOST
 var effet_invincible = false # BOOST
 var effet_piege = false # BOOST
+
+
 func _ready():
 	spr_choc_animation.play("default")
 	center = get_parent().get_node("../centre")
@@ -144,6 +146,7 @@ func _process(delta):
 		if P1Inventaire.place1 != "vide":
 			if P1Inventaire.place1 == "attaque":
 				print("P1 : UTILISATION ATTAQUE")
+				Score.nbr_booster_communP1+=1
 				Collectables.collectables[5]=1
 				print("velocity=", velocity)
 				velocity=velocity*10000
@@ -151,6 +154,7 @@ func _process(delta):
 				$effet_esquive_toupie1.start()
 				$htbx_toupie1/spr_toupie1.modulate.a=0.5
 				print("P1 : UTILISATION ESQUIVE")
+				Score.nbr_booster_communP1+=1
 				Collectables.collectables[6]=1
 				$htbx_toupie1.disabled=true
 			P1Inventaire.place1 = P1Inventaire.place2
@@ -237,15 +241,18 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer==2:
 		print("TP1: Booster speed")
 		Collectables.collectables[0]=1
+		Score.nbr_booster_communP1+=1
 		speed=speed+15
 		area.queue_free()
 	if area.collision_layer==4:
 		print("TP1: durability")
+		Score.nbr_booster_communP1+=1
 		Collectables.collectables[4]=1
 		variable_de_choc=variable_de_choc+15
 		area.queue_free()
 	if area.collision_layer==8:
 		print("TP1: trou noire")
+		Score.nbr_booster_speciauxP1+=1
 		Collectables.collectables[3]=1
 		memoire_attraction_strength=attraction_strength
 		effet_trou_noir=true
@@ -254,6 +261,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==16:
 		print("TP1: Invincible")
+		Score.nbr_booster_speciauxP1+=1
 		Collectables.collectables[1]=1
 		$spr_invincible.visible=true
 		effet_invincible=true
@@ -261,10 +269,19 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==32:
 		print("TP1: piege l'autre toupie")
+		Score.nbr_booster_speciauxP1+=1
 		Collectables.collectables[2]=1
 		var toupie2 = get_node("../Area_toupie2")
 		toupie2.effet_piege=true
 		duree_effet_piege.start()
+		area.queue_free()
+	if area.collision_layer==64:
+		print("TP1: ajout booster attaque inventaire")
+		P1_ajout(0)
+		area.queue_free()
+	if area.collision_layer==128:
+		print("TP1: ajout booster esquive inventaire")
+		P1_ajout(1)
 		area.queue_free()
 	pass
 
@@ -288,7 +305,15 @@ func _on_effet_invincible_toupie_1_timeout() -> void:
 
 signal winner_round(winner : String)
 
-
+func P1_ajout(choix :int) -> void:
+	if P1Inventaire.place1 == "vide":
+		P1Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+	elif P1Inventaire.place2 == "vide":
+		P1Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+	elif P1Inventaire.place3 == "vide":
+		P1Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+	else:
+		print("P1 : TOUT EST REMPLI")
 func _on_animation_choc_toupie_1_timeout() -> void:#timer animation de choc de toupies finie
 	$spr_choc_animation.visible=false
 	pass # Replace with function body.

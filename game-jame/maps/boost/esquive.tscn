@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbgyiejq8brwq"]
+
+[ext_resource type="Texture2D" uid="uid://c38bdbei160kp" path="res://images/UI_joueur/boost_esquive.png" id="1_7bl4v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]
+radius = 11.0
+
+[node name="esquive" type="Node2D"]
+
+[node name="esquive_area" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="esquive_collision" type="CollisionShape2D" parent="esquive_area"]
+shape = SubResource("CircleShape2D_kthir")
+
+[node name="esquive_spr" type="Sprite2D" parent="esquive_area/esquive_collision"]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_7bl4v")

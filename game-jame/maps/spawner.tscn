@@ -76,7 +76,7 @@ position = Vector2(170, 164)
 position = Vector2(-163, 66)
 
 [node name="Timer_boost" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 4.0
 autostart = true
 script = SubResource("GDScript_c1o1k")
 

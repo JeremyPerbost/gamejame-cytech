@@ -4,7 +4,10 @@ var marker_commun
 var boost
 var boost_special
 var boost_durability
+@onready var timer=$Timer_boost
 @onready var timer_special=$Timer_boost_special
+var temps_total = 120.0
+var temps_ecouler = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	marker_commun=$Marker_commun
@@ -13,30 +16,36 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	pass
 
-
+func point_aleatoire(rayon: float)->Vector2:
+	var angle = randf() * 2*PI  # TAU = 2 * PI
+	var r = sqrt(randf()) * rayon  # Uniformisation du rayon
+	var x = r * cos(angle)
+	var y = r * sin(angle)
+	return Vector2(x, y)
 func _on_timer_timeout() -> void:
 	var random_point=marker_commun.get_children().pick_random()
 	var boost_scene=preload("res://maps/boost/boost.tscn")
 	var boost_durability_scene=preload("res://maps/boost/boost_durability.tscn")
+	var attaque=preload("res://maps/boost/attaque.tscn")
+	var esquive=preload("res://maps/boost/esquive.tscn")
 	var random_number = randi() % 4
+	var random_position=point_aleatoire(Arene.taille)
 	if random_number == 0:
 		boost = boost_scene.instantiate()
-		boost.global_position = random_point.global_position
-		get_parent().add_child(boost)
 	elif random_number == 1:
 		boost = boost_durability_scene.instantiate()
-		boost.global_position = random_point.global_position
-		get_parent().add_child(boost)
-	else:
-		pass
-
-	
-	
-	
-	
-
+	elif random_number == 2:
+		boost = attaque.instantiate()
+	elif random_number == 3:
+		boost = esquive.instantiate()
+	boost.global_position = random_position
+	get_parent().add_child(boost)
+	temps_ecouler += timer.wait_time  # Augmente le temps écoulé
+	var progress = min(1, temps_ecouler / temps_total)  # Progression entre 0 et 1
+	timer.wait_time = 4 + (0.5 - 4)* progress
 
 func _on_timer_boost_disparaitre_timeout() -> void:
 	if boost:  # Vérifie si 'boost' n'est pas nul

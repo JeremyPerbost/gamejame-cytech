@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://du5qjxms4l0rq"]
+
+[ext_resource type="Texture2D" uid="uid://0jpv20pmp37b" path="res://images/UI_joueur/boost_attaque.png" id="2_u30o4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]
+radius = 11.0
+
+[node name="attaque" type="Node2D"]
+
+[node name="attaque_area" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="attaque_collision" type="CollisionShape2D" parent="attaque_area"]
+shape = SubResource("CircleShape2D_kthir")
+
+[node name="attaque_spr" type="Sprite2D" parent="attaque_area/attaque_collision"]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_u30o4")

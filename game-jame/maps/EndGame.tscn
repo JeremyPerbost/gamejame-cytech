@@ -255,17 +255,15 @@ offset_top = -329.0
 offset_right = 583.0
 offset_bottom = 338.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Statistique"]
-layout_mode = 0
-offset_left = 66.0
-offset_top = 134.0
-offset_right = 1070.0
+[node name="Stat_player1" type="Control" parent="Statistique"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 156.0
+offset_right = 357.0
 offset_bottom = 619.0
 
-[node name="Stat_player1" type="Control" parent="Statistique/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label_P1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="Label_P1" type="Label" parent="Statistique/Stat_player1"]
 texture_filter = 1
 layout_mode = 2
 offset_top = -14.0
@@ -280,43 +278,126 @@ theme_override_font_sizes/font_size = 50
 text = "PLAYER 1"
 horizontal_alignment = 1
 
-[node name="label_vitesse_max_P1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="label_vitesse_max_P1" type="Label" parent="Statistique/Stat_player1"]
 layout_mode = 2
 offset_top = 67.0
 offset_right = 302.0
 offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
 text = "max speed : "
 horizontal_alignment = 1
 
-[node name="label_nombre_de_boosters_speciauxP1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="label_nombre_de_boosters_speciauxP1" type="Label" parent="Statistique/Stat_player1"]
 layout_mode = 2
 offset_top = 131.0
 offset_right = 302.0
 offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
 text = "nombre de boosters speciaux utilisés : "
 horizontal_alignment = 1
 
-[node name="label_nombre_de_boosters_communsP1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="label_nombre_de_boosters_communsP1" type="Label" parent="Statistique/Stat_player1"]
 layout_mode = 2
 offset_top = 196.0
 offset_right = 302.0
 offset_bottom = 228.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
 text = "nombre de boosters communs utilisés : "
 horizontal_alignment = 1
 
-[node name="label_distanceP1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="label_distanceP1" type="Label" parent="Statistique/Stat_player1"]
 layout_mode = 2
 offset_top = 250.0
 offset_right = 309.0
 offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
 text = "distance parcourue : "
 horizontal_alignment = 1
 
-[node name="label_toucher_bords_P1" type="Label" parent="Statistique/HBoxContainer/Stat_player1"]
+[node name="label_toucher_bords_P1" type="Label" parent="Statistique/Stat_player1"]
 layout_mode = 2
 offset_top = 300.0
 offset_right = 309.0
 offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
+text = "nombre de fois a toucher les bords : "
+horizontal_alignment = 1
+
+[node name="Stat_player2" type="Control" parent="Statistique"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 799.0
+offset_top = 156.0
+offset_right = 1139.0
+offset_bottom = 619.0
+
+[node name="Label_P2" type="Label" parent="Statistique/Stat_player2"]
+texture_filter = 1
+layout_mode = 2
+offset_top = -14.0
+offset_right = 302.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(3.17663e-06, 0.587175, 0.763276, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="label_vitesse_max_P2" type="Label" parent="Statistique/Stat_player2"]
+layout_mode = 2
+offset_top = 67.0
+offset_right = 302.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
+text = "max speed : "
+horizontal_alignment = 1
+
+[node name="label_nombre_de_boosters_speciauxP2" type="Label" parent="Statistique/Stat_player2"]
+layout_mode = 2
+offset_top = 131.0
+offset_right = 302.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
+text = "nombre de boosters speciaux utilisés : "
+horizontal_alignment = 1
+
+[node name="label_nombre_de_boosters_communsP2" type="Label" parent="Statistique/Stat_player2"]
+layout_mode = 2
+offset_top = 196.0
+offset_right = 302.0
+offset_bottom = 228.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
+text = "nombre de boosters communs utilisés : "
+horizontal_alignment = 1
+
+[node name="label_distanceP2" type="Label" parent="Statistique/Stat_player2"]
+layout_mode = 2
+offset_top = 250.0
+offset_right = 309.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
+text = "distance parcourue : "
+horizontal_alignment = 1
+
+[node name="label_toucher_bords_P2" type="Label" parent="Statistique/Stat_player2"]
+layout_mode = 2
+offset_top = 300.0
+offset_right = 309.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("9_qfkgo")
+theme_override_font_sizes/font_size = 20
 text = "nombre de fois a toucher les bords : "
 horizontal_alignment = 1
 

@@ -1,17 +1,9 @@
-res://maps/transition_screen/transition_screen.tscn
+res://maps/area_toupie_1.tscn
 res://script/GlobalVariables/Musique_manager.gd
-res://script/menuprincipal.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
-res://script/GlobalVariables/Save_manager.gd
-res://maps/menus/collection_menu/collectionMenu.tscn
-res://maps/menus/menu_skin/menu_skin.tscn
-res://script/collection_menu_script/collection_menu.gd
+res://script/menuprincipal.gd
+res://maps/toupie.tscn
+res://maps/menuprincipal.tscn
 res://script/mvm_toupie2.gd
-res://script/GlobalVariables/Collectables.gd
-res://maps/EndGame.tscn
-res://script/endgame/end_game.gd
-res://script/menu pause/menu_pause.gd
-res://script/menu skin/menu_skin.gd
-res://maps/menus/menu_arene/menu_arene.tscn
-res://script/menu_arene/menu_arene.gd
+res://maps/area_toupie_2.tscn

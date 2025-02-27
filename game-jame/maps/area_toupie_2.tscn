@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4tk818om7dw3"]
+[gd_scene load_steps=33 format=3 uid="uid://c4tk818om7dw3"]
 
 [ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/skins/P2.png" id="1_8ps2a"]
 [ext_resource type="Script" path="res://script/mvm_toupie2.gd" id="1_nlong"]
+[ext_resource type="Shader" uid="uid://di5vwqfv0c5qj" path="res://shader/inventaire.tres" id="2_pfd5y"]
 [ext_resource type="Texture2D" uid="uid://6qfm6ewxfn3" path="res://images/animation/choc_animation.png" id="3_q8of3"]
 [ext_resource type="Texture2D" uid="uid://cfny5o8hr32um" path="res://images/invicibility_effect.png" id="4_wjos4"]
 [ext_resource type="Texture2D" uid="uid://dc6080omtli1x" path="res://images/effet_toupie/piege_effect.png" id="5_acfdv"]
@@ -9,6 +10,18 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jid7"]
 radius = 38.0132
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rolbw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tqeio"]
+width = 2000
+height = 2000
+noise = SubResource("FastNoiseLite_rolbw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un8e1"]
+shader = ExtResource("2_pfd5y")
+shader_parameter/Dissolvevalue = 1.0
+shader_parameter/Noise = SubResource("NoiseTexture2D_tqeio")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcytp"]
 atlas = ExtResource("3_q8of3")
@@ -152,6 +165,7 @@ metadata/_edit_group_ = true
 
 [node name="spr_toupie2" type="Sprite2D" parent="htbx_toupie2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_un8e1")
 scale = Vector2(5, 5)
 texture = ExtResource("1_8ps2a")
 metadata/_edit_group_ = true

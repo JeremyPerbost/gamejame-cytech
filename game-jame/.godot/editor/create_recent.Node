@@ -1,3 +1,4 @@
+GPUParticles2D
 Button
 HBoxContainer
 Sprite2D
@@ -8,7 +9,6 @@ Label
 Control
 VSeparator
 Node2D
-GPUParticles2D
 CPUParticles2D
 Panel
 CollisionShape2D

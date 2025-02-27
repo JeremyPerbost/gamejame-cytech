@@ -17,7 +17,8 @@ var attraction_factor = 1
 var direction = Vector2.ZERO
 var rotation_autour_arene = Vector2.ZERO # Vecteur de force de rotation autour du centre de l'arène du à la rotation de la pointe
 var sens_rotations = 1 # Sens des aiguilles d'une montre
-
+var suicideP1=1#jauge du suicide
+var suicide_choiceP1=false#choix du suicide
 # Référence au centre
 var center
 var taille_arene = Arene.taille
@@ -123,7 +124,18 @@ func _process(delta):
 		speed = 800
 	# Gestion de la rotation
 	rotation += sens_rotations * (speed / 3) * delta
-	# Détection des touches pour le déplacement du joueur
+	#-----------SUICIDE----------
+	if suicide_choiceP1==true:
+		suicideP1 = suicideP1 - (delta / 1)
+		if suicideP1<=0:
+			print("P1: SUICIDE EFFECTUER")
+			suicideP1=3
+			suicide_choiceP1=false
+			self.speed=-1
+	if Input.is_action_pressed("ui_p1_R2"):
+		suicide_choiceP1=true
+	$htbx_toupie1/spr_toupie1.material.set_shader_parameter("Dissolvevalue", suicideP1)
+	#----------------------------
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 	if Input.is_action_pressed("ui_down"):

@@ -19,6 +19,8 @@ var direction = Vector2.ZERO
 var rotation_autour_arene = Vector2.ZERO # Vecteur de force de rotation autour du centre de l'arène du à la rotation de la pointe
 var sens_rotations = 1 # Sens des aiguilles d'une montre
 
+var suicide_choiceP2=false
+var suicideP2=1
 # Référence au centre
 var center
 var taille_arene = Arene.taille
@@ -110,6 +112,19 @@ func _process(delta):
 		speed = 800
 	# Gestion de la rotation
 	rotation += sens_rotations * (speed / 3) * delta
+	#-----------SUICIDE----------
+	if suicide_choiceP2==true:
+		suicideP2 = suicideP2 - (delta / 1)
+		if suicideP2<=0:
+			print("P2: SUICIDE EFFECTUER")
+			suicideP2=3
+			suicide_choiceP2=false
+			self.speed=-1
+	if Input.is_action_pressed("ui_p1_R2"):
+		suicide_choiceP2=true
+	$htbx_toupie2/spr_toupie2.material.set_shader_parameter("Dissolvevalue", suicideP2)
+	#----------------------------s
+	
 	# Détection des touches pour le déplacement du joueur
 	if(Score.mode_de_jeu==0):#mode de jeu normal (multijoueur)
 		if Input.is_action_pressed("ui_Z"):
@@ -200,7 +215,7 @@ func _process(delta):
 			Score.nbr_bordsP2=Score.nbr_bordsP2+1
 			print("TP2: TOUCHER BORDS")
 		# Forcer la toupie à rester dans l'arène
-		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - taille_arene)
+		var correction_vector = (self.position - center.position).normalized() * (distance_to_center - taille_arene+5)
 		self.position -= correction_vector
 		# Calculer les vecteurs normal et tangent
 		var normal = (self.position - center.position).normalized()

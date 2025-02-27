@@ -15,6 +15,9 @@ var is_game_running = true
 @onready var audio_combat3=$audio_combat3
 @onready var audio_transition_round=$audio_transition_round
 @onready var background=$Background1
+@onready var sand_wind=$sand_wind
+@onready var rain=$rain
+
 var is_transition_playing = false
 
 func play_musique():
@@ -27,6 +30,7 @@ func play_musique():
 		MusiqueManager.jouer(load("res://sons/combat/combat_3_loop.mp3"))
 	pass
 func _ready():
+	gestion_effet_arene()
 	Score.is_transition_playing=false
 	background.texture = load(Arene.arene)
 	score_tp1.visible = false
@@ -122,3 +126,10 @@ func egalite() -> void:
 		audio_transition_round.play()
 		await get_tree().create_timer(8.0).timeout 
 		get_tree().reload_current_scene()
+func gestion_effet_arene():
+	if Arene.arene=="res://images/Menus/background/background_combat_sand.png":
+		sand_wind.emitting=true
+		rain.emitting=false
+	if Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
+		sand_wind.emitting=false
+		rain.emitting=true

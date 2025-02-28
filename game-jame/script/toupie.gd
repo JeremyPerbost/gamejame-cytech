@@ -17,7 +17,7 @@ var is_game_running = true
 @onready var background=$Background1
 @onready var sand_wind=$sand_wind
 @onready var rain=$rain
-
+@onready var stars=$stars
 var is_transition_playing = false
 
 func play_musique():
@@ -130,6 +130,16 @@ func gestion_effet_arene():
 	if Arene.arene=="res://images/Menus/background/background_combat_sand.png":
 		sand_wind.emitting=true
 		rain.emitting=false
+		stars.emitting=false
 	if Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
 		sand_wind.emitting=false
 		rain.emitting=true
+		stars.emitting=false
+	if Arene.arene=="res://images/Menus/background/background_combat_space.png":
+		sand_wind.emitting=false
+		rain.emitting=false
+		stars.emitting=true
+	else:
+		sand_wind.emitting=false
+		rain.emitting=false
+		stars.emitting=false

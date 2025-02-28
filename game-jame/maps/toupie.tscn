@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bryr8m263imcy"]
+[gd_scene load_steps=43 format=3 uid="uid://bryr8m263imcy"]
 
 [ext_resource type="Script" path="res://script/toupie.gd" id="1_p4bqp"]
 [ext_resource type="Texture2D" uid="uid://gp7uusjg46v2" path="res://images/center.png" id="3_4ew0m"]
@@ -75,6 +75,23 @@ gradient = SubResource("Gradient_m1m0o")
 width = 1
 fill_from = Vector2(0, 1)
 fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_0l2mk"]
+offsets = PackedFloat32Array(0.183824, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ns3qo"]
+gradient = SubResource("Gradient_0l2mk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_onqus"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(600, 400, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_ns3qo")
 
 [sub_resource type="GDScript" id="GDScript_vlmrs"]
 script/source = "extends Camera2D
@@ -221,6 +238,7 @@ scale = Vector2(6, 4.5)
 texture = ExtResource("6_vd37b")
 
 [node name="rain" type="GPUParticles2D" parent="."]
+visible = false
 z_index = 6
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_8ussk")
@@ -239,6 +257,12 @@ preprocess = 2.0
 randomness = 1.0
 trail_enabled = true
 trail_lifetime = 0.6
+
+[node name="stars" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_onqus")
+lifetime = 4.0
+randomness = 1.0
 
 [node name="Camera" type="Camera2D" parent="."]
 limit_left = -576

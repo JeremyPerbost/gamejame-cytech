@@ -1,6 +1,10 @@
-res://maps/toupie.tscn
+res://maps/area_arene.tscn
 res://script/GlobalVariables/Musique_manager.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
 res://script/menuprincipal.gd
-res://script/endgame/end_game.gd
+res://maps/toupie.tscn
+res://maps/area_toupie_1.tscn
+res://maps/menuprincipal.tscn
+res://maps/area_toupie_2.tscn
+res://script/toupie.gd

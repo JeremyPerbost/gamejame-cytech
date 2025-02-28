@@ -1,11 +1,12 @@
-res://maps/area_arene.tscn
+res://maps/toupie.tscn
 res://script/GlobalVariables/Musique_manager.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
 res://script/menuprincipal.gd
-res://maps/toupie.tscn
 res://maps/area_toupie_1.tscn
 res://maps/menuprincipal.tscn
 res://maps/area_toupie_2.tscn
-res://script/toupie.gd
+res://maps/area_arene.tscn
 res://maps/menus/collection_menu/collectionMenu.tscn
+res://maps/menus/menu_arene/menu_arene.tscn
+res://script/toupie.gd

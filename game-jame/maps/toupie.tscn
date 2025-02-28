@@ -240,8 +240,8 @@ scale = Vector2(6, 4.5)
 texture = SubResource("CompressedTexture2D_1osgw")
 
 [node name="rain" type="GPUParticles2D" parent="."]
-visible = false
 z_index = 6
+emitting = false
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_8ussk")
 preprocess = 0.6
@@ -261,6 +261,7 @@ trail_enabled = true
 trail_lifetime = 0.6
 
 [node name="stars" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_onqus")
 lifetime = 4.0

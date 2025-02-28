@@ -131,15 +131,18 @@ func gestion_effet_arene():
 		sand_wind.emitting=true
 		rain.emitting=false
 		stars.emitting=false
-	if Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
+	elif Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
+		print("OKOKOKOKOK")
 		sand_wind.emitting=false
 		rain.emitting=true
 		stars.emitting=false
-	if Arene.arene=="res://images/Menus/background/background_combat_space.png":
+	elif Arene.arene=="res://images/Menus/background/background_combat_space.png":
 		sand_wind.emitting=false
 		rain.emitting=false
 		stars.emitting=true
 	else:
+		print("AUCUN EFFET APPOSE A L'ARENE")
+		print(Arene.arene)
 		sand_wind.emitting=false
 		rain.emitting=false
 		stars.emitting=false

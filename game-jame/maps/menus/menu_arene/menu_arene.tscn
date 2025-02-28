@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/menu_arene/menu_arene.gd" id="1_qjprd"]
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_8dmjj"]
-[ext_resource type="Texture2D" uid="uid://bdypi36k5gn33" path="res://images/Menus/background/background_combat_pierre.png" id="3_dvvfl"]
+[ext_resource type="Texture2D" uid="uid://bwo7mvljg7tx3" path="res://images/Menus/background/background_combat_pierre.png" id="3_dvvfl"]
 [ext_resource type="Texture2D" uid="uid://d0jmg7dmh24rp" path="res://images/Menus/background/background_combat_space.png" id="5_kimjs"]
 [ext_resource type="Texture2D" uid="uid://ceefykq248ypt" path="res://images/Menus/background/background_combat_sand.png" id="6_gx686"]
 [ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="12_qe6re"]

@@ -44,6 +44,15 @@ func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node
 		new_boost.global_position = marker.global_position
 		get_parent().add_child(new_boost)
 		return new_boost
+	elif place == "death":
+		var boost_death = preload("res://maps/UI_joueur/ui_boost_death.tscn")
+		if boost_death == null:
+			print("Erreur : ui_boost_death introuvable")
+			return null
+		var new_boost = boost_death.instantiate()
+		new_boost.global_position = marker.global_position
+		get_parent().add_child(new_boost)
+		return new_boost
 	elif place == "vide":
 		return null
 	return null

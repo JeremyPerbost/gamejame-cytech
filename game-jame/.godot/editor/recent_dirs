@@ -1,9 +1,12 @@
+res://images/animation
+res://images/effet_toupie
+res://images/UI_joueur
+res://script/animation
 res://images/Menus/collection
 res://shader
 res://script/GlobalVariables
 res://font
 res://images
-res://images/UI_joueur
 res://images/skins
 H:/gamejame-cytech
 res://
@@ -14,8 +17,6 @@ res://script/menu_arene
 res://images/animation/animation_menu
 res://sons/musiques
 res://sons/effets_sonores
-res://images/animation
 res://script/collection_menu_script
 res://sons/effets_sonores/chocs
 res://sons/combat
-res://script/Inventaire

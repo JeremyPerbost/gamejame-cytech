@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqp6mj6yym5di"]
+
+[ext_resource type="Texture2D" uid="uid://4ntmvc5vg13o" path="res://images/UI_joueur/death.png" id="1_jyprd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]
+radius = 13.0
+
+[node name="death" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="death_area" type="Area2D" parent="."]
+collision_layer = 256
+
+[node name="death_collision" type="CollisionShape2D" parent="death_area"]
+shape = SubResource("CircleShape2D_kthir")
+
+[node name="death_spr" type="Sprite2D" parent="death_area/death_collision"]
+texture_filter = 1
+texture = ExtResource("1_jyprd")

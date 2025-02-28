@@ -7,6 +7,7 @@ extends Control
 @onready var anim_durability_boost = $GridContainer/collectable5/durability_animation as AnimatedSprite2D
 @onready var survolement = $survolement
 @onready var btn_menu = $btn_menu  # Bouton retour au menu principal
+@onready var stat_btn=$stat_btn
 
 @onready var dialog_list = [
 	$GridContainer/collectable1/speedBoost_description_dialog as Panel,
@@ -15,7 +16,8 @@ extends Control
 	$GridContainer/collectable4/blackHole_boost_dialog as Panel,
 	$GridContainer/collectable5/durability_boost_dialog as Panel,
 	$GridContainer/collectable6/dash_dialog as Panel,
-	$GridContainer/collectable7/teleport_dialog as Panel
+	$GridContainer/collectable7/teleport_dialog as Panel,
+	$GridContainer/collectable8/death_dialog as Panel
 ]
 
 @onready var collectables = [
@@ -25,7 +27,8 @@ extends Control
 	$GridContainer/collectable4,
 	$GridContainer/collectable5,
 	$GridContainer/collectable6,
-	$GridContainer/collectable7
+	$GridContainer/collectable7,
+	$GridContainer/collectable8
 ]
 var collectables_discovered=Collectables.collectables
 # Liste qui indique si un collectable a été découvert (1 = découvert, 0 = non découvert)

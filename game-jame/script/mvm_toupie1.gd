@@ -4,6 +4,8 @@ extends Area2D
 # Indice du joueur
 # TOUPIE1 = TOUPIE ROUGE
 var player_index = 0
+#effets speciaux
+var effet_death=false
 # Vitesse de mouvement
 var speed_init = 80
 var speed = speed_init
@@ -11,7 +13,8 @@ var speed = speed_init
 var attraction_strength = 400
 # Vélocité de la toupie
 var velocity = Vector2.ZERO
-
+var ralentissement=0.01
+var restitution = 0.35
 var variable_de_choc = 80
 var attraction_factor = 1
 var direction = Vector2.ZERO
@@ -109,13 +112,17 @@ func _process(delta):
 		Score.max_speed_player1=velocity.length()
 	#------------------
 	#-------GESTION DES BONUS--------
+	#EFFET DEATH
+	if effet_death == true:
+		$spr_death.visible=true
+		$spr_death.rotation=-rotation
 	#EFFET TROU NOIR
 	if effet_trou_noir == true:
 		attraction_strength += 10
 	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
-		speed -= 0.01
+		speed -= ralentissement
 	else:
 		speed = 0
 		winner_round.emit("player2")
@@ -168,6 +175,16 @@ func _process(delta):
 				Score.nbr_booster_communP1+=1
 				Collectables.collectables[6]=1
 				$htbx_toupie1.disabled=true
+			elif P1Inventaire.place1 == "death":
+				print("P1 : UTILISATION DEATH")
+				Score.nbr_booster_speciauxP1+=1
+				Collectables.collectables[7]=1
+				toupie2.velocity=toupie2.velocity*100
+				toupie2.P2_ajout(0)
+				toupie2.P2_ajout(0)
+				toupie2.P2_ajout(0)
+				toupie2.effet_death=true
+				toupie2.ralentissement=0.04
 			P1Inventaire.place1 = P1Inventaire.place2
 			P1Inventaire.place2 = P1Inventaire.place3
 			P1Inventaire.place3 = "vide"
@@ -212,7 +229,6 @@ func _process(delta):
 		var normal_component = velocity.dot(normal)
 		var tangent_component = velocity.dot(tangente)
 		# Modifier la composante normale (inverser et réduire)
-		var restitution = 0.35
 		var new_normal = -normal_component * restitution
 		# Appliquer un coefficient de friction sur la composante tangentielle
 		var friction_coeff = 0.9
@@ -294,6 +310,10 @@ func _on_area_entered(area: Area2D) -> void:
 		print("TP1: ajout booster esquive inventaire")
 		P1_ajout(1)
 		area.queue_free()
+	if area.collision_layer==256:
+		print("TP1: ajout booster death inventaire")
+		P1_ajout(2)
+		area.queue_free()
 	pass
 
 
@@ -318,13 +338,29 @@ signal winner_round(winner : String)
 
 func P1_ajout(choix :int) -> void:
 	if P1Inventaire.place1 == "vide":
-		P1Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P1Inventaire.place1 = "attaque"
+		elif choix == 1:
+			P1Inventaire.place1 = "esquive"
+		elif choix == 2:
+			P1Inventaire.place1 = "death"
 	elif P1Inventaire.place2 == "vide":
-		P1Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P1Inventaire.place2 = "attaque"
+		elif choix == 1:
+			P1Inventaire.place2 = "esquive"
+		elif choix == 2:
+			P1Inventaire.place2 = "death"
 	elif P1Inventaire.place3 == "vide":
-		P1Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P1Inventaire.place3 = "attaque"
+		elif choix == 1:
+			P1Inventaire.place3 = "esquive"
+		elif choix == 2:
+			P1Inventaire.place3 = "death"
 	else:
 		print("P1 : TOUT EST REMPLI")
+
 func _on_animation_choc_toupie_1_timeout() -> void:#timer animation de choc de toupies finie
 	$spr_choc_animation.visible=false
 	pass # Replace with function body.

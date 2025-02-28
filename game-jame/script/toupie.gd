@@ -132,7 +132,6 @@ func gestion_effet_arene():
 		rain.emitting=false
 		stars.emitting=false
 	elif Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
-		print("OKOKOKOKOK")
 		sand_wind.emitting=false
 		rain.emitting=true
 		stars.emitting=false
@@ -141,8 +140,6 @@ func gestion_effet_arene():
 		rain.emitting=false
 		stars.emitting=true
 	else:
-		print("AUCUN EFFET APPOSE A L'ARENE")
-		print(Arene.arene)
 		sand_wind.emitting=false
 		rain.emitting=false
 		stars.emitting=false

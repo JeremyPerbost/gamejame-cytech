@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dsb5q5i7h8n8h"]
+[gd_scene load_steps=35 format=3 uid="uid://dsb5q5i7h8n8h"]
 
 [ext_resource type="Script" path="res://script/mvm_toupie1.gd" id="1_sw5b2"]
 [ext_resource type="Shader" uid="uid://di5vwqfv0c5qj" path="res://shader/inventaire.tres" id="2_77e8g"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dc6080omtli1x" path="res://images/effet_toupie/piege_effect.png" id="5_1a07t"]
 [ext_resource type="Texture2D" uid="uid://1jc4yg2ndrdf" path="res://images/trounoir_effect.png" id="5_4stdv"]
 [ext_resource type="AudioStream" uid="uid://bpi8qxuaqpvni" path="res://sons/effets_sonores/chocs/choc 2.MP3" id="7_7hydw"]
+[ext_resource type="Texture2D" uid="uid://dbw3makpcri3e" path="res://images/effet_toupie/death_effect.png" id="8_na8pg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jid7"]
 radius = 38.0132
@@ -211,6 +212,12 @@ visible = false
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("5_4stdv")
+
+[node name="spr_death" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("8_na8pg")
 
 [node name="audio_choc" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_7hydw")

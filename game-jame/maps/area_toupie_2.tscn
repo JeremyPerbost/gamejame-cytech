@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4tk818om7dw3"]
+[gd_scene load_steps=34 format=3 uid="uid://c4tk818om7dw3"]
 
 [ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/skins/P2.png" id="1_8ps2a"]
 [ext_resource type="Script" path="res://script/mvm_toupie2.gd" id="1_nlong"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfny5o8hr32um" path="res://images/invicibility_effect.png" id="4_wjos4"]
 [ext_resource type="Texture2D" uid="uid://dc6080omtli1x" path="res://images/effet_toupie/piege_effect.png" id="5_acfdv"]
 [ext_resource type="Texture2D" uid="uid://1jc4yg2ndrdf" path="res://images/trounoir_effect.png" id="5_lxdjn"]
+[ext_resource type="Texture2D" uid="uid://dbw3makpcri3e" path="res://images/effet_toupie/death_effect.png" id="8_8psmo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jid7"]
 radius = 38.0132
@@ -214,6 +215,12 @@ texture = ExtResource("5_lxdjn")
 [node name="dash_particules_toupie2" type="GPUParticles2D" parent="."]
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_6mp4y")
+
+[node name="spr_death" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("8_8psmo")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="effet_trounoir_toupie2" to="." method="_on_effet_trounoir_toupie_2_timeout"]

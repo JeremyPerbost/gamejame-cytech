@@ -9,10 +9,12 @@ var speed = speed_init
 
 # Force d'attraction vers le centre
 var attraction_strength = 400
-
+#effets speciaux
+var effet_death=false
 # Vélocité de la toupie
 var velocity = Vector2.ZERO
-
+var ralentissement=0.01
+var restitution = 0.35
 var variable_de_choc = 80
 var attraction_factor = 1
 var direction = Vector2.ZERO
@@ -97,13 +99,17 @@ func _process(delta):
 		Score.max_speed_player2=velocity.length()
 	#------------------
 	#-------GESTION DES BONUS--------
+	#EFFET DEATH
+	if effet_death == true:
+		$spr_death.visible=true
+		$spr_death.rotation=-rotation
 	#EFFET TROU NOIR
 	if effet_trou_noir == true:
 		attraction_strength += 10
 	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:
-		speed -= 0.01
+		speed -= ralentissement
 	else:
 		speed = 0
 		winner_round.emit("player1")
@@ -159,6 +165,16 @@ func _process(delta):
 				$effet_esquive_toupie2.start()
 				$htbx_toupie2.disabled=true
 				$htbx_toupie2/spr_toupie2.modulate.a=0.5
+			elif P2Inventaire.place1 == "death":
+				print("P2 : UTILISATION DEATH")
+				Score.nbr_booster_speciauxP2+=1
+				Collectables.collectables[7]=1
+				toupie1.velocity=toupie1.velocity*100
+				toupie1.P1_ajout(0)
+				toupie1.P1_ajout(0)
+				toupie1.P1_ajout(0)
+				toupie1.effet_death=true
+				toupie1.ralentissement=0.04
 			P2Inventaire.place1 = P2Inventaire.place2
 			P2Inventaire.place2 = P2Inventaire.place3
 			P2Inventaire.place3 = "vide"
@@ -224,7 +240,7 @@ func _process(delta):
 		var normal_component = velocity.dot(normal)
 		var tangent_component = velocity.dot(tangente)
 		# Modifier la composante normale (inverser et réduire)
-		var restitution = 0.35
+		
 		var new_normal = -normal_component * restitution
 		# Appliquer un coefficient de friction sur la composante tangentielle
 		var friction_coeff = 0.9
@@ -306,6 +322,10 @@ func _on_area_entered(area: Area2D) -> void:
 		print("TP1: ajout booster esquive inventaire")
 		P2_ajout(1)
 		area.queue_free()
+	if area.collision_layer==256:
+		print("TP1: ajout booster death inventaire")
+		P2_ajout(2)
+		area.queue_free()
 	pass
 
 
@@ -330,11 +350,26 @@ signal winner_round(winner : String)
 
 func P2_ajout(choix: int):
 	if P2Inventaire.place1 == "vide":
-		P2Inventaire.place1 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P2Inventaire.place1 = "attaque"
+		elif choix == 1:
+			P2Inventaire.place1 = "esquive"
+		elif choix == 2:
+			P2Inventaire.place1 = "death"
 	elif P2Inventaire.place2 == "vide":
-		P2Inventaire.place2 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P2Inventaire.place2 = "attaque"
+		elif choix == 1:
+			P2Inventaire.place2 = "esquive"
+		elif choix == 2:
+			P2Inventaire.place2 = "death"
 	elif P2Inventaire.place3 == "vide":
-		P2Inventaire.place3 = "attaque" if choix == 0 else "esquive"
+		if choix == 0:
+			P2Inventaire.place3 = "attaque"
+		elif choix == 1:
+			P2Inventaire.place3 = "esquive"
+		elif choix == 2:
+			P2Inventaire.place3 = "death"
 	else:
 		print("P2 : TOUT EST REMPLI")
 

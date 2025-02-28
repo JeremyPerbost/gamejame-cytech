@@ -979,7 +979,7 @@ offset_left = 12.0
 offset_top = 4.0
 offset_right = 246.0
 offset_bottom = 27.0
-text = "Death Boost"
+text = "Malediction"
 horizontal_alignment = 1
 
 [node name="death_dialog" type="Panel" parent="GridContainer/collectable8"]

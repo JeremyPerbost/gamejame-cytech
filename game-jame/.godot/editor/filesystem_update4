@@ -8,3 +8,4 @@ res://maps/area_toupie_1.tscn
 res://maps/menuprincipal.tscn
 res://maps/area_toupie_2.tscn
 res://script/toupie.gd
+res://maps/menus/collection_menu/collectionMenu.tscn

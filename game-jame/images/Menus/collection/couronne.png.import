@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwo7mvljg7tx3"
-path="res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"
+uid="uid://c2bw76dq7c7n4"
+path="res://.godot/imported/couronne.png-6b106bf7c68896f5479a16825db74db2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Menus/background/background_combat_pierre.png"
-dest_files=["res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"]
+source_file="res://images/Menus/collection/couronne.png"
+dest_files=["res://.godot/imported/couronne.png-6b106bf7c68896f5479a16825db74db2.ctex"]
 
 [params]
 

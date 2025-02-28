@@ -1,7 +1,7 @@
-GPUParticles2D
-Button
-HBoxContainer
 Sprite2D
+Button
+GPUParticles2D
+HBoxContainer
 Timer
 HSplitContainer
 Container

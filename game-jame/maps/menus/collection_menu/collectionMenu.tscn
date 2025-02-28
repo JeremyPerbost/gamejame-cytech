@@ -1,7 +1,6 @@
-[gd_scene load_steps=60 format=3 uid="uid://dy3rhq2lhlhey"]
+[gd_scene load_steps=61 format=3 uid="uid://dy3rhq2lhlhey"]
 
 [ext_resource type="Script" path="res://script/collection_menu_script/collection_menu.gd" id="1_jtsua"]
-[ext_resource type="Texture2D" uid="uid://bdypi36k5gn33" path="res://images/Menus/background/background_combat_pierre.png" id="2_lxlb3"]
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_tw243"]
 [ext_resource type="Texture2D" uid="uid://b8c5mex54uxl5" path="res://images/animation/boost_animation.png" id="3_mamh8"]
 [ext_resource type="Texture2D" uid="uid://dl6wlky5ldsv6" path="res://images/animation/boost_invincibility_animation.png" id="4_qn380"]
@@ -11,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://0jpv20pmp37b" path="res://images/UI_joueur/boost_attaque.png" id="8_1o85p"]
 [ext_resource type="Texture2D" uid="uid://c38bdbei160kp" path="res://images/UI_joueur/boost_esquive.png" id="9_fb0vu"]
 [ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="10_3i6vf"]
+[ext_resource type="Texture2D" uid="uid://c2bw76dq7c7n4" path="res://images/Menus/collection/couronne.png" id="12_e7166"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1osgw"]
+load_path = "res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tpg2"]
 atlas = ExtResource("3_mamh8")
@@ -366,7 +369,7 @@ script = ExtResource("1_jtsua")
 texture_filter = 1
 position = Vector2(570.5, 321)
 scale = Vector2(5.985, 4.58667)
-texture = ExtResource("2_lxlb3")
+texture = SubResource("CompressedTexture2D_1osgw")
 
 [node name="label_player1" type="Label" parent="."]
 z_index = 1
@@ -440,7 +443,11 @@ offset_top = 0.0139999
 offset_right = 223.0
 offset_bottom = 49.014
 text = "This boost allows you to gain
-extra speed."
+extra speed.
+
+common boost
+automatic use"
+justification_flags = 161
 
 [node name="collectable2" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -482,8 +489,12 @@ offset_top = 0.0139999
 offset_right = 223.0
 offset_bottom = 49.014
 text = "This boost allows you to be
-invincible for a short duration."
+invincible for a short duration.
+
+special boost
+automatic use"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="collectable3" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -525,8 +536,12 @@ offset_top = 0.0139999
 offset_right = 236.0
 offset_bottom = 49.014
 text = "This boost traps your enemy
-stopping them to move."
+stopping them to move.
+
+special boost
+automatic use"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="collectable4" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -568,8 +583,12 @@ offset_right = 215.0
 offset_bottom = 48.912
 text = "A black hole boost which
 traps you on the center of the 
-arena."
+arena.
+
+special boost
+automatic use"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="collectable5" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -610,8 +629,12 @@ offset_top = -0.105003
 offset_right = 223.0
 offset_bottom = 48.895
 text = "Prevent your durability of 
-decrease for a few seconds."
+decrease for a few seconds.
+
+common boost
+automatic use"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="collectable6" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -651,8 +674,12 @@ offset_top = -0.120003
 offset_right = 223.0
 offset_bottom = 48.88
 text = "You can dash to attack or
-dodge your enemy."
+dodge your enemy.
+
+common boost
+manual use"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="collectable7" type="Panel" parent="GridContainer"]
 self_modulate = Color(0, 0, 0, 1)
@@ -673,7 +700,7 @@ offset_left = 12.0
 offset_top = 4.0
 offset_right = 246.0
 offset_bottom = 27.0
-text = "Teleport"
+text = "Dodge"
 horizontal_alignment = 1
 
 [node name="teleport_dialog" type="Panel" parent="GridContainer/collectable7"]
@@ -688,12 +715,15 @@ anchors_preset = -1
 anchor_top = 0.23
 anchor_bottom = 0.23
 offset_left = 8.0
-offset_top = -0.120003
-offset_right = 223.0
-offset_bottom = 48.88
-text = "You can teleport to the
-opposite area."
+offset_top = 0.189999
+offset_right = 256.0
+offset_bottom = 101.19
+text = "you can dodge for a short while.
+
+common boost
+manual buse"
 horizontal_alignment = 3
+justification_flags = 161
 
 [node name="btn_menu" type="Button" parent="."]
 layout_mode = 0
@@ -705,5 +735,18 @@ text = "<"
 
 [node name="survolement" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_3i6vf")
+
+[node name="stat_btn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 9.0
+offset_right = 1114.0
+offset_bottom = 59.0
+
+[node name="stat_spr" type="Sprite2D" parent="stat_btn"]
+texture_filter = 1
+position = Vector2(25, 25)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("12_e7166")
 
 [connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]

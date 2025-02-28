@@ -1,3 +1,7 @@
+res://font
+res://images/skins
+res://script/transition
+res://maps/transition_screen
 res://images/animation
 res://images/effet_toupie
 res://images/UI_joueur
@@ -5,9 +9,7 @@ res://script/animation
 res://images/Menus/collection
 res://shader
 res://script/GlobalVariables
-res://font
 res://images
-res://images/skins
 H:/gamejame-cytech
 res://
 H:/
@@ -18,5 +20,3 @@ res://images/animation/animation_menu
 res://sons/musiques
 res://sons/effets_sonores
 res://script/collection_menu_script
-res://sons/effets_sonores/chocs
-res://sons/combat

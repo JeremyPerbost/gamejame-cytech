@@ -70,9 +70,7 @@ func _process(delta: float) -> void:
 func handle_navigation():
 	if navigation_timer < navigation_delay:
 		return  # Empêche le spam de navigation
-
 	var moved = false  # Variable pour savoir si on a changé de sélection
-
 	# Déplacement à droite (ignorer les cases non découvertes)
 	if Input.is_action_just_pressed("ui_right") or Input.get_action_strength("ui_p1_right") > 0.5:
 		var next_index = hover_index

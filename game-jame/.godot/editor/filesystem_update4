@@ -24,3 +24,6 @@ res://script/Inventaire/inventaire.gd
 res://maps/UI_joueur/ui_boost_death.tscn
 res://maps/UI_joueur/boost_esquive.tscn
 res://script/animation/ui_boost_death.gd
+res://maps/transition_screen/transition_round.tscn
+res://maps/transition_screen/transition_screen.tscn
+res://script/transition/transition_round.gd

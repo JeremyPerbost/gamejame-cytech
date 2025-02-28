@@ -28,6 +28,7 @@ Arene="*res://script/GlobalVariables/Arene.gd"
 MusiqueManager="*res://script/GlobalVariables/Musique_manager.gd"
 Parametres="*res://script/GlobalVariables/Parametres.gd"
 SaveManager="*res://script/GlobalVariables/Save_manager.gd"
+TransitionRound="*res://maps/transition_screen/transition_round.tscn"
 
 [display]
 

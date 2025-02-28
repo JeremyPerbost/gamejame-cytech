@@ -1,4 +1,7 @@
+Label
 Sprite2D
+ColorRect
+AnimationPlayer
 AnimatedSprite2D
 Button
 GPUParticles2D
@@ -6,9 +9,6 @@ HBoxContainer
 Timer
 HSplitContainer
 Container
-Label
 Control
 VSeparator
 Node2D
-CPUParticles2D
-Panel

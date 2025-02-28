@@ -53,7 +53,8 @@ func play_transition_animation() -> void:
 		score_tp2.visible = true
 		score_tp1.text = str(Score.score_player1)
 		score_tp2.text = str(Score.score_player2)
-		transition_round.play("default")
+		#transition_round.play("default")
+		TransitionRound.transition("res://maps/toupie.tscn")
 		print("FIN ANIMATION TRANSITION")
 
 func affichage_score() -> void:
@@ -90,16 +91,16 @@ func game_over(condition_fin_jeu : int):
 	Score.is_transition_playing=true
 	if condition_fin_jeu == 0:
 		print("FIN DU JEU PLUS DE TEMPS")
-		TransitionScreen.transition("res://maps/EndGame.tscn")
+		TransitionRound.transition("res://maps/EndGame.tscn")
 		print("EGALITER")
 	elif condition_fin_jeu == 1:
 		print("Player one won")
 		Score.gagnant="player1"
-		TransitionScreen.transition("res://maps/EndGame.tscn")
+		TransitionRound.transition("res://maps/EndGame.tscn")
 	elif condition_fin_jeu == 2:
 		print("Player two won")
 		Score.gagnant="player2"
-		TransitionScreen.transition("res://maps/EndGame.tscn")
+		TransitionRound.transition("res://maps/EndGame.tscn")
 
 func _on_area_toupie_1_winner_round(winner: String) -> void:
 	if not is_transition_playing:
@@ -108,8 +109,6 @@ func _on_area_toupie_1_winner_round(winner: String) -> void:
 		print("Score player 2: " + str(Score.score_player2))
 		play_transition_animation()
 		audio_transition_round.play()
-		await get_tree().create_timer(8.0).timeout 
-		get_tree().reload_current_scene()
 
 func _on_area_toupie_2_winner_round(winner: String) -> void:
 	if not is_transition_playing:
@@ -118,8 +117,6 @@ func _on_area_toupie_2_winner_round(winner: String) -> void:
 		print("Score player 1: " + str(Score.score_player1))
 		play_transition_animation()
 		audio_transition_round.play()
-		await get_tree().create_timer(8.0).timeout 
-		get_tree().reload_current_scene()
 func egalite() -> void:
 	if not is_transition_playing:
 		Score.is_transition_playing=true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cq5fjxmjj7we5"]
 
-[ext_resource type="Texture2D" uid="uid://4wvgikpwwbsu" path="res://images/Menus/menu_skin/background_menu_skin.png" id="1_ingg1"]
+[ext_resource type="Texture2D" uid="uid://cipfer65g48l2" path="res://images/Menus/menu_skin/background_menu_skin.png" id="1_ingg1"]
 [ext_resource type="Script" path="res://script/menu skin/menu_skin.gd" id="1_xcm57"]
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_fhr6d"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="3_e0yiw"]
@@ -78,6 +78,7 @@ libraries = {
 "": SubResource("AnimationLibrary_rduw8")
 }
 autoplay = "default"
+speed_scale = 0.1
 
 [node name="background_menu_skin" type="Sprite2D" parent="."]
 texture_filter = 1

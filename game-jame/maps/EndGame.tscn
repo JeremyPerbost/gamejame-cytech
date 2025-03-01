@@ -176,8 +176,8 @@ script = ExtResource("1_jvtuu")
 [node name="Background1" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(13.4999, -5.5)
-scale = Vector2(5.925, 4.7)
+position = Vector2(-0.499971, 9.53674e-06)
+scale = Vector2(5.785, 4.36)
 texture = ExtResource("1_rmqnx")
 
 [node name="toupie_gagnante" type="Sprite2D" parent="."]

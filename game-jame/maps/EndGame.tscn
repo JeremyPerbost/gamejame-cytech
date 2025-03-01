@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://w2si6w7e7p88"]
 
 [ext_resource type="Script" path="res://script/endgame/end_game.gd" id="1_jvtuu"]
-[ext_resource type="Texture2D" uid="uid://ce3irieqr3grr" path="res://images/ecran_de_fin/endingscreen.png" id="1_rmqnx"]
+[ext_resource type="Texture2D" uid="uid://bvkib8igs0fj7" path="res://images/ecran_de_fin/endingscreen.png" id="1_rmqnx"]
 [ext_resource type="Texture2D" uid="uid://d1t3sivpduwfu" path="res://images/ecran_de_fin/titre_endgame.png" id="2_7lrg6"]
 [ext_resource type="Texture2D" uid="uid://bv3j62oqsqjtw" path="res://images/ecran_de_fin/player2win.png" id="5_ex78r"]
 [ext_resource type="Texture2D" uid="uid://b820wmusoikj3" path="res://images/animation/price_animation.png" id="6_5vad4"]
@@ -176,8 +176,8 @@ script = ExtResource("1_jvtuu")
 [node name="Background1" type="Sprite2D" parent="."]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(2.07722e-05, 6.67572e-06)
-scale = Vector2(23.04, 12.96)
+position = Vector2(13.4999, -5.5)
+scale = Vector2(5.925, 4.7)
 texture = ExtResource("1_rmqnx")
 
 [node name="toupie_gagnante" type="Sprite2D" parent="."]

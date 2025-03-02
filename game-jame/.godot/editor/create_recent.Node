@@ -1,3 +1,5 @@
+AudioStreamPlayer2D
+Timer
 Label
 Sprite2D
 ColorRect
@@ -6,7 +8,6 @@ AnimatedSprite2D
 Button
 GPUParticles2D
 HBoxContainer
-Timer
 HSplitContainer
 Container
 Control

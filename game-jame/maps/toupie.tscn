@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bryr8m263imcy"]
+[gd_scene load_steps=44 format=3 uid="uid://bryr8m263imcy"]
 
 [ext_resource type="Script" path="res://script/toupie.gd" id="1_p4bqp"]
 [ext_resource type="Texture2D" uid="uid://gp7uusjg46v2" path="res://images/center.png" id="3_4ew0m"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="10_owgvq"]
 [ext_resource type="PackedScene" uid="uid://b671ut7xj8sjb" path="res://maps/UI_joueur/inventaire.tscn" id="11_dmw5p"]
 [ext_resource type="PackedScene" uid="uid://bluuefjjcnfh4" path="res://maps/UI_pause/pause.tscn" id="12_k4lh1"]
+[ext_resource type="AudioStream" uid="uid://colvbo4m0nmc2" path="res://sons/effets_sonores/darkness_effect.mp3" id="15_4205r"]
 [ext_resource type="AudioStream" uid="uid://cik4btvyw010i" path="res://sons/effets_sonores/slach.MP3" id="16_otyd0"]
 [ext_resource type="Texture2D" uid="uid://dp8ri1rmu2qb2" path="res://images/Menus/menu_toupie/minutes.png" id="17_0dvtg"]
 [ext_resource type="Script" path="res://script/time.gd" id="17_nres4"]
@@ -381,6 +382,14 @@ metadata/_edit_group_ = true
 [node name="pause" parent="." instance=ExtResource("12_k4lh1")]
 visible = false
 
+[node name="dark_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="audio_darkness_song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_4205r")
+
 [connection signal="winner_round" from="Area_arene/Area_toupie1" to="." method="_on_area_toupie_1_winner_round"]
 [connection signal="winner_round" from="Area_arene/Area_toupie2" to="." method="_on_area_toupie_2_winner_round"]
 [connection signal="timeout" from="Camera/Timer_shaking_camera" to="Camera" method="_on_timer_shaking_camera_timeout"]
+[connection signal="timeout" from="dark_timer" to="." method="_on_dark_timer_timeout"]

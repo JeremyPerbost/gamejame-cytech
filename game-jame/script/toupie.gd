@@ -18,8 +18,10 @@ var is_game_running = true
 @onready var sand_wind=$sand_wind
 @onready var rain=$rain
 @onready var stars=$stars
+@onready var darkness_song=$audio_darkness_song
 var is_transition_playing = false
-
+var dark_arene=false#ajouter le mode jour-nuit a l'arene
+var compteur_darkness=0
 func play_musique():
 	#choisir quelle musique jouer
 	if Score.score_player1 == 0 and Score.score_player2 == 0:
@@ -128,15 +130,38 @@ func gestion_effet_arene():
 		sand_wind.emitting=true
 		rain.emitting=false
 		stars.emitting=false
+		dark_arene=false
 	elif Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
 		sand_wind.emitting=false
 		rain.emitting=true
 		stars.emitting=false
+		dark_arene=false
 	elif Arene.arene=="res://images/Menus/background/background_combat_space.png":
 		sand_wind.emitting=false
 		rain.emitting=false
 		stars.emitting=true
+		dark_arene=false
+	elif Arene.arene=="res://images/Menus/background/background_combat_dark.png":
+		sand_wind.emitting=false
+		rain.emitting=false
+		stars.emitting=false
+		dark_arene=true
 	else:
 		sand_wind.emitting=false
 		rain.emitting=false
 		stars.emitting=false
+		dark_arene=false
+		
+
+
+func _on_dark_timer_timeout() -> void:
+	if dark_arene==true:
+		background.z_index=0
+		compteur_darkness=compteur_darkness+1
+		if compteur_darkness>=5:
+			darkness_song.play()
+			compteur_darkness=0
+			background.z_index=34
+	else:
+		background.z_index=0
+	pass # Replace with function body.

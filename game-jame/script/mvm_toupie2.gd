@@ -164,7 +164,7 @@ func _process(delta):
 				Collectables.collectables[6]=1
 				$effet_esquive_toupie2.start()
 				$htbx_toupie2.disabled=true
-				$htbx_toupie2/spr_toupie2.modulate.a=0.5
+				suicideP2=0.5
 			elif P2Inventaire.place1 == "death":
 				print("P2 : UTILISATION DEATH")
 				Score.nbr_booster_speciauxP2+=1
@@ -388,5 +388,5 @@ func _on_effet_piege_toupie_2_timeout() -> void:
 
 func _on_effet_esquive_toupie_2_timeout() -> void:
 	$htbx_toupie2.disabled=false
-	$htbx_toupie2/spr_toupie2.modulate.a=1
+	suicideP2=1
 	pass # Replace with function body.

@@ -170,8 +170,8 @@ func _process(delta):
 				velocity=velocity*10000
 			elif P1Inventaire.place1 == "esquive":
 				$effet_esquive_toupie1.start()
-				$htbx_toupie1/spr_toupie1.modulate.a=0.5
 				print("P1 : UTILISATION ESQUIVE")
+				suicideP1=0.5
 				Score.nbr_booster_communP1+=1
 				Collectables.collectables[6]=1
 				$htbx_toupie1.disabled=true
@@ -373,6 +373,6 @@ func _on_effet_piege_toupie_1_timeout() -> void:
 		print("TP1: mets fin au piege de la tp2")
 	pass # Replace with function body.
 func _on_effet_esquive_toupie_1_timeout() -> void:
+	suicideP1=1
 	$htbx_toupie1.disabled=false
-	$htbx_toupie1/spr_toupie1.modulate.a=1
 	pass # Replace with function body.

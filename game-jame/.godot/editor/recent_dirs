@@ -1,3 +1,5 @@
+res://sons/effets_sonores
+res://images/Menus/background
 res://font
 res://images/skins
 res://script/transition
@@ -14,9 +16,7 @@ H:/gamejame-cytech
 res://
 H:/
 res://script
-res://images/Menus/background
 res://script/menu_arene
 res://images/animation/animation_menu
 res://sons/musiques
-res://sons/effets_sonores
 res://script/collection_menu_script

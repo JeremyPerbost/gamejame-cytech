@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var label_time = $spr_time/label_time
-var time_left: float = 60.0  # Durée du timer en secondes
+var time_left: float = Arene.temps  # Durée du timer en secondes
 
 # Permet de définir une durée personnalisée en minutes
 func set_timer(minutes: float) -> void:

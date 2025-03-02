@@ -1,6 +1,6 @@
 extends Node2D  # Ou Control si tu utilises une interface UI
 
-var TOT = 180
+var TOT = Arene.temps
 var total_time = TOT
 var is_game_running = true
 
@@ -51,6 +51,9 @@ func play_transition_animation() -> void:
 		P1Inventaire.place1="vide"
 		P1Inventaire.place2="vide"
 		P1Inventaire.place3="vide"
+		P2Inventaire.place1="vide"
+		P2Inventaire.place2="vide"
+		P2Inventaire.place3="vide"
 		score_tp1.visible = true
 		score_tp2.visible = true
 		score_tp1.text = str(Score.score_player1)
@@ -72,16 +75,13 @@ func _process(delta):
 	if is_transition_playing:
 		affichage_score()
 	if is_game_running:
-		if $Time.time_left==0:
+		if $Time.time_left<=0:
 			is_game_running = false
 			egalite()
 		elif Input.is_action_pressed("pause") || Input.is_action_just_pressed("ui_p1_pause"):
 			pause()
 		if total_time > 0:
 			total_time -= delta
-		else:
-			is_game_running = false
-			game_over(0)
 		if Score.score_player1 == 3:
 			is_game_running = false
 			game_over(1)
@@ -121,10 +121,9 @@ func _on_area_toupie_2_winner_round(winner: String) -> void:
 		audio_transition_round.play()
 func egalite() -> void:
 	if not is_transition_playing:
-		Score.is_transition_playing=true
-		audio_transition_round.play()
-		await get_tree().create_timer(8.0).timeout 
-		get_tree().reload_current_scene()
+		play_transition_animation()
+		audio_transition_round.play() 
+		
 func gestion_effet_arene():
 	if Arene.arene=="res://images/Menus/background/background_combat_sand.png":
 		sand_wind.emitting=true

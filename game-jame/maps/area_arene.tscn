@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c15mq64cs6bur"]
+[gd_scene load_steps=8 format=3 uid="uid://c15mq64cs6bur"]
 
 [ext_resource type="Texture2D" uid="uid://bvosxsytw56sj" path="res://images/Arene.png" id="1_e8c4u"]
 
@@ -8,19 +8,60 @@ script/source = "extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Arene.arene==\"res://images/Menus/background/background_combat_pierre.png\":
+		$Particules_carnage.emitting=false
+		$spr_arene.texture=load(\"res://images/Arene.png\")
 	if Arene.arene==\"res://images/Menus/background/background_combat_sand.png\":
+		$Particules_carnage.emitting=false
 		$spr_arene.texture=load(\"res://images/Menus/arene/arene_sand.png\")
 	if Arene.arene==\"res://images/Menus/background/background_combat_space.png\":
+		$Particules_carnage.emitting=false
 		$spr_arene.texture=load(\"res://images/Menus/arene/arene_space.png\")
+	if Arene.arene==\"res://images/Menus/background/background_combat_dark.png\":
+		$Particules_carnage.emitting=false
+		$spr_arene.texture=load(\"res://images/Menus/arene/arene_dark.png\")
+	if Arene.arene==\"res://images/Menus/background/background_combat_carnage.png\":
+		$spr_arene.texture=load(\"res://images/Menus/arene/arene_carnage.png\")
+		$Particules_carnage.emitting=true
 	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Arene.arene==\"res://images/Menus/background/background_combat_space.png\":
 		$spr_arene.rotate(delta/10)
 	pass
 "
+
+[sub_resource type="Gradient" id="Gradient_o6hxb"]
+colors = PackedColorArray(100, 0, 0, 1, 0.993833, 0.297008, 0.234978, 0.439216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dxek5"]
+gradient = SubResource("Gradient_o6hxb")
+
+[sub_resource type="Curve" id="Curve_whpfn"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.157248, 2.62419), -23.6131, -23.6131, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iurbm"]
+curve = SubResource("Curve_whpfn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cpekj"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 0)
+emission_ring_height = 30.0
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 30.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -165.95
+radial_accel_max = 7.2
+radial_accel_curve = SubResource("CurveTexture_iurbm")
+color_ramp = SubResource("GradientTexture1D_dxek5")
+turbulence_enabled = true
+turbulence_noise_strength = 19.29
+turbulence_noise_speed_random = 3.43
 
 [node name="Area_arene" type="Area2D"]
 script = SubResource("GDScript_rd4ia")
@@ -29,3 +70,7 @@ script = SubResource("GDScript_rd4ia")
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("1_e8c4u")
+
+[node name="Particules_carnage" type="GPUParticles2D" parent="."]
+amount = 3000
+process_material = SubResource("ParticleProcessMaterial_cpekj")

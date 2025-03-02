@@ -7,6 +7,7 @@ extends Control
 @onready var panel2 = $GridContainer/Panel_area2
 @onready var panel3 = $GridContainer/Panel_area3
 @onready var panel4 = $GridContainer/Panel_area4
+@onready var panel5 = $GridContainer/Panel_area5
 @onready var menu_btn = $btn_menu
 @onready var solo_btn = $HBoxContainer/Button_start_solo
 @onready var multiplayer_btn = $HBoxContainer/Button_start
@@ -24,7 +25,7 @@ var navigation_delay = 0.2  # Delay between selections (in seconds)
 func _ready() -> void:
 	MusiqueManager.jouer(load("res://sons/musiques/menu_2_loop.mp3"))
 	mode_btn = [multiplayer_btn, solo_btn]
-	arene_btn = [panel1, panel2, panel3, panel4]
+	arene_btn = [panel1, panel2, panel3, panel4, panel5]
 	menu_btn.button_down.connect(_on_btn_menu_pressed)  # Correction du signal
 	_update_selection()
 
@@ -47,11 +48,11 @@ func _process(delta: float) -> void:
 		navigation_timer = 0.0  # Reset the timer after navigating
 	if selected_row == 1:  # Navigation between arenas
 		if Input.is_action_just_pressed("ui_right") or Input.get_action_strength("ui_p1_right") > 0.5:
-			selected_arena = ((selected_arena + 1) % 4 + 4) % 4
+			selected_arena = ((selected_arena + 1) % 5 + 5) % 5
 			_update_selection()
 			navigation_timer = 0.0  # Reset the timer after navigating
 		elif Input.is_action_just_pressed("ui_left") or Input.get_action_strength("ui_p1_left") > 0.5:
-			selected_arena = ((selected_arena - 1) % 4 + 4) % 4
+			selected_arena = ((selected_arena - 1) % 5 + 5) % 5
 			_update_selection()
 			navigation_timer = 0.0  # Reset the timer after navigating
 	elif selected_row == 2:  # Navigation between modes
@@ -68,7 +69,7 @@ func _process(delta: float) -> void:
 			_on_play_btn_pressed()
 func _update_selection() -> void:
 	menu_btn.modulate = Color(1, 1, 1, 0.5)
-	for i in range(4):
+	for i in range(5):
 		arene_btn[i].modulate = Color(1, 1, 1, 0.5)  # Grayed out by default
 	for i in range(2):
 		mode_btn[i].modulate = Color(1, 1, 1, 0.5)
@@ -103,11 +104,18 @@ func _on_play_btn_pressed() -> void:
 	match selected_arena:
 		0:
 			Arene.arene = "res://images/Menus/background/background_combat_pierre.png"
+			Arene.temps=60
 		1:
 			Arene.arene = "res://images/Menus/background/background_combat_space.png"
+			Arene.temps=60
 		2:
 			Arene.arene = "res://images/Menus/background/background_combat_sand.png"
+			Arene.temps=60
 		3:
 			Arene.arene = "res://images/Menus/background/background_combat_dark.png"
+			Arene.temps=60
+		4:
+			Arene.arene = "res://images/Menus/background/background_combat_carnage.png"
+			Arene.temps=120
 	audio_selection.play()
 	TransitionScreen.transition("res://maps/toupie.tscn")

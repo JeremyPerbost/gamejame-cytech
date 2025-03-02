@@ -15,3 +15,6 @@ res://maps/area_toupie_2.tscn
 res://maps/area_arene.tscn
 res://script/menu_arene/menu_arene.gd
 res://script/toupie.gd
+res://script/mvm_toupie2.gd
+res://script/GlobalVariables/Arene.gd
+res://script/time.gd

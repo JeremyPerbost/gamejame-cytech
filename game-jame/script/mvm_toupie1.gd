@@ -52,6 +52,9 @@ func _ready():
 	spr_choc_animation.play("default")
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
+	#mode carnage
+	if Arene.arene=="res://images/Menus/background/background_combat_carnage.png":
+		speed=300
 	if center == null:
 		print(" TP1 : Le nœud 'centre' n'a pas été trouvé dans la scène.")
 	if temps == null:

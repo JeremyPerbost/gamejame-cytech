@@ -1,3 +1,5 @@
+LightOccluder2D
+GPUParticles2D
 AudioStreamPlayer2D
 Timer
 Label
@@ -6,10 +8,8 @@ ColorRect
 AnimationPlayer
 AnimatedSprite2D
 Button
-GPUParticles2D
 HBoxContainer
 HSplitContainer
 Container
 Control
 VSeparator
-Node2D

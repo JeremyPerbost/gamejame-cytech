@@ -41,6 +41,9 @@ var effet_trou_noir = false # BOOST
 var effet_invincible = false # BOOST
 var effet_piege = false # BOOST
 func _ready():
+	#mode carnage
+	if Arene.arene=="res://images/Menus/background/background_combat_carnage.png":
+		speed=300
 	#avantage de l'ia : 
 	if Score.mode_de_jeu==1:
 		speed_init=120

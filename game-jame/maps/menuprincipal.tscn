@@ -1,15 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://c1ln0mql0f51m"]
 
 [ext_resource type="Script" path="res://script/menuprincipal.gd" id="1_la1kg"]
+[ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="2_4gqwc"]
 [ext_resource type="Texture2D" uid="uid://drixoukoha1dp" path="res://images/skins/P1.png" id="3_7bt2j"]
 [ext_resource type="Texture2D" uid="uid://dwixeqo2floy6" path="res://images/animation/animation_menu/Title_animation.png" id="3_kgmuf"]
 [ext_resource type="Shader" uid="uid://di5vwqfv0c5qj" path="res://shader/inventaire.tres" id="5_8av5i"]
 [ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="5_aj02l"]
 [ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="6_4gd2g"]
 [ext_resource type="Texture2D" uid="uid://lkm1i7m62cc0" path="res://images/skins/P2.png" id="7_yw73c"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1osgw"]
-load_path = "res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxbsc"]
 radius = 39.3192
@@ -68,9 +66,9 @@ script = ExtResource("1_la1kg")
 
 [node name="BackgroundAnimeeSprite-converter" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(571, 325.5)
-scale = Vector2(5.92, 4.47333)
-texture = SubResource("CompressedTexture2D_1osgw")
+position = Vector2(577.5, 323)
+scale = Vector2(5.855, 4.44)
+texture = ExtResource("2_4gqwc")
 
 [node name="area_toupie_menu" type="Area2D" parent="."]
 position = Vector2(-1, -2)

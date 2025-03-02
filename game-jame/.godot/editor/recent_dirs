@@ -1,11 +1,12 @@
-H:/
+res://images/animation
 res://images/Menus/background
+res://images/Menus
+H:/
 res://sons/effets_sonores
 res://font
 res://images/skins
 res://script/transition
 res://maps/transition_screen
-res://images/animation
 res://images/effet_toupie
 res://images/UI_joueur
 res://script/animation
@@ -19,4 +20,3 @@ res://script
 res://script/menu_arene
 res://images/animation/animation_menu
 res://sons/musiques
-res://script/collection_menu_script

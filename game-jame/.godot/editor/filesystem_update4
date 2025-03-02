@@ -1,4 +1,4 @@
-res://maps/menus/menu_arene/menu_arene.tscn
+res://maps/menuprincipal.tscn
 res://script/GlobalVariables/Musique_manager.gd
 res://script/transition/transition_round.gd
 res://script/mvm_toupie1.gd
@@ -7,19 +7,13 @@ res://script/menuprincipal.gd
 res://maps/toupie.tscn
 res://maps/transition_screen/transition_round.tscn
 res://maps/transition_screen/transition_screen.tscn
-res://maps/menuprincipal.tscn
 res://maps/EndGame.tscn
 res://maps/menus/menu_skin/menu_skin.tscn
 res://maps/area_toupie_1.tscn
 res://maps/area_toupie_2.tscn
 res://maps/area_arene.tscn
-res://script/menu_arene/menu_arene.gd
-res://script/toupie.gd
-res://script/mvm_toupie2.gd
-res://script/GlobalVariables/Arene.gd
-res://script/time.gd
-res://maps/UI_joueur/ui_boost_death.tscn
+res://maps/menus/menu_arene/menu_arene.tscn
 res://maps/boost/boost_death.tscn
+res://maps/UI_joueur/ui_boost_death.tscn
 res://maps/UI_joueur/inventaire.tscn
-res://script/Inventaire/inventaire.gd
 res://maps/menus/collection_menu/collectionMenu.tscn

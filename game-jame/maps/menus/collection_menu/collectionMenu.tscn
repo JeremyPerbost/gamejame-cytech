@@ -1,6 +1,7 @@
 [gd_scene load_steps=98 format=3 uid="uid://dy3rhq2lhlhey"]
 
 [ext_resource type="Script" path="res://script/collection_menu_script/collection_menu.gd" id="1_jtsua"]
+[ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="2_4tytt"]
 [ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="2_tw243"]
 [ext_resource type="Texture2D" uid="uid://b8c5mex54uxl5" path="res://images/animation/boost_animation.png" id="3_mamh8"]
 [ext_resource type="Texture2D" uid="uid://dl6wlky5ldsv6" path="res://images/animation/boost_invincibility_animation.png" id="4_qn380"]
@@ -12,9 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="10_3i6vf"]
 [ext_resource type="Texture2D" uid="uid://c8ky1xibddawp" path="res://images/animation/boost_death.png" id="10_kl6v4"]
 [ext_resource type="Texture2D" uid="uid://c2bw76dq7c7n4" path="res://images/Menus/collection/couronne.png" id="12_e7166"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1osgw"]
-load_path = "res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tpg2"]
 atlas = ExtResource("3_mamh8")
@@ -627,9 +625,9 @@ script = ExtResource("1_jtsua")
 
 [node name="Collectionmenu_background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(570.5, 321)
-scale = Vector2(5.985, 4.58667)
-texture = SubResource("CompressedTexture2D_1osgw")
+position = Vector2(578, 324.5)
+scale = Vector2(5.85, 4.48667)
+texture = ExtResource("2_4tytt")
 
 [node name="label_player1" type="Label" parent="."]
 z_index = 1
@@ -642,6 +640,7 @@ offset_right = 91.0
 offset_bottom = 75.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tw243")
 theme_override_font_sizes/font_size = 50
 text = "Collection"

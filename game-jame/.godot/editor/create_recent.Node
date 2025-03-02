@@ -1,3 +1,4 @@
+AnimatedSprite2D
 Node2D
 GPUParticles2D
 LightOccluder2D
@@ -7,9 +8,7 @@ Label
 Sprite2D
 ColorRect
 AnimationPlayer
-AnimatedSprite2D
 Button
 HBoxContainer
 HSplitContainer
 Container
-Control

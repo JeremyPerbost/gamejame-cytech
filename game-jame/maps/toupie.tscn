@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gp7uusjg46v2" path="res://images/center.png" id="3_4ew0m"]
 [ext_resource type="PackedScene" uid="uid://dsb5q5i7h8n8h" path="res://maps/area_toupie_1.tscn" id="4_c7s2c"]
 [ext_resource type="PackedScene" uid="uid://c4tk818om7dw3" path="res://maps/area_toupie_2.tscn" id="5_h8hgh"]
+[ext_resource type="Texture2D" uid="uid://bwo7mvljg7tx3" path="res://images/Menus/background/background_combat_pierre.png" id="6_kj7b5"]
 [ext_resource type="PackedScene" uid="uid://c15mq64cs6bur" path="res://maps/area_arene.tscn" id="6_pfxmi"]
 [ext_resource type="Script" path="res://script/label.gd" id="7_x0xyv"]
 [ext_resource type="PackedScene" uid="uid://xm1lvc1bw580" path="res://maps/spawner.tscn" id="8_syc3h"]
@@ -15,9 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://cik4btvyw010i" path="res://sons/effets_sonores/slach.MP3" id="16_otyd0"]
 [ext_resource type="Texture2D" uid="uid://dp8ri1rmu2qb2" path="res://images/Menus/menu_toupie/minutes.png" id="17_0dvtg"]
 [ext_resource type="Script" path="res://script/time.gd" id="17_nres4"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1osgw"]
-load_path = "res://.godot/imported/background_combat_pierre.png-0ff0149c21f07a6602232e0c3f182991.ctex"
 
 [sub_resource type="Gradient" id="Gradient_jkylv"]
 colors = PackedColorArray(1, 1, 1, 0, 6.44952e-06, 0.483865, 0.652075, 0.647059)
@@ -238,7 +236,7 @@ show_behind_parent = true
 texture_filter = 1
 position = Vector2(2.07722e-05, 6.67572e-06)
 scale = Vector2(6, 4.5)
-texture = SubResource("CompressedTexture2D_1osgw")
+texture = ExtResource("6_kj7b5")
 
 [node name="rain" type="GPUParticles2D" parent="."]
 z_index = 6

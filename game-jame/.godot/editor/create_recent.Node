@@ -1,5 +1,6 @@
-LightOccluder2D
+Node2D
 GPUParticles2D
+LightOccluder2D
 AudioStreamPlayer2D
 Timer
 Label
@@ -12,4 +13,3 @@ HBoxContainer
 HSplitContainer
 Container
 Control
-VSeparator

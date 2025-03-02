@@ -1,10 +1,35 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2i4qmjn8m346"]
+[gd_scene load_steps=24 format=3 uid="uid://d2i4qmjn8m346"]
 
 [ext_resource type="Texture2D" uid="uid://c8ky1xibddawp" path="res://images/animation/boost_death.png" id="1_ka7du"]
 [ext_resource type="Script" path="res://script/animation/boost_death.gd" id="1_rnnfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kthir"]
 radius = 13.0
+
+[sub_resource type="Gradient" id="Gradient_66plu"]
+offsets = PackedFloat32Array(0.30343, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cpmxm"]
+gradient = SubResource("Gradient_66plu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_piu8y"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(1, 1, 90)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 11.29
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 33.41
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_cpmxm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0my23"]
 atlas = ExtResource("1_ka7du")
@@ -134,6 +159,13 @@ collision_layer = 256
 
 [node name="death_collision" type="CollisionShape2D" parent="death_area"]
 shape = SubResource("CircleShape2D_kthir")
+
+[node name="particules_death" type="GPUParticles2D" parent="death_area/death_collision"]
+amount = 300
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_piu8y")
+lifetime = 1.5
+speed_scale = 0.3
 
 [node name="death_animation" type="AnimatedSprite2D" parent="death_area/death_collision"]
 texture_filter = 1

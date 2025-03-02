@@ -18,3 +18,8 @@ res://script/toupie.gd
 res://script/mvm_toupie2.gd
 res://script/GlobalVariables/Arene.gd
 res://script/time.gd
+res://maps/UI_joueur/ui_boost_death.tscn
+res://maps/boost/boost_death.tscn
+res://maps/UI_joueur/inventaire.tscn
+res://script/Inventaire/inventaire.gd
+res://maps/menus/collection_menu/collectionMenu.tscn

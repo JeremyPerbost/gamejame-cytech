@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 var boost1_P1
 var boost2_P1

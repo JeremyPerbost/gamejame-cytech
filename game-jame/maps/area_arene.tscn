@@ -311,5 +311,5 @@ texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5h0nd")
 autoplay = "default"
-frame_progress = 0.675781
+frame_progress = 0.243487
 speed_scale = 20.0

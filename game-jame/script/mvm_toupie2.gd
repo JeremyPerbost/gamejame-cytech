@@ -129,7 +129,7 @@ func _process(delta):
 			suicideP2=3
 			suicide_choiceP2=false
 			self.speed=-1
-	if Input.is_action_pressed("ui_p1_R2"):
+	if Input.is_action_pressed("ui_p2_R2"):
 		suicide_choiceP2=true
 	$htbx_toupie2/spr_toupie2.material.set_shader_parameter("Dissolvevalue", suicideP2)
 	#----------------------------s
@@ -153,7 +153,7 @@ func _process(delta):
 		if abs(joy_y) > deadzone:
 			direction.y += joy_y
 	# Vérifie l'action spéciale
-	if Input.is_action_just_pressed("ui_A")||Score.mode_de_jeu==1:
+	if Input.is_action_just_pressed("ui_p1_A")||Score.mode_de_jeu==1:
 		if P2Inventaire.place1 != "vide":
 			if P2Inventaire.place1 == "attaque":
 				print("P2 : UTILISATION ATTAQUE")

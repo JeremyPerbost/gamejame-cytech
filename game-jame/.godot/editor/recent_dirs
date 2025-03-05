@@ -1,3 +1,4 @@
+res://images/skins
 res://font
 res://script/menu_parametre
 res://images/menu_parametre
@@ -6,7 +7,6 @@ H:/
 res://images/animation
 res://images/Menus/background
 res://sons/effets_sonores
-res://images/skins
 res://script/transition
 res://maps/transition_screen
 res://images/effet_toupie

@@ -5,7 +5,7 @@ const PLAYER2 = 1
 
 var action_stack = []  # Gère l'ordre de sélection
 
-enum SkinAvailables { RED, BLUE, WHITE, PURPLE, DUO, MILITARY, HUMAN, DEEP }
+enum SkinAvailables { RED, BLUE, WHITE, PURPLE, DUO, MILITARY, HUMAN, DEEP, SIX, SIMON, PEACE, HAPPY, SAD }
 
 var game_skins = {
 	SkinAvailables.RED: "P1.png",
@@ -15,7 +15,12 @@ var game_skins = {
 	SkinAvailables.DUO: "duo.png",
 	SkinAvailables.MILITARY: "military.png",
 	SkinAvailables.HUMAN: "human.png",
-	SkinAvailables.DEEP: "blue2.png"
+	SkinAvailables.DEEP: "blue2.png",
+	SkinAvailables.SIX: "6.png",
+	SkinAvailables.SIMON: "twister.png",
+	SkinAvailables.PEACE: "peace.png",
+	SkinAvailables.HAPPY: "happy.png",
+	SkinAvailables.SAD: "sad.png"
 }
 
 var chosen_skins = {
@@ -27,14 +32,19 @@ var chosen_skins = {
 @onready var audio_survolement = $audio_survolement
 @onready var exit_bttn = $btn_menu
 @onready var skin_panels = [
-	$GridContainer/skin1,
-	$GridContainer/skin2,
-	$GridContainer/skin3,
-	$GridContainer/skin4,
-	$GridContainer/skin5,
-	$GridContainer/skin6,
-	$GridContainer/skin7,
-	$GridContainer/skin8
+	$ScrollContainer/GridContainer/skin1,
+	$ScrollContainer/GridContainer/skin2,
+	$ScrollContainer/GridContainer/skin3,
+	$ScrollContainer/GridContainer/skin4,
+	$ScrollContainer/GridContainer/skin5,
+	$ScrollContainer/GridContainer/skin6,
+	$ScrollContainer/GridContainer/skin7,
+	$ScrollContainer/GridContainer/skin8,
+	$ScrollContainer/GridContainer/skin9,
+	$ScrollContainer/GridContainer/skin10,
+	$ScrollContainer/GridContainer/skin11,
+	$ScrollContainer/GridContainer/skin12,
+	$ScrollContainer/GridContainer/skin13
 ]
 
 var player_cursors = {PLAYER1: 0, PLAYER2: 0}  # Indice du skin sélectionné par chaque joueur
@@ -53,7 +63,6 @@ func _process(delta: float) -> void:
 	# Mise à jour du timer pour chaque joueur
 	navigation_timer[PLAYER1] += delta
 	navigation_timer[PLAYER2] += delta
-
 	# Gérer la navigation pour chaque joueur
 	if navigation_timer[PLAYER1] >= navigation_delay:
 		handle_navigation(PLAYER1, "ui_p1_left", "ui_p1_right", "ui_p1_up", "ui_p1_down", "ui_p1_A", "ui_p1_B")
@@ -112,7 +121,6 @@ func update_panels():
 	for i in range(skin_panels.size()):
 		var panel = skin_panels[i]
 		var skin_texture = game_skins.values()[i]
-
 		if chosen_skins[PLAYER1] == skin_texture:
 			panel.self_modulate = Color(3, 0, 0, 2)
 		elif chosen_skins[PLAYER2] == skin_texture:
@@ -120,6 +128,7 @@ func update_panels():
 		else:
 			panel.self_modulate = Color.BLACK
 	# Indiquer le skin survolé par chaque joueur
+	$ScrollContainer.ensure_control_visible(skin_panels[player_cursors[PLAYER1]])
 	skin_panels[player_cursors[PLAYER1]].self_modulate = Color(2, 0, 0, 1)  # Rouge clair pour PLAYER1
 	skin_panels[player_cursors[PLAYER2]].self_modulate = Color(0, 2, 0, 1)  # Vert clair pour PLAYER2
 

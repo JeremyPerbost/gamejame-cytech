@@ -1075,6 +1075,7 @@ texture = ExtResource("12_e7166")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="stat_btn"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 79.0

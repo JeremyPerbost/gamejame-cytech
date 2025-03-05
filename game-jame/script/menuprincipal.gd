@@ -30,11 +30,14 @@ var dissolve_progress=0
 func _ready() -> void:
 	# Ajouter les boutons dans la liste pour la navigation
 	SaveManager.Load()
+	$area_toupie_menu2/collision_toupie_menu2/sprite_toupie_menu2.texture=load(Skins.P1)
+
 	if Parametres.Musique==false:
 		print("Musique desactive")
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	
 	MusiqueManager.jouer(load("res://sons/musiques/menu_1_loop.mp3"))
 	menu_buttons = [start_button, btn_skin, btn_collection, btn_parametre, exit_button]
 	# Connecter les boutons à leurs fonctions respectives

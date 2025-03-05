@@ -1,3 +1,4 @@
+Sprite2D
 Button
 Timer
 CheckButton
@@ -8,7 +9,6 @@ GPUParticles2D
 LightOccluder2D
 AudioStreamPlayer2D
 Label
-Sprite2D
 ColorRect
 AnimationPlayer
 HBoxContainer

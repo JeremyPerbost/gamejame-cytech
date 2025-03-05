@@ -8,7 +8,7 @@ extends Control
 @onready var survolement = $survolement
 @onready var btn_menu = $btn_menu  # Bouton retour au menu principal
 @onready var stat_btn=$stat_btn
-
+var show_stat=false
 @onready var dialog_list = [
 	$GridContainer/collectable1/speedBoost_description_dialog as Panel,
 	$GridContainer/collectable2/invincibility_boost_dialog as Panel,
@@ -65,7 +65,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	navigation_timer += delta
 	handle_navigation()
-
 ### 🚀 **GESTION NAVIGATION MANETTE / CLAVIER** ###
 func handle_navigation():
 	if navigation_timer < navigation_delay:
@@ -124,7 +123,10 @@ func handle_navigation():
 	# Retour au menu
 	if Input.is_action_just_pressed("ui_p1_B"):
 		on_menu_pressed()
-
+	if Input.is_action_pressed("ui_p1_R2"):
+		navigation_timer=0
+		if navigation_timer < navigation_delay:
+			_on_stat_btn_pressed()
 func update_selection(show_description: bool):
 	# Réinitialiser toutes les descriptions et enlever les styles précédents
 	for i in range(collectables.size()):
@@ -175,3 +177,16 @@ func on_menu_pressed():
 
 func _on_btn_menu_pressed() -> void:
 	on_menu_pressed()
+
+
+func _on_stat_btn_pressed() -> void:
+	print("show stat")
+	if show_stat==false:
+		$Panel.visible=true
+		$GridContainer.visible=false
+		show_stat=true
+	else:
+		$Panel.visible=false
+		$GridContainer.visible=true
+		show_stat=false
+	pass # Replace with function body.

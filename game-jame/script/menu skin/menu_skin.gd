@@ -43,7 +43,8 @@ var navigation_timer = {PLAYER1: 0.0, PLAYER2: 0.0}
 
 var columns = 4  # Nombre de colonnes de la grille
 var rows = 2  # Nombre de lignes (calculé automatiquement)
-var numero_joueur=0
+var numero_joueur = 0  # Alterne entre 0 et 1 pour gérer les sélections
+
 func _ready() -> void:
 	MusiqueManager.jouer(load("res://sons/musiques/menu_2_loop.mp3"))
 	update_panels()
@@ -55,7 +56,11 @@ func _process(delta: float) -> void:
 
 	# Gérer la navigation pour chaque joueur
 	if navigation_timer[PLAYER1] >= navigation_delay:
-		handle_navigation(numero_joueur, "ui_p1_left", "ui_p1_right", "ui_p1_up", "ui_p1_down", "ui_p1_A", "ui_p1_B")
+		handle_navigation(PLAYER1, "ui_p1_left", "ui_p1_right", "ui_p1_up", "ui_p1_down", "ui_p1_A", "ui_p1_B")
+
+	if navigation_timer[PLAYER2] >= navigation_delay:
+		handle_navigation(PLAYER2, "ui_p2_left", "ui_p2_right", "ui_p2_up", "ui_p2_down", "ui_p2_A", "ui_p2_B")
+
 ### 🚀 **Gestion de la navigation pour chaque joueur** ###
 func handle_navigation(player, left, right, up, down, accept, cancel):
 	# Détection des boutons pour chaque manette
@@ -96,11 +101,8 @@ func handle_navigation(player, left, right, up, down, accept, cancel):
 
 	# Sélection du skin
 	if Input.is_action_just_pressed(accept):
-		choose_skin(numero_joueur, player_cursors[player])  # Appliquer le skin pour le joueur spécifique
-		if numero_joueur==1:
-			numero_joueur=0
-		else:
-			numero_joueur=1
+		choose_skin(player, player_cursors[player])  # Appliquer le skin pour le joueur spécifique
+
 	# Annuler un choix (retirer le skin du joueur)
 	if Input.is_action_just_pressed(cancel):
 		_on_btn_menu_pressed()
@@ -118,8 +120,8 @@ func update_panels():
 		else:
 			panel.self_modulate = Color.BLACK
 	# Indiquer le skin survolé par chaque joueur
-	skin_panels[player_cursors[PLAYER1]].self_modulate =Color(2, 0, 0, 1)  # Jaune clair pour PLAYER1
-	skin_panels[player_cursors[PLAYER2]].self_modulate =  Color(0, 2, 0, 1)  # Cyan clair pour PLAYER2
+	skin_panels[player_cursors[PLAYER1]].self_modulate = Color(2, 0, 0, 1)  # Rouge clair pour PLAYER1
+	skin_panels[player_cursors[PLAYER2]].self_modulate = Color(0, 2, 0, 1)  # Vert clair pour PLAYER2
 
 ### **🎮 Sélectionner un skin** ###
 func choose_skin(player, index):

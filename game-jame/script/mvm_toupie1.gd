@@ -146,13 +146,13 @@ func _process(delta):
 		suicide_choiceP1=true
 	$htbx_toupie1/spr_toupie1.material.set_shader_parameter("Dissolvevalue", suicideP1)
 	#----------------------------
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_p1_up"):
 		direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_p1_down"):
 		direction.y += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_p1_left"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_p1_right"):
 		direction.x += 1
 	# Ajoute la détection des axes du joystick gauche
 	var joy_x = Input.get_joy_axis(player_index, 0)  # Axe X du joystick gauche
@@ -163,7 +163,7 @@ func _process(delta):
 	if abs(joy_y) > deadzone:
 		direction.y += joy_y
 	# Vérifie l'action spéciale
-	if Input.is_action_just_pressed("ui_!"):
+	if Input.is_action_just_pressed("ui_!")||Input.is_action_just_pressed("ui_p1_A"):
 		if P1Inventaire.place1 != "vide":
 			if P1Inventaire.place1 == "attaque":
 				print("P1 : UTILISATION ATTAQUE")

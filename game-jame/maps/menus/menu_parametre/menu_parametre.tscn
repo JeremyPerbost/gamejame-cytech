@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpk4jd3rnbmv0"]
+
+[ext_resource type="Script" path="res://script/menu_parametre/menu_parametre.gd" id="1_15g0d"]
+[ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="1_335dx"]
+[ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="1_lsk7x"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="2_hvtg1"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="3_8uuws"]
+
+[node name="MenuSkin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15g0d")
+
+[node name="background_menu_skin" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(577.5, 323.5)
+scale = Vector2(5.775, 4.38)
+texture = ExtResource("1_335dx")
+
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hvtg1")
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8uuws")
+
+[node name="btn_menu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("1_lsk7x")
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="label_player1" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lsk7x")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 76.0
+offset_top = 89.0
+offset_right = 1084.0
+offset_bottom = 624.0
+metadata/_edit_group_ = true
+
+[node name="check_btn_camera" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shaking camera"
+
+[node name="check_btn_musique" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Music"
+
+[node name="check_btn_effects" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Effects"
+
+[node name="ecraser_sauvegarde_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lsk7x")
+theme_override_font_sizes/font_size = 20
+text = "overwrite Save"
+
+[node name="timer_selection" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/check_btn_camera" to="." method="_on_check_btn_camera_pressed"]
+[connection signal="pressed" from="VBoxContainer/check_btn_musique" to="." method="_on_check_btn_musique_pressed"]
+[connection signal="pressed" from="VBoxContainer/check_btn_effects" to="." method="_on_check_btn_effects_pressed"]
+[connection signal="pressed" from="VBoxContainer/ecraser_sauvegarde_btn" to="." method="_on_ecraser_sauvegarde_btn_pressed"]
+[connection signal="timeout" from="timer_selection" to="." method="_on_timer_selection_timeout"]

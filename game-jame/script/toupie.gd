@@ -125,31 +125,43 @@ func egalite() -> void:
 		audio_transition_round.play() 
 		
 func gestion_effet_arene():
-	if Arene.arene=="res://images/Menus/background/background_combat_sand.png":
-		sand_wind.emitting=true
-		rain.emitting=false
-		stars.emitting=false
-		dark_arene=false
-	elif Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
-		sand_wind.emitting=false
-		rain.emitting=true
-		stars.emitting=false
-		dark_arene=false
-	elif Arene.arene=="res://images/Menus/background/background_combat_space.png":
-		sand_wind.emitting=false
-		rain.emitting=false
-		stars.emitting=true
-		dark_arene=false
-	elif Arene.arene=="res://images/Menus/background/background_combat_dark.png":
-		sand_wind.emitting=false
-		rain.emitting=false
-		stars.emitting=false
-		dark_arene=true
+	if Parametres.Effets==true:
+		if Arene.arene=="res://images/Menus/background/background_combat_sand.png":
+			sand_wind.emitting=true
+			rain.emitting=false
+			stars.emitting=false
+			dark_arene=false
+		elif Arene.arene=="res://images/Menus/background/background_combat_pierre.png":
+			sand_wind.emitting=false
+			rain.emitting=true
+			stars.emitting=false
+			dark_arene=false
+		elif Arene.arene=="res://images/Menus/background/background_combat_space.png":
+			sand_wind.emitting=false
+			rain.emitting=false
+			stars.emitting=true
+			dark_arene=false
+		elif Arene.arene=="res://images/Menus/background/background_combat_dark.png":
+			sand_wind.emitting=false
+			rain.emitting=false
+			stars.emitting=false
+			dark_arene=true
+		else:
+			sand_wind.emitting=false
+			rain.emitting=false
+			stars.emitting=false
+			dark_arene=false
 	else:
-		sand_wind.emitting=false
-		rain.emitting=false
-		stars.emitting=false
-		dark_arene=false
+		if Arene.arene=="res://images/Menus/background/background_combat_dark.png":
+			sand_wind.emitting=false
+			rain.emitting=false
+			stars.emitting=false
+			dark_arene=true
+		else:
+			sand_wind.emitting=false
+			rain.emitting=false
+			stars.emitting=false
+			dark_arene=false
 		
 
 

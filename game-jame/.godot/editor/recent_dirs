@@ -1,9 +1,10 @@
+res://font
+res://script/menu_parametre
+res://images/Menus
 H:/
 res://images/animation
 res://images/Menus/background
-res://images/Menus
 res://sons/effets_sonores
-res://font
 res://images/skins
 res://script/transition
 res://maps/transition_screen
@@ -19,4 +20,3 @@ res://
 res://script
 res://script/menu_arene
 res://images/animation/animation_menu
-res://sons/musiques

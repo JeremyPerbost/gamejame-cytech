@@ -1,9 +1,11 @@
-res://maps/toupie.tscn
+res://maps/menus/menu_parametre/menu_parametre.tscn
 res://script/GlobalVariables/Musique_manager.gd
 res://script/transition/transition_round.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
 res://script/menuprincipal.gd
+res://script/menu_parametre/menu_parametre.gd
+res://maps/toupie.tscn
 res://maps/transition_screen/transition_round.tscn
 res://maps/transition_screen/transition_screen.tscn
 res://maps/menuprincipal.tscn
@@ -17,5 +19,9 @@ res://maps/boost/boost_death.tscn
 res://maps/UI_joueur/ui_boost_death.tscn
 res://maps/UI_joueur/inventaire.tscn
 res://maps/menus/collection_menu/collectionMenu.tscn
-res://script/menu skin/menu_skin.gd
+res://script/GlobalVariables/Parametres.gd
+res://script/GlobalVariables/Save_manager.gd
+res://script/toupie.gd
 res://script/mvm_toupie2.gd
+res://script/menu skin/menu_skin.gd
+res://script/menu_arene/menu_arene.gd

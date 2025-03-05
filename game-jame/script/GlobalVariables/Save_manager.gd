@@ -29,6 +29,8 @@ func mettre_a_jour_variables_globales():
 	variables_globales["P1"] = Skins.P1
 	variables_globales["P2"] = Skins.P2
 	variables_globales["camera_shaking"] = Parametres.camera_shaking
+	variables_globales["Musique"] = Parametres.Musique
+	variables_globales["Effets"] = Parametres.Effets
 
 	# ✅ Debug : Vérifions que les données sont mises à jour avant la sauvegarde
 	print("[DEBUG] Contenu de variables_globales avant sauvegarde :", variables_globales)
@@ -71,6 +73,17 @@ func appliquer_donnees():
 
 	Parametres.camera_shaking = variables_globales.get("camera_shaking", true)
 	print("[DEBUG] Parametres.camera_shaking :", Parametres.camera_shaking)
+	Parametres.Musique = variables_globales.get("Musique", true)
+	print("[DEBUG] Parametres.Musique :", Parametres.Musique)
+	Parametres.Effets = variables_globales.get("Effets", true)
+	print("[DEBUG] Parametres.Effets :", Parametres.Effets)
+
+func ecraser_sauvegarde():
+	Collectables.collectables=[0, 0, 0, 0, 0, 0, 0, 0]
+	Parametres.camera_shaking=true
+	Parametres.Effets=true
+	Parametres.Musique=true
+	Save()
 
 # 🔹 Fonction pour sauvegarder une seule valeur
 func sauvegarder_valeur(nom, valeur):

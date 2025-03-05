@@ -79,11 +79,11 @@ func _update_selection() -> void:
 	if selected_row == 1:
 		arene_btn[selected_arena].modulate = Color(1, 1, 1, 1)
 	else:
-		arene_btn[selected_arena].modulate = Color(0, 1, 0, 0.5)
+		arene_btn[selected_arena].modulate = Color(0, 3, 0, 2)
 	if selected_row == 2:
 		mode_btn[selected_mode].modulate = Color(1, 1, 1, 1)
 	else:
-		mode_btn[selected_mode].modulate = Color(0, 1, 0, 0.5)
+		mode_btn[selected_mode].modulate = Color(0, 3, 0, 2)
 	if selected_row == 3:
 		play_btn.modulate = Color(1, 1, 1, 1)
 	survolement.play()  # Plays a sound when changing selection

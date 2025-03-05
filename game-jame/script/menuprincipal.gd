@@ -7,7 +7,7 @@ extends Control
 @onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/Button as Button
 @onready var btn_skin = $MarginContainer/HBoxContainer/VBoxContainer/btn_skin
 @onready var btn_collection = $MarginContainer/HBoxContainer/VBoxContainer/btn_collection
-@onready var btn_collection2 = $MarginContainer/HBoxContainer/VBoxContainer/btn_collection2
+@onready var btn_parametre = $MarginContainer/HBoxContainer/VBoxContainer/btn_parametre
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Button2 as Button
 
 @export var start_level = preload("res://maps/toupie.tscn") as PackedScene
@@ -16,7 +16,6 @@ extends Control
 @onready var toupie_menu_sprite1 = $area_toupie_menu/collision_toupie_menu/sprite_toupie_menu
 @onready var toupie_menu2 = $area_toupie_menu2
 @onready var toupie_menu_sprite2 = $area_toupie_menu2/collision_toupie_menu2/sprite_toupie_menu2
-
 var velocity_toupie1 = Vector2(900, 900)
 var velocity_toupie2 = Vector2(900, 900)
 var vitesse_de_rotation_toupie1 = 90.0
@@ -31,14 +30,18 @@ var dissolve_progress=0
 func _ready() -> void:
 	# Ajouter les boutons dans la liste pour la navigation
 	SaveManager.Load()
+	if Parametres.Musique==false:
+		print("Musique desactive")
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	MusiqueManager.jouer(load("res://sons/musiques/menu_1_loop.mp3"))
-	menu_buttons = [start_button, btn_skin, btn_collection, btn_collection2, exit_button]
-
+	menu_buttons = [start_button, btn_skin, btn_collection, btn_parametre, exit_button]
 	# Connecter les boutons à leurs fonctions respectives
 	start_button.button_down.connect(on_start_pressed)
 	btn_skin.button_down.connect(on_skin_pressed)
 	btn_collection.button_down.connect(on_collection_pressed)
-	btn_collection2.button_down.connect(on_collection2_pressed)
+	btn_parametre.button_down.connect(on_parametre_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 
 	# Focus sur le premier bouton
@@ -89,8 +92,10 @@ func handle_menu_navigation():
 func update_button_focus():
 	for i in range(menu_buttons.size()):
 		if i == selected_index:
-			menu_buttons[i].grab_focus()  # Met le focus visuel sur le bouton sélectionné
+			menu_buttons[i].grab_focus() 
+			menu_buttons[i].modulate=Color(0, 3, 0, 2)
 		else:
+			menu_buttons[i].modulate=Color(1, 1, 1, 1)
 			menu_buttons[i].release_focus()
 
 ### 🎮 **FONCTIONS DES BOUTONS** ###
@@ -105,10 +110,10 @@ func on_skin_pressed():
 func on_collection_pressed():
 	audio_selection.play()
 	TransitionScreen.transition("res://maps/menus/collection_menu/collectionMenu.tscn")
-
-func on_collection2_pressed():
+func on_parametre_pressed():
 	audio_selection.play()
-	TransitionScreen.transition("res://maps/menus/collection_menu/collectionMenu2.tscn")
+	TransitionScreen.transition("res://maps/menus/menu_parametre/menu_parametre.tscn")
+	pass # Replace with function body.
 
 func on_exit_pressed():
 	audio_selection.play()
@@ -152,3 +157,7 @@ func handle_toupie_collision():
 		var overlap = radius1 + radius2 - distance
 		toupie_menu_sprite1.position += collision_normal * (overlap / 2)
 		toupie_menu_sprite2.position -= collision_normal * (overlap / 2)
+
+
+func _on_parametre_mouse_entered() -> void:
+	pass # Replace with function body.

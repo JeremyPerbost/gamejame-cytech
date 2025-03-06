@@ -57,6 +57,22 @@ func mettre_a_jour_boost(place: String, boost_ref: Node, marker: Node2D) -> Node
 		return null
 	return null
 func _process(delta: float) -> void:
+	if Parametres.Speed_bar==true:
+		$HBoxContainer/inventaire_P1/barre_de_vie_p1.visible=true
+		$HBoxContainer/inventaire_P2/barre_de_vie_p2.visible=true
+	else:
+		$HBoxContainer/inventaire_P1/barre_de_vie_p1.visible=false
+		$HBoxContainer/inventaire_P2/barre_de_vie_p2.visible=false		
+	var anim_p1 = $HBoxContainer/inventaire_P1/barre_de_vie_p1/Animation_barre_p1
+	var anim_p2 = $HBoxContainer/inventaire_P2/barre_de_vie_p2/Animation_barre_p2
+	if anim_p2.has_animation("anim_barre_p1"):
+		anim_p2.play("anim_barre_p1")
+	if anim_p1.has_animation("anim_barre_p1"):
+		anim_p1.play("anim_barre_p1")
+	var speed_normalized1 = clamp(Score.curent_speed_p1 /Arene.init_speed, 0, 1)  # Garde entre 0 et 1
+	var speed_normalized2 = clamp(Score.curent_speed_p2 /Arene.init_speed, 0, 1)  # Garde entre 0 et 1
+	anim_p2.seek(1-speed_normalized2, true)  # Met l'animation à la bonne position
+	anim_p1.seek(1-speed_normalized1, true)  # Met l'animation à la bonne position
 	raffraichir_inventaire()
 func raffraichir_inventaire() -> void:
 	boost1_P1 = mettre_a_jour_boost(P1Inventaire.place1, boost1_P1, marker1P1)

@@ -1,8 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://b671ut7xj8sjb"]
+[gd_scene load_steps=8 format=3 uid="uid://b671ut7xj8sjb"]
 
 [ext_resource type="Script" path="res://script/Inventaire/inventaire.gd" id="1_kfw5p"]
 [ext_resource type="Texture2D" uid="uid://28ps7fcnbobr" path="res://images/UI_joueur/inventaire_player1.png" id="2_ebald"]
+[ext_resource type="Texture2D" uid="uid://ckvm1s7guynjf" path="res://images/UI_joueur/barre.png" id="3_al5ta"]
 [ext_resource type="Texture2D" uid="uid://dhihfrgd5ifcp" path="res://images/UI_joueur/inventaire_player2.png" id="3_so102"]
+
+[sub_resource type="Animation" id="Animation_dsx60"]
+resource_name = "anim_barre_p1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(98, 8), Vector2(0, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.559679, 0.19575, 1), Color(0.86827, 0, 0.105636, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j5xvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(98, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.559679, 0.19575, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xs1x"]
+_data = {
+"RESET": SubResource("Animation_j5xvc"),
+"anim_barre_p1": SubResource("Animation_dsx60")
+}
 
 [node name="inventaire" type="Node2D"]
 script = ExtResource("1_kfw5p")
@@ -32,6 +93,25 @@ position = Vector2(50, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
 
+[node name="barre_de_vie_p1" type="Sprite2D" parent="HBoxContainer/inventaire_P1"]
+texture_filter = 1
+position = Vector2(0, 35.7143)
+scale = Vector2(2, 1)
+texture = ExtResource("3_al5ta")
+
+[node name="Animation_barre_p1" type="AnimationPlayer" parent="HBoxContainer/inventaire_P1/barre_de_vie_p1"]
+root_node = NodePath("../rect_p1")
+libraries = {
+"": SubResource("AnimationLibrary_1xs1x")
+}
+
+[node name="rect_p1" type="ColorRect" parent="HBoxContainer/inventaire_P1/barre_de_vie_p1"]
+offset_left = -49.0
+offset_top = -4.0
+offset_right = 49.0
+offset_bottom = 4.0
+color = Color(0, 0.559679, 0.19575, 1)
+
 [node name="inventaire_P2" type="Sprite2D" parent="HBoxContainer"]
 position = Vector2(172, 66)
 scale = Vector2(1.4475, 1.54)
@@ -50,3 +130,22 @@ metadata/_edit_group_ = true
 position = Vector2(50, 0)
 scale = Vector2(0.690846, 0.649351)
 metadata/_edit_group_ = true
+
+[node name="barre_de_vie_p2" type="Sprite2D" parent="HBoxContainer/inventaire_P2"]
+texture_filter = 1
+position = Vector2(0, 35.7143)
+scale = Vector2(2, 1)
+texture = ExtResource("3_al5ta")
+
+[node name="Animation_barre_p2" type="AnimationPlayer" parent="HBoxContainer/inventaire_P2/barre_de_vie_p2"]
+root_node = NodePath("../rect_p2")
+libraries = {
+"": SubResource("AnimationLibrary_1xs1x")
+}
+
+[node name="rect_p2" type="ColorRect" parent="HBoxContainer/inventaire_P2/barre_de_vie_p2"]
+offset_left = -49.0
+offset_top = -4.0
+offset_right = 49.0
+offset_bottom = 4.0
+color = Color(0, 0.559679, 0.19575, 1)

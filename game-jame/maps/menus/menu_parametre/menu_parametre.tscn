@@ -81,6 +81,12 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Effects"
 
+[node name="check_btn_speed_barre" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed bar"
+
 [node name="ecraser_sauvegarde_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -116,5 +122,6 @@ metadata/_edit_group_ = true
 [connection signal="pressed" from="VBoxContainer/check_btn_camera" to="." method="_on_check_btn_camera_pressed"]
 [connection signal="pressed" from="VBoxContainer/check_btn_musique" to="." method="_on_check_btn_musique_pressed"]
 [connection signal="pressed" from="VBoxContainer/check_btn_effects" to="." method="_on_check_btn_effects_pressed"]
+[connection signal="pressed" from="VBoxContainer/check_btn_speed_barre" to="." method="_on_check_btn_speed_barre_pressed"]
 [connection signal="pressed" from="VBoxContainer/ecraser_sauvegarde_btn" to="." method="_on_ecraser_sauvegarde_btn_pressed"]
 [connection signal="timeout" from="timer_selection" to="." method="_on_timer_selection_timeout"]

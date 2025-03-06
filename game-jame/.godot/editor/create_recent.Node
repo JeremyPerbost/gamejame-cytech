@@ -1,10 +1,11 @@
+AnimationPlayer
+ColorRect
+Sprite2D
 HBoxContainer
 ScrollContainer
 Label
 VBoxContainer
-ColorRect
 Panel
-Sprite2D
 Button
 Timer
 CheckButton
@@ -12,4 +13,3 @@ AnimatedSprite2D
 Node2D
 GPUParticles2D
 LightOccluder2D
-AudioStreamPlayer2D

@@ -16,3 +16,14 @@ res://maps/transition_screen/transition_round.tscn
 res://maps/menus/menu_arene/menu_arene.tscn
 res://script/menu_arene/menu_arene.gd
 res://maps/area_arene.tscn
+res://maps/UI_joueur/inventaire.tscn
+res://script/Inventaire/inventaire.gd
+res://script/GlobalVariables/Score.gd
+res://script/GlobalVariables/Arene.gd
+res://script/mvm_toupie2.gd
+res://maps/menus/menu_parametre/menu_parametre.tscn
+res://script/GlobalVariables/Parametres.gd
+res://script/menu_parametre/menu_parametre.gd
+res://script/GlobalVariables/Save_manager.gd
+res://maps/spawner.tscn
+res://script/spawner.gd

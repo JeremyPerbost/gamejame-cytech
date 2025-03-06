@@ -3,3 +3,4 @@ extends Node
 var camera_shaking=true
 var Musique=true
 var Effets=true
+var Speed_bar=true

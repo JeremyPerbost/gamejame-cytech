@@ -4,7 +4,7 @@ extends Area2D
 var player_index = 1
 
 # Vitesse de mouvement
-var speed_init = 80
+var speed_init = Arene.init_speed
 var speed = speed_init
 
 # Force d'attraction vers le centre
@@ -41,9 +41,6 @@ var effet_trou_noir = false # BOOST
 var effet_invincible = false # BOOST
 var effet_piege = false # BOOST
 func _ready():
-	#mode carnage
-	if Arene.arene=="res://images/Menus/background/background_combat_carnage.png":
-		speed=300
 	#avantage de l'ia : 
 	if Score.mode_de_jeu==1:
 		speed_init=120
@@ -278,6 +275,7 @@ func _process(delta):
 		$spr_piege.visible = true
 		$spr_piege.rotation = -rotation
 		velocity = Vector2.ZERO
+	Score.curent_speed_p2=speed
 func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer==1:
 		collision(area)

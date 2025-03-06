@@ -7,7 +7,7 @@ var player_index = 0
 #effets speciaux
 var effet_death=false
 # Vitesse de mouvement
-var speed_init = 80
+var speed_init = Arene.init_speed
 var speed = speed_init
 # Force d'attraction vers le centre
 var attraction_strength = 400
@@ -52,9 +52,6 @@ func _ready():
 	spr_choc_animation.play("default")
 	center = get_parent().get_node("../centre")
 	temps = get_node("/root/Toupie")
-	#mode carnage
-	if Arene.arene=="res://images/Menus/background/background_combat_carnage.png":
-		speed=300
 	if center == null:
 		print(" TP1 : Le nœud 'centre' n'a pas été trouvé dans la scène.")
 	if temps == null:
@@ -266,6 +263,8 @@ func _process(delta):
 		$spr_piege.visible = true
 		$spr_piege.rotation = -rotation
 		velocity = Vector2.ZERO
+	Score.curent_speed_p1=speed
+	pass
 func _on_area_entered(area: Area2D) -> void:
 	if area.collision_layer==1:
 		collision(area)

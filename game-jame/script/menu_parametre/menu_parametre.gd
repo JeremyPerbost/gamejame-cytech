@@ -6,7 +6,7 @@ extends Control
 @onready var check_btn_effects = $VBoxContainer/check_btn_effects
 @onready var timer_selection = $timer_selection
 @onready var ecraser_sauvegarde_btn=$VBoxContainer/ecraser_sauvegarde_btn
-
+@onready var check_btn_speed_barre=$VBoxContainer/check_btn_speed_barre
 
 var menu_btn = []
 var index = 0
@@ -14,7 +14,7 @@ var can_navigate = true  # Bloque temporairement la navigation
 
 func _ready() -> void:
 	SaveManager.Load()
-	menu_btn = [check_btn_camera, check_btn_musique, check_btn_effects, ecraser_sauvegarde_btn]
+	menu_btn = [check_btn_camera, check_btn_musique, check_btn_effects,check_btn_speed_barre, ecraser_sauvegarde_btn]
 	menu_btn[index].grab_focus()  # Assure que le premier élément est focus
 	afficher_valeurs()
 	# Appliquer les valeurs stockées
@@ -22,6 +22,7 @@ func afficher_valeurs():
 	check_btn_camera.button_pressed = Parametres.camera_shaking
 	check_btn_musique.button_pressed = Parametres.Musique
 	check_btn_effects.button_pressed= Parametres.Effets
+	check_btn_speed_barre.button_pressed= Parametres.Speed_bar
 func _process(delta: float) -> void:
 	if can_navigate:
 		navigation()
@@ -62,11 +63,15 @@ func _on_check_btn_effects_pressed() -> void:
 	Parametres.Effets = not Parametres.Effets
 	print("Effets:", Parametres.Effets)
 	pass # Replace with function body.
+func _on_check_btn_speed_barre_pressed() -> void:
+	Parametres.Speed_bar=not Parametres.Speed_bar
+	print("Speed bar:", Parametres.Speed_bar)
+	pass # Replace with function body.
+
 func _on_ecraser_sauvegarde_btn_pressed() -> void:
 	SaveManager.ecraser_sauvegarde()
 	afficher_valeurs()
 	pass # Replace with function body.
-
 func _start_selection_timer() -> void:
 	can_navigate = false  # Bloque la navigation temporairement
 	timer_selection.start()  # Démarre le timer

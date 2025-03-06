@@ -40,12 +40,12 @@ func _on_timer_timeout() -> void:
 		boost = boost_scene.instantiate()  # 20% pour boost_speed
 	elif random_number < 40:
 		boost = boost_durability_scene.instantiate()  # 20% pour boost_durability
-	elif random_number < 65:
-		boost = attaque.instantiate()  # 25% pour attaque
-	elif random_number < 95:
+	elif random_number < 69:
+		boost = attaque.instantiate()  # 29% pour attaque
+	elif random_number < 99:
 		boost = esquive.instantiate()  # 30% pour esquive
 	else:
-		boost = boost_death.instantiate()  # 5% pour boost_death
+		boost = boost_death.instantiate()  # 1% pour boost_death
 	# Génère une position aléatoire pour le boost
 	var random_position = point_aleatoire(Arene.taille)
 	boost.global_position = random_position

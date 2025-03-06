@@ -105,18 +105,23 @@ func _on_play_btn_pressed() -> void:
 		0:
 			Arene.arene = "res://images/Menus/background/background_combat_pierre.png"
 			Arene.temps=60
+			Arene.init_speed=80
 		1:
 			Arene.arene = "res://images/Menus/background/background_combat_space.png"
 			Arene.temps=60
+			Arene.init_speed=80
 		2:
 			Arene.arene = "res://images/Menus/background/background_combat_sand.png"
 			Arene.temps=60
+			Arene.init_speed=80
 		3:
 			Arene.arene = "res://images/Menus/background/background_combat_dark.png"
 			Arene.temps=60
+			Arene.init_speed=80
 		4:
 			Arene.arene = "res://images/Menus/background/background_combat_carnage.png"
 			Arene.temps=120
+			Arene.init_speed=300
 	audio_selection.play()
 	MusiqueManager.stop()
 	MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))

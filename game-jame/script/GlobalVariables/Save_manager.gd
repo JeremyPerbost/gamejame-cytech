@@ -35,7 +35,7 @@ func mettre_a_jour_variables_globales():
 	variables_globales["max_speed_tot"] = Score.max_speed_tot
 	variables_globales["total_distance_p1"] = Score.total_distance_p1
 	variables_globales["total_distance_p2"] = Score.total_distance_p2
-
+	variables_globales["Speed_bar"] = Parametres.Speed_bar
 	# ✅ Debug : Vérifions que les données sont mises à jour avant la sauvegarde
 	print("[DEBUG] Contenu de variables_globales avant sauvegarde :", variables_globales)
 
@@ -90,6 +90,8 @@ func appliquer_donnees():
 	print("[DEBUG] Score.total_distance_p1 :", Score.total_distance_p1)
 	Score.total_distance_p2 = variables_globales.get("total_distance_p2", 0)
 	print("[DEBUG] Score.total_distance_p2 :", Score.total_distance_p2)
+	Parametres.Speed_bar = variables_globales.get("Speed_bar", true)
+	print("[DEBUG] Parametres.Speed_bar :", Parametres.Speed_bar)
 func ecraser_sauvegarde():
 	Collectables.collectables=[0, 0, 0, 0, 0, 0, 0, 0]
 	Parametres.camera_shaking=true

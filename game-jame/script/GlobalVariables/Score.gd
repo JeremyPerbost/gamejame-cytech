@@ -24,3 +24,5 @@ var nbr_parties=0
 var max_speed_tot=0
 var total_distance_p1=0
 var total_distance_p2=0
+var nbr_parties_ia=0
+var nbr_parties_gagnees_ia=0

@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4f27o23of778"]
+
+[ext_resource type="Script" path="res://script/menu_tuto/menu_tuto.gd" id="1_n4lfj"]
+[ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="2_uh5sg"]
+[ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="3_l8ev7"]
+[ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="4_c5w22"]
+[ext_resource type="FontFile" uid="uid://g165ow287dwf" path="res://font/Oswald-Regular.ttf" id="5_wyl1y"]
+
+[node name="MenuSkin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4lfj")
+
+[node name="background_menu_skin" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(577.5, 323.5)
+scale = Vector2(5.775, 4.38)
+texture = ExtResource("2_uh5sg")
+
+[node name="audio_selection" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l8ev7")
+
+[node name="audio_survolement" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c5w22")
+
+[node name="btn_menu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("5_wyl1y")
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="label_player1" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wyl1y")
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="timer_selection" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="tuto_panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 112.0
+offset_right = 1120.0
+offset_bottom = 630.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="tuto_panel"]
+layout_mode = 0
+offset_right = 1102.0
+offset_bottom = 514.0
+
+[node name="Label" type="Label" parent="tuto_panel/ScrollContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wyl1y")
+theme_override_font_sizes/font_size = 30
+text = "Welcome to CY2PIE!
+In this game, you must defeat your opponent in a best-of-three match. To win a round,
+ you must be the last spinning top still rotating in the arena.
+
+---How to slow down your opponent?---
+You can slow down your opponent's spinning top by colliding with it while accumulating
+ speed.
+You can use boosts that appear on the field, appearing more frequently as time passes.
+The slower a spinning top's rotation speed, the more limited its velocity and movement
+ capabilities become. You can check your top's rotation speed by looking at the bar below
+ the associated inventory.
+---Boosts---
+There are different types of boosts that grant you offensive and defensive abilities:
+
+Central Boosters appear in the center of the field.
+Regular Boosters appear anywhere in the arena more frequently than central boosters.
+!!! Beware, some regular boosters can be extremely rare and powerful, even more so than
+ central boosters!!!
+---Inventory---
+Each player has an inventory. Some boosts (both regular and central) are collectible. This
+ means that instead of being used immediately, they are stored in your inventory.
+
+To use a boost from your inventory, press the A button on your controller. The leftmost 
+boost in the inventory will be used automatically.
+Your inventory has three slots. If you pick up a collectible boost when your inventory is 
+full, the new boost will be destroyed.
+---Suicide---
+If you believe you have no chance of winning the round, you can press the R2 button on
+ your controller to self-destruct and lose the current round.
+
+---Arenas---
+Some arenas modify the game's physical properties. Adapt your strategy accordingly!"
+
+[connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]
+[connection signal="timeout" from="timer_selection" to="." method="_on_timer_selection_timeout"]

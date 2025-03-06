@@ -1,4 +1,7 @@
+H:/github_clone/gamejame-cytech
+H:/
 res://font
+res://script/menu_tuto
 res://sons/musiques
 res://script/collection_menu_script
 res://sons/boost
@@ -6,7 +9,6 @@ res://images/skins
 res://script/menu_parametre
 res://images/menu_parametre
 res://images/Menus
-H:/
 res://images/animation
 res://images/Menus/background
 res://sons/effets_sonores
@@ -19,4 +21,3 @@ res://images/Menus/collection
 res://shader
 res://script/GlobalVariables
 res://images
-H:/gamejame-cytech

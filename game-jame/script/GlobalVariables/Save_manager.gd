@@ -36,6 +36,9 @@ func mettre_a_jour_variables_globales():
 	variables_globales["total_distance_p1"] = Score.total_distance_p1
 	variables_globales["total_distance_p2"] = Score.total_distance_p2
 	variables_globales["Speed_bar"] = Parametres.Speed_bar
+	variables_globales["nbr_parties_ia"] = Score.nbr_parties_ia
+	variables_globales["nbr_parties_gagnees_ia"] = Score.nbr_parties_gagnees_ia
+
 	# ✅ Debug : Vérifions que les données sont mises à jour avant la sauvegarde
 	print("[DEBUG] Contenu de variables_globales avant sauvegarde :", variables_globales)
 
@@ -92,6 +95,10 @@ func appliquer_donnees():
 	print("[DEBUG] Score.total_distance_p2 :", Score.total_distance_p2)
 	Parametres.Speed_bar = variables_globales.get("Speed_bar", true)
 	print("[DEBUG] Parametres.Speed_bar :", Parametres.Speed_bar)
+	Score.nbr_parties_ia = variables_globales.get("nbr_parties_ia", 0)
+	print("[DEBUG] Score.nbr_parties_ia :", Score.nbr_parties_ia)
+	Score.nbr_parties_gagnees_ia = variables_globales.get("nbr_parties_gagnees_ia", 0)
+	print("[DEBUG] Score.nbr_parties_gagnees_ia :", Score.nbr_parties_gagnees_ia)
 func ecraser_sauvegarde():
 	Collectables.collectables=[0, 0, 0, 0, 0, 0, 0, 0]
 	Parametres.camera_shaking=true
@@ -102,6 +109,8 @@ func ecraser_sauvegarde():
 	Score.total_distance_p1=0
 	Score.total_distance_p2=0
 	Parametres.Speed_bar=true
+	Score.nbr_parties_gagnees_ia=0
+	Score.nbr_parties_ia
 	Save()
 
 # 🔹 Fonction pour sauvegarder une seule valeur

@@ -51,7 +51,6 @@ func _select_pause_option() -> void:
 		_resume_game()
 	elif pause_selection_index == 1:
 		_exit_to_menu()
-
 func _resume_game() -> void:
 	print("Bouton continuer pressé")
 	_toggle_pause()
@@ -59,8 +58,10 @@ func _resume_game() -> void:
 	play()
 func _exit_to_menu() -> void:
 	get_tree().paused = false
+	Score.score_player1=0
+	Score.score_player2=0
+	SaveManager.Save()
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
-
 func _on_btn_continuer_pressed() -> void:
 	audio_selection.play()
 	await get_tree().create_timer(0.3).timeout

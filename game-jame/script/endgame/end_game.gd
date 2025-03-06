@@ -8,6 +8,10 @@ var bouton_selectionner=0
 var rotate_speed : float =0.04
 func _ready() -> void:
 	Score.nbr_parties=Score.nbr_parties+1
+	if Score.mode_de_jeu==1:#solo
+		Score.nbr_parties_ia=Score.nbr_parties_ia+1
+		if Score.gagnant == "player1":#humain gagne
+			Score.nbr_parties_gagnees_ia=Score.nbr_parties_gagnees_ia+1
 	if Score.max_speed_player1>Score.max_speed_tot:
 		Score.max_speed_tot=Score.max_speed_player1
 	if Score.max_speed_player2>Score.max_speed_tot:
@@ -17,13 +21,13 @@ func _ready() -> void:
 	SaveManager.Save()
 	MusiqueManager.stop()
 	$audio_EndGameStart.play()
-	$Statistique/Stat_player1/label_vitesse_max_P1.text = "max speed : %.1f KM/H" % (Score.max_speed_player1 / 1000.0)
+	$Statistique/Stat_player1/label_vitesse_max_P1.text = "max speed : %.1f KM/H" % (Score.max_speed_player1 / 100.0)
 	$Statistique/Stat_player1/label_distanceP1.text = "distance traveled : %.1f M" % (Score.distanceP1 / 100.0)
 	$Statistique/Stat_player1/label_nombre_de_boosters_speciauxP1.text = "number of special boosts used: %d" % Score.nbr_booster_speciauxP1
 	$Statistique/Stat_player1/label_nombre_de_boosters_communsP1.text = "number of common boosters used: %d" % Score.nbr_booster_communP1
 	$Statistique/Stat_player1/label_toucher_bords_P1.text = "touch the edge of the arena %d times" % Score.nbr_bordsP1
 
-	$Statistique/Stat_player2/label_vitesse_max_P2.text = "max speed : %.1f KM/H" % (Score.max_speed_player2 / 1000.0)
+	$Statistique/Stat_player2/label_vitesse_max_P2.text = "max speed : %.1f KM/H" % (Score.max_speed_player2 / 100.0)
 	$Statistique/Stat_player2/label_distanceP2.text = "distance traveled : %.1f M" % (Score.distanceP2 / 100.0)
 	$Statistique/Stat_player2/label_nombre_de_boosters_speciauxP2.text = "number of special boosts used: %d" % Score.nbr_booster_speciauxP2
 	$Statistique/Stat_player2/label_nombre_de_boosters_communsP2.text = "number of common boosters used: %d" % Score.nbr_booster_communP2
@@ -67,6 +71,7 @@ func _process(delta: float) -> void:
 func _on_ecran_titre_btn_pressed() -> void:
 	Score.score_player1=0
 	Score.score_player2=0
+	SaveManager.Save()
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
 	pass # Replace with function body.
 func _on_rejouer_btn_pressed() -> void:

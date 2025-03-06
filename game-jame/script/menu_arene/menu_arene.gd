@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 	
 	if navigation_timer < navigation_delay:
 		return  # Don't process input if the timer hasn't elapsed enough time
-	
+	if Input.is_action_just_pressed("ui_p1_R2"):
+		_on_btn_tuto_pressed()
 	if Input.is_action_just_pressed("ui_p1_B"):
 		_on_btn_menu_pressed()
 	if Input.is_action_just_pressed("ui_down") or Input.get_action_strength("ui_p1_down") > 0.5:
@@ -126,3 +127,8 @@ func _on_play_btn_pressed() -> void:
 	MusiqueManager.stop()
 	MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))
 	TransitionScreen.transition("res://maps/toupie.tscn")
+
+
+func _on_btn_tuto_pressed() -> void:
+	TransitionScreen.transition("res://maps/menus/menu_tuto/menu_tuto.tscn")
+	pass # Replace with function body.

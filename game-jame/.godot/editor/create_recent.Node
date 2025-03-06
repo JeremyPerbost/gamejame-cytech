@@ -1,9 +1,9 @@
+Label
 Sprite2D
 AnimationPlayer
 ColorRect
 HBoxContainer
 ScrollContainer
-Label
 VBoxContainer
 Panel
 Button

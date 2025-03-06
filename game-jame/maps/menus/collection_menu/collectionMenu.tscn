@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://dy3rhq2lhlhey"]
+[gd_scene load_steps=100 format=3 uid="uid://dy3rhq2lhlhey"]
 
 [ext_resource type="Script" path="res://script/collection_menu_script/collection_menu.gd" id="1_jtsua"]
 [ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="2_4tytt"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="10_3i6vf"]
 [ext_resource type="Texture2D" uid="uid://c8ky1xibddawp" path="res://images/animation/boost_death.png" id="10_kl6v4"]
 [ext_resource type="Texture2D" uid="uid://c2bw76dq7c7n4" path="res://images/Menus/collection/couronne.png" id="12_e7166"]
+[ext_resource type="Script" path="res://script/collection_menu_script/panel_stat_generale.gd" id="14_fcyix"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tpg2"]
 atlas = ExtResource("3_mamh8")
@@ -1085,16 +1086,16 @@ text = "R2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
+[node name="Panel_stat_generale" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 210.0
 offset_top = 129.0
 offset_right = 959.0
 offset_bottom = 614.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rvxvo")
+script = ExtResource("14_fcyix")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_stat_generale"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 37.0
@@ -1102,23 +1103,39 @@ offset_right = 721.0
 offset_bottom = 436.0
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel_stat_generale/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tw243")
 theme_override_font_sizes/font_size = 30
-text = "Nombre de parties : "
+text = "Number of games :"
 
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="Panel_stat_generale/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tw243")
 theme_override_font_sizes/font_size = 30
-text = "Temps total de jeu : "
+text = "Maximum speed reached :"
 
-[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="Panel_stat_generale/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tw243")
 theme_override_font_sizes/font_size = 30
-text = "Arene préférée : "
+text = "Total distance"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel_stat_generale/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Panel_stat_generale/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tw243")
+theme_override_font_sizes/font_size = 30
+text = "Total distance player1 :|"
+
+[node name="Label5" type="Label" parent="Panel_stat_generale/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tw243")
+theme_override_font_sizes/font_size = 30
+text = "Total distance player2 :"
 
 [connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]
 [connection signal="pressed" from="stat_btn" to="." method="_on_stat_btn_pressed"]

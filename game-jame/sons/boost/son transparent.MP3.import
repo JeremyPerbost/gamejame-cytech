@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcu477tuyqnjx"
+path="res://.godot/imported/son transparent.MP3-0b779f6e5c065531feb54a500cd43f6e.mp3str"
+
+[deps]
+
+source_file="res://sons/boost/son transparent.MP3"
+dest_files=["res://.godot/imported/son transparent.MP3-0b779f6e5c065531feb54a500cd43f6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

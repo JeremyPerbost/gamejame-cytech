@@ -22,22 +22,13 @@ var is_game_running = true
 var is_transition_playing = false
 var dark_arene=false#ajouter le mode jour-nuit a l'arene
 var compteur_darkness=0
-func play_musique():
-	#choisir quelle musique jouer
-	if Score.score_player1 == 0 and Score.score_player2 == 0:
-		MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))
-	elif (Score.score_player1 == 1 and Score.score_player2 in [0, 1]) or (Score.score_player2 == 1 and Score.score_player1 == 0):
-		MusiqueManager.jouer(load("res://sons/combat/combat_2_loop.mp3"))
-	elif (Score.score_player1 in [1, 2] and Score.score_player2 in [1, 2]) or (Score.score_player1 == 2 and Score.score_player2 == 0) or (Score.score_player2 == 2 and Score.score_player1 == 0):
-		MusiqueManager.jouer(load("res://sons/combat/combat_3_loop.mp3"))
-	pass
+
 func _ready():
 	gestion_effet_arene()
 	Score.is_transition_playing=false
 	background.texture = load(Arene.arene)
 	score_tp1.visible = false
 	score_tp2.visible = false
-	play_musique()
 	
 func start_game():
 	
@@ -69,6 +60,12 @@ func affichage_score() -> void:
 	toupie1.z_index = 10
 func pause():
 	print("PAUSE")
+	if Score.score_player1 == 0 and Score.score_player2 == 0:
+		MusiqueManager.jouer(load("res://sons/musiques/pause/combat_1_loop_menu.mp3"))
+	elif (Score.score_player1 == 1 and Score.score_player2 in [0, 1]) or (Score.score_player2 == 1 and Score.score_player1 == 0):
+		MusiqueManager.jouer(load("res://sons/musiques/pause/combat_2_loop_menu.mp3"))
+	elif (Score.score_player1 in [1, 2] and Score.score_player2 in [1, 2]) or (Score.score_player1 == 2 and Score.score_player2 == 0) or (Score.score_player2 == 2 and Score.score_player1 == 0):
+		MusiqueManager.jouer(load("res://sons/musiques/pause/combat_3_loop_menu.mp3"))
 	get_tree().paused = true
 	pause_menu.show()
 func _process(delta):

@@ -1,15 +1,18 @@
-res://maps/menus/menu_skin/menu_skin.tscn
+res://maps/UI_pause/pause.tscn
 res://script/GlobalVariables/Musique_manager.gd
 res://script/transition/transition_round.gd
 res://script/mvm_toupie1.gd
 res://shader/inventaire.tres
-res://script/menuprincipal.gd
+res://script/endgame/end_game.gd
 res://maps/toupie.tscn
-res://maps/transition_screen/transition_round.tscn
+res://maps/EndGame.tscn
 res://maps/transition_screen/transition_screen.tscn
-res://maps/menuprincipal.tscn
-res://maps/menus/menu_arene/menu_arene.tscn
-res://maps/boost/boost_death.tscn
 res://maps/menus/collection_menu/collectionMenu.tscn
-res://maps/menus/menu_parametre/menu_parametre.tscn
-res://script/menu skin/menu_skin.gd
+res://script/menuprincipal.gd
+res://script/menu pause/menu_pause.gd
+res://script/toupie.gd
+res://default_bus_layout.tres
+res://maps/transition_screen/transition_round.tscn
+res://maps/menus/menu_arene/menu_arene.tscn
+res://script/menu_arene/menu_arene.gd
+res://maps/area_arene.tscn

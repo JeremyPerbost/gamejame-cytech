@@ -240,12 +240,10 @@ text = "Title Screen"
 
 [node name="audio_EndGame" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_a25my")
-autoplay = true
 parameters/looping = true
 
 [node name="audio_EndGameStart" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6dcib")
-autoplay = true
 
 [node name="Statistique" type="Control" parent="."]
 layout_mode = 3
@@ -413,3 +411,4 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="rejouer_btn" to="." method="_on_rejouer_btn_pressed"]
 [connection signal="pressed" from="ecran_titre_btn" to="." method="_on_ecran_titre_btn_pressed"]
+[connection signal="finished" from="audio_EndGameStart" to="." method="_on_audio_end_game_start_finished"]

@@ -118,4 +118,6 @@ func _on_play_btn_pressed() -> void:
 			Arene.arene = "res://images/Menus/background/background_combat_carnage.png"
 			Arene.temps=120
 	audio_selection.play()
+	MusiqueManager.stop()
+	MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))
 	TransitionScreen.transition("res://maps/toupie.tscn")

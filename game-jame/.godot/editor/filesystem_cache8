@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741207770
+::res://::1741278988
 default_bus_layout.tres::AudioBusLayout::2967045423448289141::1740585234::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1740950965::0::1::::<><>::
 icone.png::CompressedTexture2D::3820367575293682397::1740950940::1740950941::1::::<><>::
@@ -85,38 +85,38 @@ death.png::CompressedTexture2D::2063489536166492270::1740765672::1740765673::1::
 inventaire_player1.png::CompressedTexture2D::1964167831872157507::1740585234::1740585337::1::::<><>::
 inventaire_player2.png::CompressedTexture2D::7667533828839393383::1740585234::1740585337::1::::<><>::
 power_chest.png::CompressedTexture2D::5786657899132967289::1740585234::1740585337::1::::<><>::
-::res://maps/::1741209938
+::res://maps/::1741278694
 area_arene.tscn::PackedScene::6660441484351840981::1741193508::0::1::::<><>::uid://bvosxsytw56sj::::res://images/Arene.png<>uid://2jcn3str25d6::::res://images/animation/hearth_animation.png
 area_toupie_1.tscn::PackedScene::8426577286326958869::1741193508::0::1::::<><>::res://script/mvm_toupie1.gd<>uid://di5vwqfv0c5qj::::res://shader/inventaire.tres<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://6qfm6ewxfn3::::res://images/animation/choc_animation.png<>uid://cfny5o8hr32um::::res://images/invicibility_effect.png<>uid://dc6080omtli1x::::res://images/effet_toupie/piege_effect.png<>uid://1jc4yg2ndrdf::::res://images/trounoir_effect.png<>uid://bpi8qxuaqpvni::::res://sons/effets_sonores/chocs/choc 2.MP3<>uid://dbw3makpcri3e::::res://images/effet_toupie/death_effect.png
 area_toupie_2.tscn::PackedScene::6848208528581846612::1741193508::0::1::::<><>::uid://lkm1i7m62cc0::::res://images/skins/P2.png<>res://script/mvm_toupie2.gd<>uid://di5vwqfv0c5qj::::res://shader/inventaire.tres<>uid://6qfm6ewxfn3::::res://images/animation/choc_animation.png<>uid://cfny5o8hr32um::::res://images/invicibility_effect.png<>uid://dc6080omtli1x::::res://images/effet_toupie/piege_effect.png<>uid://1jc4yg2ndrdf::::res://images/trounoir_effect.png<>uid://dbw3makpcri3e::::res://images/effet_toupie/death_effect.png
 boost.tscn::PackedScene::4129880985513525416::1740585234::0::1::::<><>::res://script/animation/boost.gd<>uid://b8c5mex54uxl5::::res://images/animation/boost_animation.png
 boost_durability.tscn::PackedScene::5203996854460782127::1740585234::0::1::::<><>::res://script/animation/boost_durability.gd<>uid://1ukyovfi1m10::::res://images/animation/durabilty_animation.png
 boost_trounoir.tscn::PackedScene::8892384897606116158::1740585234::0::1::::<><>::uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>res://script/animation/boost_trounoir_anim.gd
-EndGame.tscn::PackedScene::1601001615287468671::1741193508::0::1::::<><>::res://script/endgame/end_game.gd<>uid://bvkib8igs0fj7::::res://images/ecran_de_fin/endingscreen.png<>uid://d1t3sivpduwfu::::res://images/ecran_de_fin/titre_endgame.png<>uid://bv3j62oqsqjtw::::res://images/ecran_de_fin/player2win.png<>uid://b820wmusoikj3::::res://images/animation/price_animation.png<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://brqdcao0d411b::::res://sons/musiques/victoire_loop.mp3<>uid://b8vvw8086vvff::::res://sons/musiques/victoire_start.mp3<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
-menuprincipal.tscn::PackedScene::6621294078553790608::1741209938::0::1::::<><>::res://script/menuprincipal.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://dwixeqo2floy6::::res://images/animation/animation_menu/Title_animation.png<>uid://di5vwqfv0c5qj::::res://shader/inventaire.tres<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://lkm1i7m62cc0::::res://images/skins/P2.png
+EndGame.tscn::PackedScene::1601001615287468671::1741278694::0::1::::<><>::res://script/endgame/end_game.gd<>uid://bvkib8igs0fj7::::res://images/ecran_de_fin/endingscreen.png<>uid://d1t3sivpduwfu::::res://images/ecran_de_fin/titre_endgame.png<>uid://bv3j62oqsqjtw::::res://images/ecran_de_fin/player2win.png<>uid://b820wmusoikj3::::res://images/animation/price_animation.png<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://brqdcao0d411b::::res://sons/musiques/victoire_loop.mp3<>uid://b8vvw8086vvff::::res://sons/musiques/victoire_start.mp3<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
+menuprincipal.tscn::PackedScene::6621294078553790608::1741273110::0::1::::<><>::res://script/menuprincipal.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://dwixeqo2floy6::::res://images/animation/animation_menu/Title_animation.png<>uid://di5vwqfv0c5qj::::res://shader/inventaire.tres<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://lkm1i7m62cc0::::res://images/skins/P2.png
 spawner.tscn::PackedScene::1640715329531863795::1740774457::0::1::::<><>::res://script/spawner.gd
-toupie.tscn::PackedScene::3630267885149142572::1741209937::0::1::::<><>::res://script/toupie.gd<>uid://gp7uusjg46v2::::res://images/center.png<>uid://dsb5q5i7h8n8h::::res://maps/area_toupie_1.tscn<>uid://c4tk818om7dw3::::res://maps/area_toupie_2.tscn<>uid://bwo7mvljg7tx3::::res://images/Menus/background/background_combat_pierre.png<>uid://c15mq64cs6bur::::res://maps/area_arene.tscn<>res://script/label.gd<>uid://xm1lvc1bw580::::res://maps/spawner.tscn<>uid://3vkdnwgla3jx::::res://images/animation/round_transition_animation.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b671ut7xj8sjb::::res://maps/UI_joueur/inventaire.tscn<>uid://bluuefjjcnfh4::::res://maps/UI_pause/pause.tscn<>uid://colvbo4m0nmc2::::res://sons/effets_sonores/darkness_effect.mp3<>uid://cik4btvyw010i::::res://sons/effets_sonores/slach.MP3<>uid://dp8ri1rmu2qb2::::res://images/Menus/menu_toupie/minutes.png<>res://script/time.gd
-::res://maps/boost/::1741209938
+toupie.tscn::PackedScene::3630267885149142572::1741278694::0::1::::<><>::res://script/toupie.gd<>uid://gp7uusjg46v2::::res://images/center.png<>uid://dsb5q5i7h8n8h::::res://maps/area_toupie_1.tscn<>uid://c4tk818om7dw3::::res://maps/area_toupie_2.tscn<>uid://bwo7mvljg7tx3::::res://images/Menus/background/background_combat_pierre.png<>uid://c15mq64cs6bur::::res://maps/area_arene.tscn<>res://script/label.gd<>uid://xm1lvc1bw580::::res://maps/spawner.tscn<>uid://3vkdnwgla3jx::::res://images/animation/round_transition_animation.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b671ut7xj8sjb::::res://maps/UI_joueur/inventaire.tscn<>uid://bluuefjjcnfh4::::res://maps/UI_pause/pause.tscn<>uid://colvbo4m0nmc2::::res://sons/effets_sonores/darkness_effect.mp3<>uid://cik4btvyw010i::::res://sons/effets_sonores/slach.MP3<>uid://dp8ri1rmu2qb2::::res://images/Menus/menu_toupie/minutes.png<>uid://dcu477tuyqnjx::::res://sons/boost/son transparent.MP3<>res://script/time.gd<>uid://jh7q7ap8o66i::::res://sons/boost/son boost vitesse.MP3<>uid://bmydud1xbk4ss::::res://sons/boost/son bouclier (durabilité).MP3<>uid://bdt1hag8s34xh::::res://sons/boost/son invincibilité.MP3<>uid://dofo0ntclq4ve::::res://sons/boost/son piege.MP3<>uid://borfn5hkfboxj::::res://sons/boost/son trou noir.MP3
+::res://maps/boost/::1741211172
 attaque.tscn::PackedScene::8625959027922911134::1740597444::0::1::::<><>::uid://0jpv20pmp37b::::res://images/UI_joueur/boost_attaque.png
 boost.tscn::PackedScene::4129880985513525416::1740597444::0::1::::<><>::res://script/animation/boost.gd<>uid://b8c5mex54uxl5::::res://images/animation/boost_animation.png
-boost_death.tscn::PackedScene::9072665861650067641::1741209938::0::1::::<><>::uid://c8ky1xibddawp::::res://images/animation/boost_death.png<>res://script/animation/boost_death.gd
+boost_death.tscn::PackedScene::9072665861650067641::1741211172::0::1::::<><>::uid://c8ky1xibddawp::::res://images/animation/boost_death.png<>res://script/animation/boost_death.gd
 boost_durability.tscn::PackedScene::5203996854460782127::1740774457::0::1::::<><>::res://script/animation/boost_durability.gd<>uid://1ukyovfi1m10::::res://images/animation/durabilty_animation.png
 boost_invincible.tscn::PackedScene::7805445694877070539::1740597444::0::1::::<><>::res://script/animation/boost_invincible.gd<>uid://dl6wlky5ldsv6::::res://images/animation/boost_invincibility_animation.png
 boost_piege.tscn::PackedScene::6656701620481433514::1740597444::0::1::::<><>::res://script/animation/boost_piege.gd<>uid://dwmtip5wniank::::res://images/animation/boost_piege_animation.png
 boost_trounoir.tscn::PackedScene::8892384897606116158::1740585234::0::1::::<><>::uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>res://script/animation/boost_trounoir_anim.gd
 esquive.tscn::PackedScene::4856888196493993368::1740597444::0::1::::<><>::uid://c38bdbei160kp::::res://images/UI_joueur/boost_esquive.png
 ::res://maps/menus/::1741190394
-::res://maps/menus/collection_menu/::1741209938
-collectionMenu.tscn::PackedScene::8902642447533024420::1741209938::0::1::::<><>::res://script/collection_menu_script/collection_menu.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b8c5mex54uxl5::::res://images/animation/boost_animation.png<>uid://dl6wlky5ldsv6::::res://images/animation/boost_invincibility_animation.png<>uid://dwmtip5wniank::::res://images/animation/boost_piege_animation.png<>uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>uid://1ukyovfi1m10::::res://images/animation/durabilty_animation.png<>uid://0jpv20pmp37b::::res://images/UI_joueur/boost_attaque.png<>uid://c38bdbei160kp::::res://images/UI_joueur/boost_esquive.png<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://c8ky1xibddawp::::res://images/animation/boost_death.png<>uid://c2bw76dq7c7n4::::res://images/Menus/collection/couronne.png
-::res://maps/menus/menu_arene/::1741209938
-menu_arene.tscn::PackedScene::4306945090743518144::1741209938::0::1::::<><>::res://script/menu_arene/menu_arene.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://bwo7mvljg7tx3::::res://images/Menus/background/background_combat_pierre.png<>uid://d0jmg7dmh24rp::::res://images/Menus/background/background_combat_space.png<>uid://ceefykq248ypt::::res://images/Menus/background/background_combat_sand.png<>uid://mxrm0grinnc6::::res://images/Menus/background/background_combat_dark.png<>uid://d1ju1qrx3o7g2::::res://images/Menus/background/background_combat_carnage.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
-::res://maps/menus/menu_parametre/::1741209938
-menu_parametre.tscn::PackedScene::3461674182353958667::1741209938::0::1::::<><>::res://script/menu_parametre/menu_parametre.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://dywlcpve4jjqr::::res://images/menu_parametre/roue_denter.png<>res://script/menu_parametre/roue_denter.gd
-::res://maps/menus/menu_skin/::1741209938
-menu_skin.tscn::PackedScene::5958115082322425390::1741209938::0::1::::<><>::uid://cipfer65g48l2::::res://images/Menus/menu_skin/background_menu_skin.png<>res://script/menu skin/menu_skin.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://ix01sulyyas2::::res://images/skins/skin1.png<>uid://bq54dqfom3o0j::::res://images/skins/purple.png<>uid://clyd3crjxtyct::::res://images/skins/duo.png<>uid://b0ssoci7441wu::::res://images/skins/military.png<>uid://b7jwvgfktxvha::::res://images/skins/human.png<>uid://btbj4f8eblwfj::::res://images/skins/blue2.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://2srq886esgcp::::res://images/skins/6.png<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
-::res://maps/transition_screen/::1741209938
-transition_round.tscn::PackedScene::1597812933545418194::1741209938::0::1::::<><>::res://script/transition/transition_round.gd<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
-transition_screen.tscn::PackedScene::5503760896589119189::1741209938::0::1::::<><>::res://script/transition/transition_screen.gd<>uid://bdbqkt242rcis::::res://sons/effets_sonores/transi.MP3
+::res://maps/menus/collection_menu/::1741278694
+collectionMenu.tscn::PackedScene::8902642447533024420::1741278694::0::1::::<><>::res://script/collection_menu_script/collection_menu.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b8c5mex54uxl5::::res://images/animation/boost_animation.png<>uid://dl6wlky5ldsv6::::res://images/animation/boost_invincibility_animation.png<>uid://dwmtip5wniank::::res://images/animation/boost_piege_animation.png<>uid://dn3g8ayidimwk::::res://images/animation/trounoir_anim.png<>uid://1ukyovfi1m10::::res://images/animation/durabilty_animation.png<>uid://0jpv20pmp37b::::res://images/UI_joueur/boost_attaque.png<>uid://c38bdbei160kp::::res://images/UI_joueur/boost_esquive.png<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://c8ky1xibddawp::::res://images/animation/boost_death.png<>uid://c2bw76dq7c7n4::::res://images/Menus/collection/couronne.png<>res://script/collection_menu_script/panel_stat_generale.gd
+::res://maps/menus/menu_arene/::1741211172
+menu_arene.tscn::PackedScene::4306945090743518144::1741211172::0::1::::<><>::res://script/menu_arene/menu_arene.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://bwo7mvljg7tx3::::res://images/Menus/background/background_combat_pierre.png<>uid://d0jmg7dmh24rp::::res://images/Menus/background/background_combat_space.png<>uid://ceefykq248ypt::::res://images/Menus/background/background_combat_sand.png<>uid://mxrm0grinnc6::::res://images/Menus/background/background_combat_dark.png<>uid://d1ju1qrx3o7g2::::res://images/Menus/background/background_combat_carnage.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
+::res://maps/menus/menu_parametre/::1741211172
+menu_parametre.tscn::PackedScene::3461674182353958667::1741211172::0::1::::<><>::res://script/menu_parametre/menu_parametre.gd<>uid://gqrb8yqugfaf::::res://images/Menus/background_menu_principal.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://dywlcpve4jjqr::::res://images/menu_parametre/roue_denter.png<>res://script/menu_parametre/roue_denter.gd
+::res://maps/menus/menu_skin/::1741211172
+menu_skin.tscn::PackedScene::5958115082322425390::1741211172::0::1::::<><>::uid://cipfer65g48l2::::res://images/Menus/menu_skin/background_menu_skin.png<>res://script/menu skin/menu_skin.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://ix01sulyyas2::::res://images/skins/skin1.png<>uid://bq54dqfom3o0j::::res://images/skins/purple.png<>uid://clyd3crjxtyct::::res://images/skins/duo.png<>uid://b0ssoci7441wu::::res://images/skins/military.png<>uid://b7jwvgfktxvha::::res://images/skins/human.png<>uid://btbj4f8eblwfj::::res://images/skins/blue2.png<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://2srq886esgcp::::res://images/skins/6.png<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3<>uid://hi1mbva8ti5b::::res://images/skins/twister.png<>uid://dmtq01g51psog::::res://images/skins/peace.png<>uid://dyhfg8p3mmc2r::::res://images/skins/happy.png<>uid://bgw8lk54rjtuv::::res://images/skins/sad.png
+::res://maps/transition_screen/::1741278694
+transition_round.tscn::PackedScene::1597812933545418194::1741211172::0::1::::<><>::res://script/transition/transition_round.gd<>uid://drixoukoha1dp::::res://images/skins/P1.png<>uid://lkm1i7m62cc0::::res://images/skins/P2.png<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf
+transition_screen.tscn::PackedScene::5503760896589119189::1741278694::0::1::::<><>::res://script/transition/transition_screen.gd<>uid://bdbqkt242rcis::::res://sons/effets_sonores/transi.MP3
 ::res://maps/UI_joueur/::1741193508
 boost_attaque.tscn::PackedScene::7731300770093826270::1740597444::0::1::::<><>::uid://0jpv20pmp37b::::res://images/UI_joueur/boost_attaque.png
 boost_esquive.tscn::PackedScene::6267609534427673867::1740774457::0::1::::<><>::uid://c38bdbei160kp::::res://images/UI_joueur/boost_esquive.png
@@ -124,12 +124,12 @@ inventaire.tscn::PackedScene::4629950330727797747::1741193508::0::1::::<><>::res
 ui_boost_death.tscn::PackedScene::3542312026237251846::1741193508::0::1::::<><>::uid://4ntmvc5vg13o::::res://images/UI_joueur/death.png
 ::res://maps/UI_pause/::1740585234
 pause.tscn::PackedScene::3201007278755700615::1740585234::0::1::::<><>::res://script/menu pause/menu_pause.gd<>uid://g165ow287dwf::::res://font/Oswald-Regular.ttf<>uid://b3fidng2l6ypf::::res://sons/effets_sonores/selection.MP3<>uid://d050cbfesnpfl::::res://sons/effets_sonores/survolement .MP3
-::res://script/::1741208992
+::res://script/::1741274671
 animation_background.gd::GDScript::-1::1740585234::0::1::::<>AnimationPlayer<>::
 label.gd::GDScript::-1::1740585234::0::1::::<>Label<>::
-menuprincipal.gd::GDScript::-1::1741208992::0::1::::Menu_Principal<>Control<>::
-mvm_toupie1.gd::GDScript::-1::1741208992::0::1::::<>Area2D<>::
-mvm_toupie2.gd::GDScript::-1::1741197355::0::1::::<>Area2D<>::
+menuprincipal.gd::GDScript::-1::1741273110::0::1::::Menu_Principal<>Control<>::
+mvm_toupie1.gd::GDScript::-1::1741274222::0::1::::<>Area2D<>::
+mvm_toupie2.gd::GDScript::-1::1741274671::0::1::::<>Area2D<>::
 spawner.gd::GDScript::-1::1740869888::0::1::::<>Node2D<>::
 time.gd::GDScript::-1::1740921739::0::1::::<>Node2D<>::
 toupie.gd::GDScript::-1::1741196435::0::1::::<>Node2D<>::
@@ -141,37 +141,45 @@ boost_invincible.gd::GDScript::-1::1740585234::0::1::::<>Node2D<>::
 boost_piege.gd::GDScript::-1::1740585234::0::1::::<>Node2D<>::
 boost_trounoir_anim.gd::GDScript::-1::1740585234::0::1::::<>Node2D<>::
 transition_round_anim.gd::GDScript::-1::1740585234::0::1::::<>Node2D<>::
-::res://script/collection_menu_script/::1741204170
-collection_menu.gd::GDScript::-1::1741204170::0::1::::<>Control<>::
-::res://script/endgame/::1740688114
-end_game.gd::GDScript::-1::1740688114::0::1::::<>Node2D<>::
-::res://script/GlobalVariables/::1741208992
+::res://script/collection_menu_script/::1741277607
+collection_menu.gd::GDScript::-1::1741276093::0::1::::<>Control<>::
+panel_stat_generale.gd::GDScript::-1::1741277607::0::1::::<>Panel<>::
+::res://script/endgame/::1741278649
+end_game.gd::GDScript::-1::1741278649::0::1::::<>Node2D<>::
+::res://script/GlobalVariables/::1741276729
 Arene.gd::GDScript::-1::1740921323::0::1::::<>Node<>::
 Collectables.gd::GDScript::-1::1740663563::0::1::::<>Node<>::
-Musique_manager.gd::GDScript::-1::1741208992::0::1::::<>Node<>::
-Parametres.gd::GDScript::-1::1741196206::0::1::::<>Node<>::
-Save_manager.gd::GDScript::-1::1741198745::0::1::::<>Node<>::
-Score.gd::GDScript::-1::1740594284::0::1::::<>Node<>::
+Musique_manager.gd::GDScript::-1::1741273110::0::1::::<>Node<>::
+Parametres.gd::GDScript::-1::1741276729::0::1::::<>Node<>::
+Save_manager.gd::GDScript::-1::1741275715::0::1::::<>Node<>::
+Score.gd::GDScript::-1::1741275194::0::1::::<>Node<>::
 ::res://script/Inventaire/::1740929453
 inventaire.gd::GDScript::-1::1740929453::0::1::::<>Node2D<>::
 P1inventaire.gd::GDScript::-1::1740585234::0::1::::<>Node<>::
 P2inventaire.gd::GDScript::-1::1740585234::0::1::::<>Node<>::
 ::res://script/menu pause/::1740663956
 menu_pause.gd::GDScript::-1::1740663956::0::1::::<>Control<>::
-::res://script/menu skin/::1741209935
-menu_skin.gd::GDScript::-1::1741209935::0::1::::<>Control<>::
+::res://script/menu skin/::1741210448
+menu_skin.gd::GDScript::-1::1741210448::0::1::::<>Control<>::
 skins.gd::GDScript::-1::1740585234::0::1::::<>Node<>::
 ::res://script/menu_arene/::1741198101
 menu_arene.gd::GDScript::-1::1741198101::0::1::::<>Control<>::
 ::res://script/menu_parametre/::1741199498
 menu_parametre.gd::GDScript::-1::1741198859::0::1::::<>Control<>::
 roue_denter.gd::GDScript::-1::1741199498::0::1::::<>Sprite2D<>::
-::res://script/transition/::1741208992
-transition_round.gd::GDScript::-1::1741208992::0::1::::<>CanvasLayer<>::
-transition_screen.gd::GDScript::-1::1740585234::0::1::::<>CanvasLayer<>::
-::res://shader/::1741208992
-inventaire.tres::VisualShader::7784019326204649505::1741208992::0::1::::<><>::
-::res://sons/::1740585234
+::res://script/transition/::1741275811
+transition_round.gd::GDScript::-1::1741273110::0::1::::<>CanvasLayer<>::
+transition_screen.gd::GDScript::-1::1741275811::0::1::::<>CanvasLayer<>::
+::res://shader/::1741273110
+inventaire.tres::VisualShader::7784019326204649505::1741273110::0::1::::<><>::
+::res://sons/::1741278966
+::res://sons/boost/::1741273382
+son boost vitesse.MP3::AudioStreamMP3::648123434965137282::1741273382::1741273382::1::::<><>::
+son bouclier (durabilité).MP3::AudioStreamMP3::3278449939085065130::1741273382::1741273382::1::::<><>::
+son invincibilité.MP3::AudioStreamMP3::2637801545096980649::1741273382::1741273382::1::::<><>::
+son piege.MP3::AudioStreamMP3::8153123145789477746::1741273382::1741273382::1::::<><>::
+son transparent.MP3::AudioStreamMP3::7342746942671660861::1741273382::1741273382::1::::<><>::
+son trou noir.MP3::AudioStreamMP3::3404487303704394023::1741273382::1741273382::1::::<><>::
 ::res://sons/combat/::1740585337
 combat_1_loop.mp3::AudioStreamMP3::5618341454126378324::1740585234::1740585337::1::::<><>::
 combat_2_loop.mp3::AudioStreamMP3::1779822950465282776::1740585234::1740585337::1::::<><>::
@@ -188,8 +196,13 @@ choc 1.MP3::AudioStreamMP3::4296338793066612204::1740585234::1740585337::1::::<>
 choc 2.MP3::AudioStreamMP3::3457801832714973966::1740585234::1740585337::1::::<><>::
 choc 3.MP3::AudioStreamMP3::3024251447938523237::1740585234::1740585337::1::::<><>::
 choc 4.MP3::AudioStreamMP3::3538853132152524512::1740585234::1740585337::1::::<><>::
-::res://sons/musiques/::1740585337
+::res://sons/musiques/::1741278966
 menu_1_loop.mp3::AudioStreamMP3::1012524459612233005::1740585234::1740585337::1::::<><>::
 menu_2_loop.mp3::AudioStreamMP3::718249941409098814::1740585234::1740585337::1::::<><>::
 victoire_loop.mp3::AudioStreamMP3::3612846814939044373::1740585234::1740585337::1::::<><>::
+victoire_start+loop.mp3::AudioStreamMP3::773002419295231515::1741278340::1741278340::1::::<><>::
 victoire_start.mp3::AudioStreamMP3::4747320574329738875::1740585234::1740585337::1::::<><>::
+::res://sons/musiques/pause/::1741278966
+combat_1_loop_menu.mp3::AudioStreamMP3::5856476126506512700::1741278867::1741278966::1::::<><>::
+combat_2_loop_menu.mp3::AudioStreamMP3::8369243816296914667::1741278867::1741278966::1::::<><>::
+combat_3_loop_menu.mp3::AudioStreamMP3::7105315026399564954::1741278867::1741278966::1::::<><>::

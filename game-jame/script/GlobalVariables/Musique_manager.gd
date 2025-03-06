@@ -4,6 +4,7 @@ var musique_en_cours:AudioStreamPlayer
 var curseur:float=0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS 
 	musique_en_cours=AudioStreamPlayer.new()
 	add_child(musique_en_cours)
 	musique_en_cours.volume_db=-12

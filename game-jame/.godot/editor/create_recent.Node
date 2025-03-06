@@ -1,3 +1,4 @@
+HBoxContainer
 ScrollContainer
 Label
 VBoxContainer
@@ -12,4 +13,3 @@ Node2D
 GPUParticles2D
 LightOccluder2D
 AudioStreamPlayer2D
-AnimationPlayer

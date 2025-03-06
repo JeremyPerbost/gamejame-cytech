@@ -29,10 +29,17 @@ func _process(delta: float) -> void:
 			_select_pause_option()
 
 func _toggle_pause() -> void:
-	is_paused = not is_paused
-	get_tree().paused = is_paused
-	pause_menu.visible = is_paused
-	_update_pause_selection()
+	is_paused = !is_paused  # Change l'état de pause (true/false)
+	if is_paused:
+		get_tree().paused = true  # Met le jeu en pause
+		pause_menu.visible = true  # Affiche le menu de pause
+	else:
+		get_tree().paused = false  # Désactive la pause
+		play()
+		pause_menu.visible = false  # Cache le menu de pause
+		
+	_update_pause_selection()  # Met à jour la sélection du menu
+
 
 func _update_pause_selection() -> void:
 	for i in range(len(pause_options)):
@@ -49,7 +56,7 @@ func _resume_game() -> void:
 	print("Bouton continuer pressé")
 	_toggle_pause()
 	audio_selection.play()
-
+	play()
 func _exit_to_menu() -> void:
 	get_tree().paused = false
 	TransitionScreen.transition("res://maps/menuprincipal.tscn")
@@ -68,3 +75,11 @@ func _on_btn_continuer_mouse_entered() -> void:
 
 func _on_btn_quitter_mouse_entered() -> void:
 	audio_survolement.play()
+func play():
+	if Score.score_player1 == 0 and Score.score_player2 == 0:
+		MusiqueManager.jouer(load("res://sons/combat/combat_1_loop.mp3"))
+	elif (Score.score_player1 == 1 and Score.score_player2 in [0, 1]) or (Score.score_player2 == 1 and Score.score_player1 == 0):
+		MusiqueManager.jouer(load("res://sons/combat/combat_2_loop.mp3"))
+	elif (Score.score_player1 in [1, 2] and Score.score_player2 in [1, 2]) or (Score.score_player1 == 2 and Score.score_player2 == 0) or (Score.score_player2 == 2 and Score.score_player1 == 0):
+		MusiqueManager.jouer(load("res://sons/combat/combat_3_loop.mp3"))
+	pass

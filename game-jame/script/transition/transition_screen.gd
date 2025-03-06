@@ -1,6 +1,7 @@
 extends CanvasLayer
 @onready var audio_transition=$audio_transition
 func transition(target: String) -> void:
+	SaveManager.Save()
 	audio_transition.play()
 	$AnimationPlayer.play("default")
 	await $AnimationPlayer.animation_finished

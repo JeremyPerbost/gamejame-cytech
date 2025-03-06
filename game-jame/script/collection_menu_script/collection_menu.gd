@@ -182,11 +182,11 @@ func _on_btn_menu_pressed() -> void:
 func _on_stat_btn_pressed() -> void:
 	print("show stat")
 	if show_stat==false:
-		$Panel.visible=true
+		$Panel_stat_generale.visible=true
 		$GridContainer.visible=false
 		show_stat=true
 	else:
-		$Panel.visible=false
+		$Panel_stat_generale.visible=false
 		$GridContainer.visible=true
 		show_stat=false
 	pass # Replace with function body.

@@ -163,6 +163,7 @@ func _process(delta):
 				velocity=velocity*10000
 			elif P2Inventaire.place1 == "esquive":
 				print("P2 : UTILISATION ESQUIVE")
+				$"../../audio_esquive".play()
 				Score.nbr_booster_communP2+=1
 				Collectables.collectables[6]=1
 				$effet_esquive_toupie2.start()
@@ -282,18 +283,21 @@ func _on_area_entered(area: Area2D) -> void:
 		collision(area)
 	if area.collision_layer==2:
 		print("TP2: Booster speed")
+		$"../../audio_boost_vitesse".play()
 		Score.nbr_booster_communP2+=1
 		Collectables.collectables[0]=1
 		speed=speed+15
 		area.queue_free()
 	if area.collision_layer==4:
 		print("TP2: durability")
+		$"../../audio_boost_durability".play()
 		Score.nbr_booster_communP2+=1
 		Collectables.collectables[4]=1
 		variable_de_choc=variable_de_choc+15
 		area.queue_free()
 	if area.collision_layer==8:
 		print("TP2: trou noire")
+		$"../../audio_boost_trou_noir".play()
 		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[3]=1
 		memoire_attraction_strength=attraction_strength
@@ -303,6 +307,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==16:
 		print("TP2: Invincible")
+		$"../../audio_boost_invincibilite".play()
 		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[1]=1
 		$spr_invincible.visible=true
@@ -311,6 +316,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.collision_layer==32:
 		print("TP2: piege l'autre toupie")
+		$"../../audio_boost_piege".play()
 		Score.nbr_booster_speciauxP2+=1
 		Collectables.collectables[2]=1
 		var toupie1 = get_node("../Area_toupie1")

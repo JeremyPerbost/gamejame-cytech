@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bryr8m263imcy"]
+[gd_scene load_steps=50 format=3 uid="uid://bryr8m263imcy"]
 
 [ext_resource type="Script" path="res://script/toupie.gd" id="1_p4bqp"]
 [ext_resource type="Texture2D" uid="uid://gp7uusjg46v2" path="res://images/center.png" id="3_4ew0m"]
@@ -15,7 +15,13 @@
 [ext_resource type="AudioStream" uid="uid://colvbo4m0nmc2" path="res://sons/effets_sonores/darkness_effect.mp3" id="15_4205r"]
 [ext_resource type="AudioStream" uid="uid://cik4btvyw010i" path="res://sons/effets_sonores/slach.MP3" id="16_otyd0"]
 [ext_resource type="Texture2D" uid="uid://dp8ri1rmu2qb2" path="res://images/Menus/menu_toupie/minutes.png" id="17_0dvtg"]
+[ext_resource type="AudioStream" uid="uid://dcu477tuyqnjx" path="res://sons/boost/son transparent.MP3" id="17_3yuhu"]
 [ext_resource type="Script" path="res://script/time.gd" id="17_nres4"]
+[ext_resource type="AudioStream" uid="uid://jh7q7ap8o66i" path="res://sons/boost/son boost vitesse.MP3" id="18_8h1he"]
+[ext_resource type="AudioStream" uid="uid://bmydud1xbk4ss" path="res://sons/boost/son bouclier (durabilité).MP3" id="19_tnuve"]
+[ext_resource type="AudioStream" uid="uid://bdt1hag8s34xh" path="res://sons/boost/son invincibilité.MP3" id="20_snp50"]
+[ext_resource type="AudioStream" uid="uid://dofo0ntclq4ve" path="res://sons/boost/son piege.MP3" id="21_yf14g"]
+[ext_resource type="AudioStream" uid="uid://borfn5hkfboxj" path="res://sons/boost/son trou noir.MP3" id="22_hdi8h"]
 
 [sub_resource type="Gradient" id="Gradient_jkylv"]
 colors = PackedColorArray(1, 1, 1, 0, 6.44952e-06, 0.483865, 0.652075, 0.647059)
@@ -386,6 +392,24 @@ autostart = true
 
 [node name="audio_darkness_song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_4205r")
+
+[node name="audio_esquive" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_3yuhu")
+
+[node name="audio_boost_vitesse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8h1he")
+
+[node name="audio_boost_durability" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_tnuve")
+
+[node name="audio_boost_invincibilite" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_snp50")
+
+[node name="audio_boost_piege" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_yf14g")
+
+[node name="audio_boost_trou_noir" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_hdi8h")
 
 [connection signal="winner_round" from="Area_arene/Area_toupie1" to="." method="_on_area_toupie_1_winner_round"]
 [connection signal="winner_round" from="Area_arene/Area_toupie2" to="." method="_on_area_toupie_2_winner_round"]

@@ -1,3 +1,6 @@
+res://sons/musiques
+res://script/collection_menu_script
+res://sons/boost
 res://images/skins
 res://font
 res://script/menu_parametre
@@ -17,6 +20,3 @@ res://shader
 res://script/GlobalVariables
 res://images
 H:/gamejame-cytech
-res://
-res://script
-res://script/menu_arene

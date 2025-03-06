@@ -31,6 +31,10 @@ func mettre_a_jour_variables_globales():
 	variables_globales["camera_shaking"] = Parametres.camera_shaking
 	variables_globales["Musique"] = Parametres.Musique
 	variables_globales["Effets"] = Parametres.Effets
+	variables_globales["nbr_parties"] = Score.nbr_parties
+	variables_globales["max_speed_tot"] = Score.max_speed_tot
+	variables_globales["total_distance_p1"] = Score.total_distance_p1
+	variables_globales["total_distance_p2"] = Score.total_distance_p2
 
 	# ✅ Debug : Vérifions que les données sont mises à jour avant la sauvegarde
 	print("[DEBUG] Contenu de variables_globales avant sauvegarde :", variables_globales)
@@ -77,12 +81,24 @@ func appliquer_donnees():
 	print("[DEBUG] Parametres.Musique :", Parametres.Musique)
 	Parametres.Effets = variables_globales.get("Effets", true)
 	print("[DEBUG] Parametres.Effets :", Parametres.Effets)
-
+	
+	Score.nbr_parties = variables_globales.get("nbr_parties", 0)
+	print("[DEBUG] Score.nbr_parties :", Score.nbr_parties)
+	Score.max_speed_tot = variables_globales.get("max_speed_tot", 0)
+	print("[DEBUG] Score.max_speed_tot :", Score.max_speed_tot)
+	Score.total_distance_p1 = variables_globales.get("total_distance_p1", 0)
+	print("[DEBUG] Score.total_distance_p1 :", Score.total_distance_p1)
+	Score.total_distance_p2 = variables_globales.get("total_distance_p2", 0)
+	print("[DEBUG] Score.total_distance_p2 :", Score.total_distance_p2)
 func ecraser_sauvegarde():
 	Collectables.collectables=[0, 0, 0, 0, 0, 0, 0, 0]
 	Parametres.camera_shaking=true
 	Parametres.Effets=true
 	Parametres.Musique=true
+	Score.max_speed_tot=0
+	Score.nbr_parties=0
+	Score.total_distance_p1=0
+	Score.total_distance_p2=0
 	Save()
 
 # 🔹 Fonction pour sauvegarder une seule valeur

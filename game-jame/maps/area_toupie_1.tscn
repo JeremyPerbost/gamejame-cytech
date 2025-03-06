@@ -179,7 +179,7 @@ wait_time = 8.0
 wait_time = 2.0
 
 [node name="effet_piege_toupie1" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 4.0
 
 [node name="effet_invincible_toupie1" type="Timer" parent="."]
 wait_time = 10.0

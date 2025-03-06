@@ -1,6 +1,6 @@
+Sprite2D
 AnimationPlayer
 ColorRect
-Sprite2D
 HBoxContainer
 ScrollContainer
 Label
@@ -12,4 +12,3 @@ CheckButton
 AnimatedSprite2D
 Node2D
 GPUParticles2D
-LightOccluder2D

@@ -1087,6 +1087,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel_stat_generale" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 210.0
 offset_top = 129.0

@@ -118,7 +118,7 @@ func _process(delta):
 		$spr_death.rotation=-rotation
 	#EFFET TROU NOIR
 	if effet_trou_noir == true:
-		attraction_strength += 10
+		attraction_strength += 40
 	#-------------------------------
 	# Gestion du ralentissement exponentiel
 	if speed > 0:

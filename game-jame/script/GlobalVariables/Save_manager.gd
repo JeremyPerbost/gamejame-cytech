@@ -101,6 +101,7 @@ func ecraser_sauvegarde():
 	Score.nbr_parties=0
 	Score.total_distance_p1=0
 	Score.total_distance_p2=0
+	Parametres.Speed_bar=true
 	Save()
 
 # 🔹 Fonction pour sauvegarder une seule valeur

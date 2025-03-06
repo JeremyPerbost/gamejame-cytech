@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpk4jd3rnbmv0"]
+[gd_scene load_steps=9 format=3 uid="uid://bpk4jd3rnbmv0"]
 
 [ext_resource type="Script" path="res://script/menu_parametre/menu_parametre.gd" id="1_15g0d"]
 [ext_resource type="Texture2D" uid="uid://gqrb8yqugfaf" path="res://images/Menus/background_menu_principal.png" id="1_335dx"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b3fidng2l6ypf" path="res://sons/effets_sonores/selection.MP3" id="2_hvtg1"]
 [ext_resource type="AudioStream" uid="uid://d050cbfesnpfl" path="res://sons/effets_sonores/survolement .MP3" id="3_8uuws"]
 [ext_resource type="Texture2D" uid="uid://dywlcpve4jjqr" path="res://images/menu_parametre/roue_denter.png" id="6_0au75"]
+[ext_resource type="Texture2D" uid="uid://cu6phvh2vfln8" path="res://images/menu_parametre/icone_danger.png" id="6_34dip"]
 [ext_resource type="Script" path="res://script/menu_parametre/roue_denter.gd" id="7_kjwkk"]
 
 [node name="MenuSkin" type="Control"]
@@ -54,6 +55,20 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(493, 248)
+scale = Vector2(2, 1.585)
+texture = ExtResource("6_34dip")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(658, 248)
+scale = Vector2(2, 1.585)
+texture = ExtResource("6_34dip")
+metadata/_edit_group_ = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
@@ -65,8 +80,19 @@ offset_bottom = 624.0
 
 [node name="check_btn_camera" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 text = "Shaking camera"
 
 [node name="check_btn_musique" type="CheckButton" parent="VBoxContainer"]
@@ -90,10 +116,18 @@ text = "Speed bar"
 [node name="ecraser_sauvegarde_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_lsk7x")
 theme_override_font_sizes/font_size = 20
 text = "overwrite Save"
@@ -108,7 +142,6 @@ position = Vector2(1164, -41.9999)
 scale = Vector2(10, 10)
 texture = ExtResource("6_0au75")
 script = ExtResource("7_kjwkk")
-metadata/_edit_group_ = true
 
 [node name="roue_denter2" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -116,7 +149,6 @@ position = Vector2(48.0001, 623)
 scale = Vector2(10, 10)
 texture = ExtResource("6_0au75")
 script = ExtResource("7_kjwkk")
-metadata/_edit_group_ = true
 
 [connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/check_btn_camera" to="." method="_on_check_btn_camera_pressed"]

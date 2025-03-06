@@ -27,3 +27,5 @@ res://script/menu_parametre/menu_parametre.gd
 res://script/GlobalVariables/Save_manager.gd
 res://maps/spawner.tscn
 res://script/spawner.gd
+res://maps/area_toupie_2.tscn
+res://maps/area_toupie_1.tscn

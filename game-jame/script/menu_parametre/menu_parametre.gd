@@ -13,6 +13,7 @@ var index = 0
 var can_navigate = true  # Bloque temporairement la navigation
 
 func _ready() -> void:
+	MusiqueManager.jouer(load("res://sons/musiques/menu_2_loop.mp3"))
 	SaveManager.Load()
 	menu_btn = [check_btn_camera, check_btn_musique, check_btn_effects,check_btn_speed_barre, ecraser_sauvegarde_btn]
 	menu_btn[index].grab_focus()  # Assure que le premier élément est focus
